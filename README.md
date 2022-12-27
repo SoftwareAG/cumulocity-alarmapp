@@ -1,20 +1,26 @@
 # Cumulocity IoT Alarming App
 
-## Installation and Setup
+The Cumulocity IoT Alarming App brings alarms on your mobile phone. You'll see an overview about all Alarms raised on your Cumulocity IoT tenant, browse or filter the list of Alarms, collaborate by adding comments or modify the Alarm's severity or status.
 
-To build and run Alarming App, the following setup and tools are required:
+*The Cumulocity IoT Alarming App is currently only available for iOS 13+.  An Android version will follow.*
 
-1. Xcode 13.2+
+## Use the Alarming app on iOS
 
-### Cumulocity Swift Client SDK
+### Installation and Setup
 
-The Cumulocity Swift Client SDK is integrated as a SwiftPackage from it's repository at [https://github.com/SoftwareAG/cumulocity-clients-swift](https://github.com/SoftwareAG/cumulocity-clients-swift). For SwiftPackage it is required to configure a [github.com](https://github.com) user account with access to the repository. The user account must be using a developer token for authentication.
+The following tools are required to build the app:
 
-It's recommended to setup the user account in Xcode before opening the project the first time in Xcode.
+- Xcode 13.2+
 
-### Build
+#### Cumulocity Swift Client SDK
 
-`Build` github worlflow creates an unsigned ipa. This build can be distributed, but must be signed before deployed to devices.
+The Cumulocity IoT Alarming App takes use of the Cumulocity Swift client SDK to integrate Cumulocity IoT. The client SDK is added as a SwiftPackage from it's repository at [https://github.com/SoftwareAG/cumulocity-clients-swift](https://github.com/SoftwareAG/cumulocity-clients-swift).
+
+For SwiftPackage it is required to configure a [github.com](https://github.com) user account with access to the repository. The user account must be using a developer token for authentication. It's recommended to setup the user account in Xcode before opening the project the first time in Xcode.
+
+#### Build
+
+`Build` github worlflow creates an unsigned ipa. **This build can be distributed, but must be signed before deployed to devices.**
 
 To sign the ipa, it is recommended to use [Fastlane](https://fastlane.tools). See documentation for [Fastlane resign](https://docs.fastlane.tools/actions/resign/) for more infos and config options, for example to change version number, display name, etc. when resigning.
 
@@ -22,11 +28,9 @@ To sign the ipa, it is recommended to use [Fastlane](https://fastlane.tools). Se
 > fastlane run resign ipa:./AlarmApp.ipa signing_identity:"<Keychain Identity of certificate>" provisioning_profile:<path provisioning profile>
 ```
 
-> Only provide unsigned builds to customers. They have to sign the ipa using their own certificates and provisioning profiles.
-
 ## Contact
 
-For all questions, please contact IoT-Analytics-Mobile-Accelerator@softwareag.com
+For all questions, please contact IoT-Analytics-Mobile-Accelerator@softwareag.com.
 
 ## Contribution
 
