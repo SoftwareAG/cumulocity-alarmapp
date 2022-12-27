@@ -9,7 +9,7 @@ on:
     types: [ synchronize, opened, reopened, ready_for_review ]
 
 jobs:
-  build:
+  check:
     runs-on: macos-12
     steps:
       - name: Checkout
