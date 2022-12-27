@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyAlarmsItem" customModule="AlarmApp" customModuleProvider="target">
+            <connections>
+                <outlet property="button" destination="SFs-lv-XGg" id="nxd-SA-mbS"/>
+                <outlet property="icon" destination="VPg-hy-6Gh" id="4wR-BS-Umv"/>
+                <outlet property="subTitleLabel" destination="e4x-8t-dch" id="mYs-ci-lTc"/>
+                <outlet property="titleLabel" destination="nlB-Xx-AL5" id="xC5-DK-4WP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="ic_empty_filter" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-hy-6Gh">
+                    <rect key="frame" x="175" y="341" width="64" height="64"/>
+                    <color key="tintColor" name="onBackground"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="6AV-Cs-lRx"/>
+                        <constraint firstAttribute="width" constant="64" id="hA0-uG-4TL"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Alarms matching your search filter." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlB-Xx-AL5" userLabel="titleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                    <rect key="frame" x="16" y="437" width="382" height="17"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <color key="textColor" name="onBackground"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refine your filter options." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4x-8t-dch" userLabel="subTitleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                    <rect key="frame" x="16" y="458" width="382" height="14.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <color key="textColor" name="onBackground"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFs-lv-XGg">
+                    <rect key="frame" x="156.5" y="504.5" width="101" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="tinted" title="Adjust Filter">
+                        <color key="baseForegroundColor" name="primary"/>
+                        <color key="baseBackgroundColor" name="primary"/>
+                    </buttonConfiguration>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="D8y-r6-ZjW"/>
+            <color key="backgroundColor" name="background"/>
+            <constraints>
+                <constraint firstItem="VPg-hy-6Gh" firstAttribute="bottom" secondItem="D8y-r6-ZjW" secondAttribute="centerY" constant="-48" id="1cK-i8-m21"/>
+                <constraint firstItem="nlB-Xx-AL5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="3R7-0e-IXv"/>
+                <constraint firstAttribute="trailing" secondItem="e4x-8t-dch" secondAttribute="trailing" constant="16" id="CAs-7D-rBF"/>
+                <constraint firstItem="SFs-lv-XGg" firstAttribute="top" secondItem="e4x-8t-dch" secondAttribute="bottom" constant="32" id="HGm-pQ-Mva"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SFs-lv-XGg" secondAttribute="bottom" constant="16" id="Iin-oX-JPa"/>
+                <constraint firstItem="VPg-hy-6Gh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="L0E-kk-qVZ"/>
+                <constraint firstItem="e4x-8t-dch" firstAttribute="top" secondItem="nlB-Xx-AL5" secondAttribute="bottom" constant="4" id="MYl-nT-wwk"/>
+                <constraint firstItem="nlB-Xx-AL5" firstAttribute="top" secondItem="VPg-hy-6Gh" secondAttribute="bottom" constant="32" id="Tft-h4-hbC"/>
+                <constraint firstItem="SFs-lv-XGg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vSD-h9-jLS"/>
+                <constraint firstAttribute="trailing" secondItem="nlB-Xx-AL5" secondAttribute="trailing" constant="16" id="wMN-bh-WYQ"/>
+                <constraint firstItem="e4x-8t-dch" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xkS-5i-2lC"/>
+            </constraints>
+            <point key="canvasLocation" x="-257" y="74"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="e4x-8t-dch">
+            <size key="intrinsicContentSize" width="142.5" height="14.5"/>
+        </designable>
+        <designable name="nlB-Xx-AL5">
+            <size key="intrinsicContentSize" width="258" height="17"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="ic_empty_filter" width="76" height="91"/>
+        <namedColor name="background">
+            <color red="0.9882352941176471" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="onBackground">
+            <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primary">
+            <color red="0.14117647058823529" green="0.38039215686274508" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

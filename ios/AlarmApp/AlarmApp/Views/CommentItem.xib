@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentItem" customModule="AlarmApp" customModuleProvider="target">
+            <connections>
+                <outlet property="textLabel" destination="plb-qY-BgC" id="DLo-6s-3kV"/>
+                <outlet property="timeLabel" destination="WDN-bh-YBW" id="AyF-SA-cJ3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="461" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="plb-qY-BgC" userLabel="textLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="461" height="22"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDN-bh-YBW" userLabel="timeLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="26" width="461" height="14"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="WDN-bh-YBW" secondAttribute="trailing" id="5ql-tV-aal"/>
+                <constraint firstItem="WDN-bh-YBW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Suc-9I-Eaj"/>
+                <constraint firstItem="WDN-bh-YBW" firstAttribute="top" secondItem="plb-qY-BgC" secondAttribute="bottom" constant="4" id="Uk2-dc-INb"/>
+                <constraint firstAttribute="bottom" secondItem="WDN-bh-YBW" secondAttribute="bottom" id="gcv-xr-30R"/>
+                <constraint firstAttribute="trailing" secondItem="plb-qY-BgC" secondAttribute="trailing" id="nNj-dz-MvP"/>
+                <constraint firstItem="plb-qY-BgC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wWk-sw-hLy"/>
+                <constraint firstItem="plb-qY-BgC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zqS-Sn-Ywp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="171.73913043478262" y="-216.96428571428569"/>
+        </view>
+    </objects>
+</document>

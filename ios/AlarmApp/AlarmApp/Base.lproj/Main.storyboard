@@ -1,0 +1,1214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RLq-de-qJ0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Alarms-->
+        <scene sceneID="ffR-GM-b3K">
+            <objects>
+                <tableViewController id="WOL-4V-cIG" customClass="AlarmListViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i9g-yS-ReG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="separatorColor" name="onBackground"/>
+                        <inset key="separatorInset" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" name="background"/>
+                        <connections>
+                            <outlet property="dataSource" destination="WOL-4V-cIG" id="B06-qh-VkY"/>
+                            <outlet property="delegate" destination="WOL-4V-cIG" id="NEQ-kT-Qtq"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Alarms" id="QNp-3I-b44">
+                        <barButtonItem key="backBarButtonItem" title="   " id="7Ag-SM-63V"/>
+                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass.circle.fill" catalog="system" id="93r-u2-2Wd">
+                            <color key="tintColor" name="onSurface"/>
+                            <connections>
+                                <action selector="onFilterTapped:" destination="WOL-4V-cIG" id="Vc1-cf-8ra"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="P9I-HO-SKT" kind="show" identifier="toAlarmDetails" id="TSw-36-nw0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yfN-St-Lcc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3070" y="-782"/>
+        </scene>
+        <!--Subscribed Alarm Filter View Controller-->
+        <scene sceneID="7wB-gE-EfU">
+            <objects>
+                <viewController storyboardIdentifier="SubscribedAlarmFilterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aln-45-gM8" customClass="SubscribedAlarmFilterViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="idx-hm-Szw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ykm-if-BDG">
+                                <rect key="frame" x="16" y="76" width="382" height="282"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AZy-8h-peb">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Define your own Alarm filter" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a8-vd-5pZ" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Also applies to push notifications." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRu-hU-JxC" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="21" width="382" height="13.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rl2-sM-V8N" userLabel="spacer">
+                                        <rect key="frame" x="0.0" y="50.5" width="382" height="8"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="8" id="eSe-0b-T8M"/>
+                                        </constraints>
+                                    </view>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MX9-p1-7dG" userLabel="severityFilter">
+                                        <rect key="frame" x="0.0" y="74.5" width="382" height="32"/>
+                                        <segments>
+                                            <segment title="Critical"/>
+                                            <segment title="Major"/>
+                                            <segment title="Minor"/>
+                                            <segment title="Warning"/>
+                                            <segment title="All"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="primary"/>
+                                        <connections>
+                                            <action selector="onSeverityChanged:" destination="aln-45-gM8" eventType="valueChanged" id="Xtn-8V-gU5"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="S3H-qE-Mqa" userLabel="statusFilter">
+                                        <rect key="frame" x="0.0" y="121.5" width="382" height="32"/>
+                                        <segments>
+                                            <segment title="Active"/>
+                                            <segment title="Acknowledged"/>
+                                            <segment title="Cleared" width="94.75"/>
+                                            <segment title="All"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="primary"/>
+                                        <connections>
+                                            <action selector="onStatusChanged:" destination="aln-45-gM8" eventType="valueChanged" id="TXv-0c-N8W"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="By Device name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="svi-gS-fYQ" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="0.0" y="168.5" width="382" height="34"/>
+                                        <color key="backgroundColor" name="surface"/>
+                                        <color key="textColor" name="onBackground"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                <color key="value" name="primary"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onDeviceNameChanged:" destination="aln-45-gM8" eventType="editingDidEnd" id="jdo-5J-HkL"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="By Alarm Type (comma separated)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gjv-Ij-dwz" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="0.0" y="218.5" width="382" height="34"/>
+                                        <color key="backgroundColor" name="surface"/>
+                                        <color key="textColor" name="onBackground"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                <color key="value" name="primary"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onAlarmTypeChanged:" destination="aln-45-gM8" eventType="editingDidEnd" id="gJd-Yr-eGG"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No wildcards (*) are allowed here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNv-vc-gTs" userLabel="subtitle" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="268.5" width="382" height="13.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0NG-ta-sV2"/>
+                        <color key="backgroundColor" name="surface"/>
+                        <constraints>
+                            <constraint firstItem="ykm-if-BDG" firstAttribute="leading" secondItem="0NG-ta-sV2" secondAttribute="leading" constant="16" id="1nr-kb-Yto"/>
+                            <constraint firstItem="0NG-ta-sV2" firstAttribute="trailing" secondItem="ykm-if-BDG" secondAttribute="trailing" constant="16" id="C4J-v1-qY6"/>
+                            <constraint firstItem="0NG-ta-sV2" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ykm-if-BDG" secondAttribute="bottom" constant="16" id="EA8-8i-2bl"/>
+                            <constraint firstItem="ykm-if-BDG" firstAttribute="top" secondItem="0NG-ta-sV2" secondAttribute="top" constant="32" id="JKA-V4-nov"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="alarmTypeTextfield" destination="Gjv-Ij-dwz" id="QLo-ld-r1E"/>
+                        <outlet property="deviceNameTextfield" destination="svi-gS-fYQ" id="gdX-O6-zZH"/>
+                        <outlet property="severityFilter" destination="MX9-p1-7dG" id="0EY-XD-7vG"/>
+                        <outlet property="statusFilter" destination="S3H-qE-Mqa" id="5qQ-91-rwt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WJr-cv-tYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3993" y="-1443"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="mO0-L4-lro">
+            <objects>
+                <viewController id="BGe-hZ-ia6" customClass="DashboardViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wIf-eq-2CD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzd-1i-mGv" customClass="MaterialCardView" customModule="AlarmApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="156" width="382" height="165.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active Alarms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGj-eP-ls6" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="16" width="350" height="23"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dAk-3C-y5o">
+                                        <rect key="frame" x="8" y="47" width="366" height="55.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVr-Bz-VRG" userLabel="critticalCountItem" customClass="AlarmCountItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="85.5" height="55.5"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="CRITICAL"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="uOg-WN-qpz" appends="YES" id="lQC-Un-juh"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gx6-U6-Rll" userLabel="majorCountItem" customClass="AlarmCountItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="93.5" y="0.0" width="85.5" height="55.5"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="MAJOR"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="e0c-kH-8tj" appends="YES" id="lx7-Zl-Jgp"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bx5-Hg-lQ9" userLabel="minorCountItem" customClass="AlarmCountItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="187" y="0.0" width="85.5" height="55.5"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="MINOR"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Kp4-uz-Evr" appends="YES" id="eUQ-zb-A33"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96l-lK-fzE" userLabel="warningCountItem" customClass="AlarmCountItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="280.5" y="0.0" width="85.5" height="55.5"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="WARNING"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="leQ-vv-Tt0" appends="YES" id="JnK-kN-S9g"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOc-oF-kdA">
+                                        <rect key="frame" x="286.5" y="118.5" width="79.5" height="31"/>
+                                        <state key="normal" title="SHOW ALL"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Show All" cornerStyle="capsule">
+                                            <color key="baseForegroundColor" name="onPrimary"/>
+                                            <color key="baseBackgroundColor" name="primary"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onSeeAllTapped:" destination="BGe-hZ-ia6" eventType="touchUpInside" id="PMv-zm-6Yl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="OOc-oF-kdA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tzd-1i-mGv" secondAttribute="leading" constant="20" symbolic="YES" id="1Ny-hc-Art"/>
+                                    <constraint firstItem="dAk-3C-y5o" firstAttribute="leading" secondItem="tzd-1i-mGv" secondAttribute="leading" constant="8" id="2XW-fz-dRy"/>
+                                    <constraint firstAttribute="trailing" secondItem="OGj-eP-ls6" secondAttribute="trailing" constant="16" id="K9S-tK-OPG"/>
+                                    <constraint firstAttribute="trailing" secondItem="OOc-oF-kdA" secondAttribute="trailing" constant="16" id="PZj-q7-NLE"/>
+                                    <constraint firstItem="OOc-oF-kdA" firstAttribute="top" secondItem="dAk-3C-y5o" secondAttribute="bottom" constant="16" id="TfQ-09-0mm"/>
+                                    <constraint firstAttribute="trailing" secondItem="dAk-3C-y5o" secondAttribute="trailing" constant="8" id="U8b-YU-Z8v"/>
+                                    <constraint firstItem="OGj-eP-ls6" firstAttribute="top" secondItem="tzd-1i-mGv" secondAttribute="top" constant="16" id="XuW-OT-63f"/>
+                                    <constraint firstAttribute="bottom" secondItem="OOc-oF-kdA" secondAttribute="bottom" constant="16" id="nMi-Xe-klE"/>
+                                    <constraint firstItem="OGj-eP-ls6" firstAttribute="leading" secondItem="tzd-1i-mGv" secondAttribute="leading" constant="16" id="o6P-tG-i9g"/>
+                                    <constraint firstItem="dAk-3C-y5o" firstAttribute="top" secondItem="OGj-eP-ls6" secondAttribute="bottom" constant="8" id="sqV-by-ifP"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLA-0l-ik2">
+                                <rect key="frame" x="0.0" y="337.5" width="414" height="558.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="PaT-RL-QKh" kind="embed" identifier="embedWelcomeList" id="pMK-GQ-3ij"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xqc-LH-hGg"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="tzd-1i-mGv" firstAttribute="leading" secondItem="xqc-LH-hGg" secondAttribute="leading" constant="16" id="7Of-dB-Ngs"/>
+                            <constraint firstItem="lLA-0l-ik2" firstAttribute="leading" secondItem="xqc-LH-hGg" secondAttribute="leading" id="8BY-hp-B6q"/>
+                            <constraint firstItem="xqc-LH-hGg" firstAttribute="trailing" secondItem="tzd-1i-mGv" secondAttribute="trailing" constant="16" id="RLV-ej-DZ9"/>
+                            <constraint firstAttribute="bottom" secondItem="lLA-0l-ik2" secondAttribute="bottom" id="RRv-DF-zAE"/>
+                            <constraint firstItem="lLA-0l-ik2" firstAttribute="trailing" secondItem="xqc-LH-hGg" secondAttribute="trailing" id="nAO-fy-s7I"/>
+                            <constraint firstItem="tzd-1i-mGv" firstAttribute="top" secondItem="wIf-eq-2CD" secondAttribute="topMargin" constant="16" id="pDn-Zg-Vym"/>
+                            <constraint firstItem="lLA-0l-ik2" firstAttribute="top" secondItem="tzd-1i-mGv" secondAttribute="bottom" constant="16" id="sft-wo-19e"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dashboard" id="9Zk-1Y-zy4">
+                        <barButtonItem key="backBarButtonItem" title="   " id="9AU-Sg-Aeh"/>
+                        <rightBarButtonItems>
+                            <barButtonItem id="mkN-zH-6ki" userLabel="moreItem">
+                                <imageReference key="image" image="ellipsis.circle.fill" catalog="system"/>
+                                <color key="tintColor" name="onSurface"/>
+                            </barButtonItem>
+                            <barButtonItem image="magnifyingglass.circle.fill" catalog="system" id="ayD-tb-1y2" userLabel="filterItem">
+                                <color key="tintColor" name="onSurface"/>
+                                <connections>
+                                    <action selector="onFilterIconTapped:" destination="BGe-hZ-ia6" id="777-10-rXL"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="criticalCountItem" destination="iVr-Bz-VRG" id="XvS-qU-Hrl"/>
+                        <outlet property="majorCountItem" destination="gx6-U6-Rll" id="S9V-Nk-fGS"/>
+                        <outlet property="minorCountItem" destination="bx5-Hg-lQ9" id="ePT-02-WHG"/>
+                        <outlet property="moreItem" destination="mkN-zH-6ki" id="pKJ-FV-I2E"/>
+                        <outlet property="warningCountItem" destination="96l-lK-fzE" id="wnw-cU-BJc"/>
+                        <segue destination="WOL-4V-cIG" kind="show" identifier="toAlarmsView" id="MnO-oh-buV"/>
+                        <segue destination="P9I-HO-SKT" kind="show" identifier="toAlarmDetails" id="ina-48-qVJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pcd-VE-Uv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uOg-WN-qpz">
+                    <connections>
+                        <action selector="onCriticalAlarmsItemTappedWithSender:" destination="BGe-hZ-ia6" id="N8h-xM-tK1"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="e0c-kH-8tj">
+                    <connections>
+                        <action selector="onMajorAlarmsItemTappedWithSender:" destination="BGe-hZ-ia6" id="ZMt-wk-lst"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Kp4-uz-Evr">
+                    <connections>
+                        <action selector="onMinorAlarmsItemTappedWithSender:" destination="BGe-hZ-ia6" id="PED-DG-v9o"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="leQ-vv-Tt0">
+                    <connections>
+                        <action selector="onWarningAlarmsItemTappedWithSender:" destination="BGe-hZ-ia6" id="zL6-kt-FMX"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3070" y="-75"/>
+        </scene>
+        <!--Subscribed Alarms View Controller-->
+        <scene sceneID="7PA-7n-dzB">
+            <objects>
+                <tableViewController id="PaT-RL-QKh" customClass="SubscribedAlarmsViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" id="XFQ-eK-lfs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="558.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="separatorColor" name="onBackground"/>
+                        <inset key="separatorInset" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <connections>
+                            <outlet property="dataSource" destination="PaT-RL-QKh" id="a5b-eV-NaD"/>
+                            <outlet property="delegate" destination="PaT-RL-QKh" id="6U6-bd-ov2"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="P9I-HO-SKT" kind="show" identifier="toAlarmDetails" id="F1i-V0-WSW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1q-kz-AnK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3872" y="-74"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YHb-xN-14H">
+            <objects>
+                <navigationController storyboardIdentifier="RootViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vl5-gj-JGm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="rQl-kL-X1s">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BGe-hZ-ia6" kind="relationship" relationship="rootViewController" id="bnN-Wq-Z08"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AdX-FN-j6y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2159.4202898550725" y="-74.330357142857139"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="z9G-9I-sZ8">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RLq-de-qJ0" customClass="SplashViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fP0-S6-oHE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="rU5-jv-NlE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="X1g-Ro-QXO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rU5-jv-NlE" firstAttribute="top" secondItem="fP0-S6-oHE" secondAttribute="top" id="P1L-ZQ-FWE"/>
+                            <constraint firstAttribute="bottom" secondItem="rU5-jv-NlE" secondAttribute="bottom" id="YFO-R1-SS4"/>
+                            <constraint firstItem="rU5-jv-NlE" firstAttribute="leading" secondItem="fP0-S6-oHE" secondAttribute="leading" id="kMU-6B-7lc"/>
+                            <constraint firstItem="rU5-jv-NlE" firstAttribute="trailing" secondItem="fP0-S6-oHE" secondAttribute="trailing" id="nj3-6e-Lon"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yb3-rd-7pD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="362" y="-74"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="ihK-Ib-VAl">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sQR-Kt-0iz" customClass="LoginViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QnH-Gq-szq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssR-Sb-Twm" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                <rect key="frame" x="32" y="76" width="350" height="30"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIh-Ed-2LP" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                <rect key="frame" x="32" y="106" width="350" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tenant Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HS5-Mx-q6q" userLabel="tenantTextfield" customClass="JVFloatLabeledTextField">
+                                <rect key="frame" x="32" y="155" width="350" height="34"/>
+                                <color key="textColor" name="onBackground"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="url"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                        <color key="value" name="primary"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTenantEntered:" destination="sQR-Kt-0iz" eventType="editingChanged" id="HDc-wE-3xu"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S5b-ax-eaZ" userLabel="userNameTextfield" customClass="JVFloatLabeledTextField">
+                                <rect key="frame" x="32" y="205" width="350" height="34"/>
+                                <color key="textColor" name="onBackground"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="username"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                        <color key="value" name="primary"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onUserNameEntered:" destination="sQR-Kt-0iz" eventType="editingChanged" id="RTL-EQ-jfv"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9TG-zy-fck" userLabel="passwordTextfield" customClass="JVFloatLabeledTextField">
+                                <rect key="frame" x="32" y="255" width="350" height="34"/>
+                                <color key="textColor" name="onBackground"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                        <color key="value" name="primary"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onPasswordEntered:" destination="sQR-Kt-0iz" eventType="editingChanged" id="xth-NT-bDI"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cva-OG-aCG" userLabel="loginButton">
+                                <rect key="frame" x="32" y="321" width="350" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Login" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" name="onPrimary"/>
+                                    <color key="baseBackgroundColor" name="primary"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onLoginButttonTapped:" destination="sQR-Kt-0iz" eventType="touchUpInside" id="PGX-dy-Uzq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2dg-at-EXu"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="9TG-zy-fck" firstAttribute="top" secondItem="S5b-ax-eaZ" secondAttribute="bottom" constant="16" id="5Vh-9B-AZc"/>
+                            <constraint firstItem="2dg-at-EXu" firstAttribute="trailing" secondItem="cva-OG-aCG" secondAttribute="trailing" constant="32" id="7pj-aT-RfG"/>
+                            <constraint firstItem="ssR-Sb-Twm" firstAttribute="top" secondItem="2dg-at-EXu" secondAttribute="top" constant="32" id="9et-fq-1MD"/>
+                            <constraint firstItem="S5b-ax-eaZ" firstAttribute="top" secondItem="HS5-Mx-q6q" secondAttribute="bottom" constant="16" id="BRX-RG-lbh"/>
+                            <constraint firstItem="2dg-at-EXu" firstAttribute="trailing" secondItem="NIh-Ed-2LP" secondAttribute="trailing" constant="32" id="JfQ-4K-0G2"/>
+                            <constraint firstItem="2dg-at-EXu" firstAttribute="trailing" secondItem="ssR-Sb-Twm" secondAttribute="trailing" constant="32" id="TUM-00-cJU"/>
+                            <constraint firstItem="HS5-Mx-q6q" firstAttribute="leading" secondItem="2dg-at-EXu" secondAttribute="leading" constant="32" id="W2B-Lg-Mz1"/>
+                            <constraint firstItem="NIh-Ed-2LP" firstAttribute="leading" secondItem="2dg-at-EXu" secondAttribute="leading" constant="32" id="XYi-qe-CvP"/>
+                            <constraint firstItem="2dg-at-EXu" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cva-OG-aCG" secondAttribute="bottom" constant="32" id="g1T-BI-15J"/>
+                            <constraint firstItem="ssR-Sb-Twm" firstAttribute="leading" secondItem="2dg-at-EXu" secondAttribute="leading" constant="32" id="gs7-HC-Sh2"/>
+                            <constraint firstItem="S5b-ax-eaZ" firstAttribute="leading" secondItem="2dg-at-EXu" secondAttribute="leading" constant="32" id="hHU-a9-wys"/>
+                            <constraint firstItem="9TG-zy-fck" firstAttribute="leading" secondItem="2dg-at-EXu" secondAttribute="leading" constant="32" id="hQ5-dN-nuz"/>
+                            <constraint firstItem="2dg-at-EXu" firstAttribute="trailing" secondItem="S5b-ax-eaZ" secondAttribute="trailing" constant="32" id="hRc-Dn-x7c"/>
+                            <constraint firstItem="2dg-at-EXu" firstAttribute="trailing" secondItem="HS5-Mx-q6q" secondAttribute="trailing" constant="32" id="kHq-iu-NYU"/>
+                            <constraint firstItem="cva-OG-aCG" firstAttribute="leading" secondItem="2dg-at-EXu" secondAttribute="leading" constant="32" id="ruz-9B-C3J"/>
+                            <constraint firstItem="HS5-Mx-q6q" firstAttribute="top" secondItem="NIh-Ed-2LP" secondAttribute="bottom" constant="32" id="s8g-oT-bEV"/>
+                            <constraint firstItem="cva-OG-aCG" firstAttribute="top" secondItem="9TG-zy-fck" secondAttribute="bottom" constant="32" id="vg8-Ea-kZN"/>
+                            <constraint firstItem="NIh-Ed-2LP" firstAttribute="top" secondItem="ssR-Sb-Twm" secondAttribute="bottom" id="yQJ-Jm-eYs"/>
+                            <constraint firstItem="2dg-at-EXu" firstAttribute="trailing" secondItem="9TG-zy-fck" secondAttribute="trailing" constant="32" id="zGs-4m-v85"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextfield" destination="9TG-zy-fck" id="YlM-fy-uMg"/>
+                        <outlet property="tenantTextfield" destination="HS5-Mx-q6q" id="H5X-wu-8US"/>
+                        <outlet property="usernameTextfield" destination="S5b-ax-eaZ" id="xGp-RL-Vm3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gut-kM-adw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1234.7826086956522" y="-74.330357142857139"/>
+        </scene>
+        <!--Alarm Details-->
+        <scene sceneID="yPw-dc-r7c">
+            <objects>
+                <viewController id="P9I-HO-SKT" customClass="AlarmDetailsViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ab5-ay-Wed">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OM9-hA-ao8" userLabel="metaCard" customClass="MaterialCardView" customModule="AlarmApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="156" width="382" height="159.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="jiW-b7-BiC">
+                                        <rect key="frame" x="16" y="16" width="350" height="127.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJa-Kz-bWX">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="57"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="760" text="MESSAGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULu-Kf-ey0" userLabel="messageLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="8" width="350" height="13.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qm-cm-uqd" userLabel="textLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="29.5" width="350" height="19.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="2qm-cm-uqd" firstAttribute="top" secondItem="ULu-Kf-ey0" secondAttribute="bottom" constant="8" id="331-f7-AyY"/>
+                                                    <constraint firstItem="ULu-Kf-ey0" firstAttribute="leading" secondItem="AJa-Kz-bWX" secondAttribute="leading" id="BjQ-wc-9sT"/>
+                                                    <constraint firstItem="ULu-Kf-ey0" firstAttribute="top" secondItem="AJa-Kz-bWX" secondAttribute="top" constant="8" id="EuQ-sH-mgP"/>
+                                                    <constraint firstItem="2qm-cm-uqd" firstAttribute="leading" secondItem="AJa-Kz-bWX" secondAttribute="leading" id="HO6-BX-Ax8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2qm-cm-uqd" secondAttribute="trailing" id="PL1-0a-c4L"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2qm-cm-uqd" secondAttribute="bottom" constant="8" id="XVI-b2-8xR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ULu-Kf-ey0" secondAttribute="trailing" id="c2r-mn-vAD"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQc-0i-bi8">
+                                                <rect key="frame" x="0.0" y="57" width="350" height="70.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="760" text="DEVICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPt-8Y-Uce" userLabel="deviceTitleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28.5" width="40" height="13.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rw2-S9-KHO" userLabel="openDeviceButton">
+                                                        <rect key="frame" x="32" y="8" width="318" height="54.5"/>
+                                                        <color key="tintColor" name="primary"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system" imagePlacement="trailing" title="View Device" imagePadding="8" cornerStyle="capsule" titleAlignment="trailing">
+                                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                                            <color key="baseForegroundColor" name="primary"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <segue destination="tVs-ob-7Ku" kind="show" identifier="toDeviceDetails" id="8On-CZ-LhH"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="UPt-8Y-Uce" firstAttribute="trailing" secondItem="Rw2-S9-KHO" secondAttribute="leading" constant="8" id="Hvv-O6-YqK"/>
+                                                    <constraint firstItem="Rw2-S9-KHO" firstAttribute="top" secondItem="TQc-0i-bi8" secondAttribute="top" constant="8" id="JXf-UK-fX5"/>
+                                                    <constraint firstItem="UPt-8Y-Uce" firstAttribute="centerY" secondItem="TQc-0i-bi8" secondAttribute="centerY" id="N67-bn-g3d"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Rw2-S9-KHO" secondAttribute="bottom" constant="8" id="dZ7-Eo-w4y"/>
+                                                    <constraint firstItem="UPt-8Y-Uce" firstAttribute="leading" secondItem="TQc-0i-bi8" secondAttribute="leading" id="dkM-Ph-fv9"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Rw2-S9-KHO" secondAttribute="trailing" id="qcc-gE-CsK"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jiW-b7-BiC" secondAttribute="trailing" constant="16" id="F6M-A8-peb"/>
+                                    <constraint firstItem="jiW-b7-BiC" firstAttribute="top" secondItem="OM9-hA-ao8" secondAttribute="top" constant="16" id="IJx-sD-Vtq"/>
+                                    <constraint firstAttribute="bottom" secondItem="jiW-b7-BiC" secondAttribute="bottom" constant="16" id="Lst-JL-6NA"/>
+                                    <constraint firstItem="jiW-b7-BiC" firstAttribute="leading" secondItem="OM9-hA-ao8" secondAttribute="leading" constant="16" id="kxi-JV-6L6"/>
+                                </constraints>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e3I-Rc-QSZ" userLabel="segmentedControl">
+                                <rect key="frame" x="16" y="331.5" width="382" height="32"/>
+                                <segments>
+                                    <segment title="DETAILS"/>
+                                    <segment title="COMMENTS"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" name="primary"/>
+                                <connections>
+                                    <action selector="onContentsChanged:" destination="P9I-HO-SKT" eventType="valueChanged" id="Fey-IB-kG1"/>
+                                </connections>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLY-df-19T">
+                                <rect key="frame" x="0.0" y="363" width="414" height="533"/>
+                                <connections>
+                                    <segue destination="26C-Bw-O0D" kind="embed" identifier="embedAlarmSummary" id="pzI-rD-aV3"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VN-Nh-uV5" userLabel="newCommentButton">
+                                <rect key="frame" x="270.5" y="790" width="127.5" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="9Wi-cr-DBo"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="v09-bl-szo"/>
+                                </constraints>
+                                <color key="tintColor" name="onSecondary"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus.bubble.fill" catalog="system" title="Comment" imagePadding="16" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" name="onSecondary"/>
+                                    <color key="baseBackgroundColor" name="secondary"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Yc8-Am-VkO"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="Yc8-Am-VkO" firstAttribute="trailing" secondItem="gLY-df-19T" secondAttribute="trailing" id="A2O-Je-vYw"/>
+                            <constraint firstItem="OM9-hA-ao8" firstAttribute="leading" secondItem="Yc8-Am-VkO" secondAttribute="leading" constant="16" id="FHV-gK-Pbr"/>
+                            <constraint firstItem="gLY-df-19T" firstAttribute="top" secondItem="e3I-Rc-QSZ" secondAttribute="bottom" id="GMC-aO-O2d"/>
+                            <constraint firstItem="gLY-df-19T" firstAttribute="leading" secondItem="Yc8-Am-VkO" secondAttribute="leading" id="OnG-TA-DX5"/>
+                            <constraint firstAttribute="bottom" secondItem="gLY-df-19T" secondAttribute="bottom" id="UGs-Up-H1d"/>
+                            <constraint firstItem="Yc8-Am-VkO" firstAttribute="trailing" secondItem="e3I-Rc-QSZ" secondAttribute="trailing" constant="16" id="a99-Gx-nvN"/>
+                            <constraint firstItem="e3I-Rc-QSZ" firstAttribute="leading" secondItem="Yc8-Am-VkO" secondAttribute="leading" constant="16" id="axa-F9-wsA"/>
+                            <constraint firstItem="e3I-Rc-QSZ" firstAttribute="top" secondItem="OM9-hA-ao8" secondAttribute="bottom" constant="16" id="bwt-QY-GNX"/>
+                            <constraint firstItem="OM9-hA-ao8" firstAttribute="top" secondItem="Yc8-Am-VkO" secondAttribute="top" constant="16" id="dBi-AU-q69"/>
+                            <constraint firstItem="Yc8-Am-VkO" firstAttribute="trailing" secondItem="OM9-hA-ao8" secondAttribute="trailing" constant="16" id="esQ-Hc-J59"/>
+                            <constraint firstItem="Yc8-Am-VkO" firstAttribute="bottom" secondItem="3VN-Nh-uV5" secondAttribute="bottom" constant="16" id="hbc-cP-c1i"/>
+                            <constraint firstItem="Yc8-Am-VkO" firstAttribute="trailing" secondItem="3VN-Nh-uV5" secondAttribute="trailing" constant="16" id="oqf-Dd-N7P"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Alarm Details" id="oXO-5L-Dgl">
+                        <barButtonItem key="backBarButtonItem" title="  " id="XNx-W2-5Y9"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="containerView" destination="gLY-df-19T" id="XOu-K1-rtS"/>
+                        <outlet property="newCommentButton" destination="3VN-Nh-uV5" id="dAe-Mp-XKN"/>
+                        <outlet property="openDeviceButton" destination="Rw2-S9-KHO" id="Vk9-Nf-7K2"/>
+                        <outlet property="segmentedControl" destination="e3I-Rc-QSZ" id="STg-Qi-uG6"/>
+                        <outlet property="textLabel" destination="2qm-cm-uqd" id="7WJ-t9-8Kw"/>
+                    </connections>
+                </viewController>
+                <view contentMode="scaleToFill" id="GZN-zY-FoW">
+                    <rect key="frame" x="0.0" y="0.0" width="350" height="70.5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="760" text="DEVICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43T-cb-xZv" userLabel="deviceTitleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="28.5" width="40" height="13.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSa-KX-9M8" userLabel="openDeviceButton">
+                            <rect key="frame" x="32" y="8" width="318" height="54.5"/>
+                            <color key="tintColor" name="primary"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system" imagePlacement="trailing" title="View Device" imagePadding="8" cornerStyle="capsule" titleAlignment="trailing">
+                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                <color key="baseForegroundColor" name="primary"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="p9w-u2-OJV"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="43T-cb-xZv" firstAttribute="centerY" secondItem="GZN-zY-FoW" secondAttribute="centerY" id="Ka1-7c-yEC"/>
+                        <constraint firstItem="NSa-KX-9M8" firstAttribute="top" secondItem="GZN-zY-FoW" secondAttribute="top" constant="8" id="NXk-Ly-cFH"/>
+                        <constraint firstAttribute="trailing" secondItem="NSa-KX-9M8" secondAttribute="trailing" id="QIS-6R-EDW"/>
+                        <constraint firstAttribute="bottom" secondItem="NSa-KX-9M8" secondAttribute="bottom" constant="8" id="jgy-G0-SIl"/>
+                        <constraint firstItem="43T-cb-xZv" firstAttribute="leading" secondItem="GZN-zY-FoW" secondAttribute="leading" id="lQV-4H-jtH"/>
+                        <constraint firstItem="43T-cb-xZv" firstAttribute="trailing" secondItem="NSa-KX-9M8" secondAttribute="leading" constant="8" id="lTJ-ev-WUd"/>
+                    </constraints>
+                </view>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5r-Oq-iJ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4766.666666666667" y="-74.330357142857139"/>
+        </scene>
+        <!--Comment List View Controller-->
+        <scene sceneID="eO5-GE-LLN">
+            <objects>
+                <tableViewController storyboardIdentifier="CommentListViewController" id="kp8-EK-E2H" customClass="CommentListViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="6at-Wb-oaf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" name="background"/>
+                        <connections>
+                            <outlet property="dataSource" destination="kp8-EK-E2H" id="RkH-sm-r2Y"/>
+                            <outlet property="delegate" destination="kp8-EK-E2H" id="RMP-Y3-h7n"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="HQK-ee-XXc"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tTS-ls-xOd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4767" y="615"/>
+        </scene>
+        <!--Alarm Summary View Controller-->
+        <scene sceneID="Ud8-7X-jf8">
+            <objects>
+                <viewController id="26C-Bw-O0D" customClass="AlarmSummaryViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ya8-qY-Kyk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="533"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHK-n7-uxj" userLabel="detailsCard" customClass="MaterialCardView" customModule="AlarmApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="60" width="382" height="382"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="iJ0-iV-uJK" userLabel="detailsStack">
+                                        <rect key="frame" x="16" y="16" width="350" height="350"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RU-3n-Q1R" userLabel="systemIdItem" customClass="DetailsItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="SYSTEM ID"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghN-IV-xeA" userLabel="triggeredAtItem" customClass="DetailsItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="350" height="50"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="TRIGGERED AT"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRi-yP-eC6" userLabel="lastOccurrenceItem" customClass="DetailsItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="100" width="350" height="50"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="LAST UPDATED"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJK-mF-0rN" userLabel="typeItem" customClass="DetailsItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="150" width="350" height="50"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="TYPE"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBf-Nc-RBt" userLabel="statusView">
+                                                <rect key="frame" x="0.0" y="200" width="350" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="STATUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vli-gZ-xpb" userLabel="statusLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="18.5" width="42.5" height="13.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="her-2z-VgF" userLabel="changeStatusButton">
+                                                        <rect key="frame" x="329" y="8" width="21" height="34"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="pencil.circle.fill" catalog="system" imagePlacement="trailing" imagePadding="8">
+                                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                                            <color key="baseForegroundColor" name="primary"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="vli-gZ-xpb" firstAttribute="centerY" secondItem="rBf-Nc-RBt" secondAttribute="centerY" id="Gov-wh-VEX"/>
+                                                    <constraint firstAttribute="bottom" secondItem="her-2z-VgF" secondAttribute="bottom" constant="8" id="VYs-7A-rUl"/>
+                                                    <constraint firstItem="her-2z-VgF" firstAttribute="top" secondItem="rBf-Nc-RBt" secondAttribute="top" constant="8" id="Z6i-Zn-vMN"/>
+                                                    <constraint firstItem="vli-gZ-xpb" firstAttribute="leading" secondItem="rBf-Nc-RBt" secondAttribute="leading" id="dkN-HW-nwJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="her-2z-VgF" secondAttribute="trailing" id="lKd-IT-CdA"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJ0-bV-Cxj" userLabel="severityView">
+                                                <rect key="frame" x="0.0" y="250" width="350" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="SEVERITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbu-Uk-kQx" userLabel="severityLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="18.5" width="52.5" height="13.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKq-HJ-uKL" userLabel="changeSeverityButton">
+                                                        <rect key="frame" x="329" y="8" width="21" height="34"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="pencil.circle.fill" catalog="system" imagePlacement="trailing" imagePadding="8">
+                                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                                            <color key="baseForegroundColor" name="primary"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="mbu-Uk-kQx" firstAttribute="centerY" secondItem="mJ0-bV-Cxj" secondAttribute="centerY" id="Ss5-3a-x5q"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bKq-HJ-uKL" secondAttribute="bottom" constant="8" id="V6K-VH-FYQ"/>
+                                                    <constraint firstItem="bKq-HJ-uKL" firstAttribute="top" secondItem="mJ0-bV-Cxj" secondAttribute="top" constant="8" id="XiL-I8-Bkx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bKq-HJ-uKL" secondAttribute="trailing" id="gDL-SI-omG"/>
+                                                    <constraint firstItem="mbu-Uk-kQx" firstAttribute="leading" secondItem="mJ0-bV-Cxj" secondAttribute="leading" id="sQ6-Yk-GyJ"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnC-eb-p6o" userLabel="changelogButtonView">
+                                                <rect key="frame" x="0.0" y="300" width="350" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="CHANGE LOG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDJ-iw-eLa" userLabel="changelogTitleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="18.5" width="73" height="13.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hg4-lI-ySz" userLabel="openChangelogButton">
+                                                        <rect key="frame" x="231" y="8" width="119" height="34"/>
+                                                        <color key="tintColor" name="primary"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system" imagePlacement="trailing" title="View Updates" imagePadding="8" cornerStyle="capsule" titleAlignment="trailing">
+                                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                                            <color key="baseForegroundColor" name="primary"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onShowChangelogTapped:" destination="26C-Bw-O0D" eventType="touchUpInside" id="F6X-Yb-68r"/>
+                                                            <action selector="onShowChangelogTapped:" destination="P9I-HO-SKT" eventType="touchUpInside" id="eNE-jy-33C"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Hg4-lI-ySz" secondAttribute="bottom" constant="8" id="0Uf-bC-fx8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Hg4-lI-ySz" secondAttribute="trailing" id="Aqj-D8-DnI"/>
+                                                    <constraint firstItem="KDJ-iw-eLa" firstAttribute="centerY" secondItem="rnC-eb-p6o" secondAttribute="centerY" id="fDE-N1-0fQ"/>
+                                                    <constraint firstItem="KDJ-iw-eLa" firstAttribute="leading" secondItem="rnC-eb-p6o" secondAttribute="leading" id="lqO-sE-MV1"/>
+                                                    <constraint firstItem="Hg4-lI-ySz" firstAttribute="top" secondItem="rnC-eb-p6o" secondAttribute="top" constant="8" id="xTr-1q-2kl"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iJ0-iV-uJK" secondAttribute="trailing" constant="16" id="9Ls-u6-O95"/>
+                                    <constraint firstItem="iJ0-iV-uJK" firstAttribute="leading" secondItem="jHK-n7-uxj" secondAttribute="leading" constant="16" id="OaC-YM-vpE"/>
+                                    <constraint firstItem="iJ0-iV-uJK" firstAttribute="top" secondItem="jHK-n7-uxj" secondAttribute="top" constant="16" id="gpe-9Z-Yps"/>
+                                    <constraint firstAttribute="bottom" secondItem="iJ0-iV-uJK" secondAttribute="bottom" constant="16" id="xbC-5c-gSt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9d6-CJ-Jx4"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9d6-CJ-Jx4" firstAttribute="trailing" secondItem="jHK-n7-uxj" secondAttribute="trailing" constant="16" id="3BE-rD-2Zq"/>
+                            <constraint firstItem="9d6-CJ-Jx4" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jHK-n7-uxj" secondAttribute="bottom" constant="16" id="Mo8-Bf-C0L"/>
+                            <constraint firstItem="jHK-n7-uxj" firstAttribute="top" secondItem="9d6-CJ-Jx4" secondAttribute="top" constant="16" id="S7y-HD-hpt"/>
+                            <constraint firstItem="jHK-n7-uxj" firstAttribute="leading" secondItem="9d6-CJ-Jx4" secondAttribute="leading" constant="16" id="u8P-SB-sFP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="changelogButtonView" destination="rnC-eb-p6o" id="R60-Ab-qe4"/>
+                        <outlet property="lastOccurrenceItem" destination="oRi-yP-eC6" id="QEN-oD-kCY"/>
+                        <outlet property="modifySeverityButton" destination="bKq-HJ-uKL" id="7u0-po-Ij5"/>
+                        <outlet property="modifyStatusButton" destination="her-2z-VgF" id="H2w-c1-WfL"/>
+                        <outlet property="systemIdItem" destination="7RU-3n-Q1R" id="fjt-aY-KqJ"/>
+                        <outlet property="triggeredAtItem" destination="ghN-IV-xeA" id="rIN-Q9-d6E"/>
+                        <outlet property="typeItem" destination="gJK-mF-0rN" id="SbM-yf-g27"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yla-d0-ThJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4767" y="1383"/>
+        </scene>
+        <!--Audit Records View Controller-->
+        <scene sceneID="pdg-EJ-9b1">
+            <objects>
+                <tableViewController id="7Eq-3A-N71" customClass="AuditRecordsViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" id="KrV-4C-kJ4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="separatorColor" name="onBackground"/>
+                        <inset key="separatorInset" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <connections>
+                            <outlet property="dataSource" destination="7Eq-3A-N71" id="hM7-hW-3pd"/>
+                            <outlet property="delegate" destination="7Eq-3A-N71" id="B8t-I3-CCz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZE0-R3-XlZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hfc-Dq-ClC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5638" y="615"/>
+        </scene>
+        <!--Device Details-->
+        <scene sceneID="QmS-Wu-Pmd">
+            <objects>
+                <viewController id="tVs-ob-7Ku" customClass="DeviceDetailsViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ksu-yY-leT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjr-LY-5U8" userLabel="detailsCard" customClass="MaterialCardView" customModule="AlarmApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="156" width="382" height="455.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="6Gn-f2-RHz">
+                                        <rect key="frame" x="16" y="16" width="350" height="423.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfB-iO-hvT" userLabel="nameItem" customClass="DetailsItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="173"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="NAME"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1i-Pu-Zlq" userLabel="systemIdItem" customClass="DetailsItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="173" width="350" height="100.5"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="SYSTEM ID"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oY-38-4YV" userLabel="typeItem" customClass="DetailsItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="273.5" width="350" height="50"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="TYPE"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a50-F2-ieL" userLabel="serialNumberItem" customClass="DetailsItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="323.5" width="350" height="50"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="SERIAL NUMBER"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzG-U3-J6B" userLabel="externalIdItem" customClass="DetailsItem" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="373.5" width="350" height="50"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="EXTERNAL ID"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="6Gn-f2-RHz" firstAttribute="leading" secondItem="pjr-LY-5U8" secondAttribute="leading" constant="16" id="163-U9-zIs"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Gn-f2-RHz" secondAttribute="trailing" constant="16" id="LRN-QH-X2t"/>
+                                    <constraint firstItem="6Gn-f2-RHz" firstAttribute="top" secondItem="pjr-LY-5U8" secondAttribute="top" constant="16" id="U8C-ZW-Vkx"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Gn-f2-RHz" secondAttribute="bottom" constant="16" id="gtl-Xv-3G1"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6D-Nf-brh">
+                                <rect key="frame" x="0.0" y="627.5" width="414" height="268.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="XFs-OZ-b02" kind="embed" identifier="embedDeviceAlarms" id="gUc-Hx-Ntr"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BGs-2P-bEY"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="pjr-LY-5U8" firstAttribute="leading" secondItem="BGs-2P-bEY" secondAttribute="leading" constant="16" id="5Sh-6A-zQM"/>
+                            <constraint firstItem="M6D-Nf-brh" firstAttribute="top" secondItem="pjr-LY-5U8" secondAttribute="bottom" constant="16" id="IpQ-Mf-mhk"/>
+                            <constraint firstItem="M6D-Nf-brh" firstAttribute="bottom" secondItem="ksu-yY-leT" secondAttribute="bottom" id="O75-f4-p7Q"/>
+                            <constraint firstItem="M6D-Nf-brh" firstAttribute="trailing" secondItem="BGs-2P-bEY" secondAttribute="trailing" id="PH4-sS-Gn9"/>
+                            <constraint firstItem="pjr-LY-5U8" firstAttribute="top" secondItem="BGs-2P-bEY" secondAttribute="top" constant="16" id="Q1k-yy-7MA"/>
+                            <constraint firstItem="BGs-2P-bEY" firstAttribute="trailing" secondItem="pjr-LY-5U8" secondAttribute="trailing" constant="16" id="Scn-Rf-1gw"/>
+                            <constraint firstItem="M6D-Nf-brh" firstAttribute="leading" secondItem="BGs-2P-bEY" secondAttribute="leading" id="t7C-lq-req"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Device Details" id="D0o-Dr-ICa">
+                        <barButtonItem key="backBarButtonItem" title="  " id="AE4-PN-eAS"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="externalIdItem" destination="lzG-U3-J6B" id="86p-hv-btx"/>
+                        <outlet property="nameItem" destination="NfB-iO-hvT" id="pbH-Lr-Vmt"/>
+                        <outlet property="serialNumberItem" destination="a50-F2-ieL" id="ywI-OF-y7w"/>
+                        <outlet property="systemIdItem" destination="G1i-Pu-Zlq" id="xqV-LT-Umc"/>
+                        <outlet property="typeItem" destination="8oY-38-4YV" id="JR5-rh-W3C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V5G-nV-0Qb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5640.579710144928" y="-74.330357142857139"/>
+        </scene>
+        <!--Device Alarms View Controller-->
+        <scene sceneID="qGe-4r-R1a">
+            <objects>
+                <tableViewController id="XFs-OZ-b02" customClass="DeviceAlarmsViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" id="ubu-c9-GYk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="268.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" name="onBackground"/>
+                        <inset key="separatorInset" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <connections>
+                            <outlet property="dataSource" destination="XFs-OZ-b02" id="fMp-0D-2UT"/>
+                            <outlet property="delegate" destination="XFs-OZ-b02" id="Hrh-7Z-d7t"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="P9I-HO-SKT" kind="show" identifier="toAlarmDetails" id="HxT-Od-yBh"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Reh-wp-C6R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5639" y="-699"/>
+        </scene>
+        <!--Alarm Filter View Controller-->
+        <scene sceneID="7nO-8G-Au7">
+            <objects>
+                <viewController storyboardIdentifier="AlarmFilterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qrl-zF-UwZ" customClass="AlarmFilterViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UcA-Fg-Rj4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="950-qD-G4g">
+                                <rect key="frame" x="16" y="76" width="382" height="231.5"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MQu-dL-Rcw" userLabel="severityFilter">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="32"/>
+                                        <segments>
+                                            <segment title="Critical"/>
+                                            <segment title="Major"/>
+                                            <segment title="Minor"/>
+                                            <segment title="Warning"/>
+                                            <segment title="All"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="primary"/>
+                                        <connections>
+                                            <action selector="onSeverityChanged:" destination="Qrl-zF-UwZ" eventType="valueChanged" id="tay-xY-eV3"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IrI-eB-TBG" userLabel="statusFilter">
+                                        <rect key="frame" x="0.0" y="47" width="382" height="32"/>
+                                        <segments>
+                                            <segment title="Active"/>
+                                            <segment title="Acknowledged"/>
+                                            <segment title="Cleared" width="94.75"/>
+                                            <segment title="All"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="primary"/>
+                                        <connections>
+                                            <action selector="onStatusChanged:" destination="Qrl-zF-UwZ" eventType="valueChanged" id="eeK-ho-AVG"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="By Device name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="its-aK-z0C" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="0.0" y="94" width="382" height="34"/>
+                                        <color key="backgroundColor" name="surface"/>
+                                        <color key="textColor" name="onBackground"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                <color key="value" name="primary"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onDeviceNameChanged:" destination="Qrl-zF-UwZ" eventType="editingChanged" id="xgK-gz-nqV"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="By Alarm Type (comma separated)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="msw-qt-RXU" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="0.0" y="144" width="382" height="34"/>
+                                        <color key="backgroundColor" name="surface"/>
+                                        <color key="textColor" name="onBackground"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                <color key="value" name="primary"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onAlarmTypeChanged:" destination="Qrl-zF-UwZ" eventType="editingChanged" id="MT4-OG-9gp"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wl0-gh-T1x" userLabel="spacer">
+                                        <rect key="frame" x="0.0" y="194" width="382" height="8"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="8" id="9fC-oq-Tth"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search text can contain wildcards (*). Matching is case-sensitive." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvY-I2-w3p" userLabel="description" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="218" width="382" height="13.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KqX-52-afj"/>
+                        <color key="backgroundColor" name="surface"/>
+                        <constraints>
+                            <constraint firstItem="950-qD-G4g" firstAttribute="top" secondItem="KqX-52-afj" secondAttribute="top" constant="32" id="KYs-Ud-cNq"/>
+                            <constraint firstItem="KqX-52-afj" firstAttribute="trailing" secondItem="950-qD-G4g" secondAttribute="trailing" constant="16" id="Uac-IN-VVn"/>
+                            <constraint firstItem="KqX-52-afj" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="950-qD-G4g" secondAttribute="bottom" constant="16" id="gRm-ch-0hR"/>
+                            <constraint firstItem="950-qD-G4g" firstAttribute="leading" secondItem="KqX-52-afj" secondAttribute="leading" constant="16" id="r8F-Px-ofL"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="alarmTypeTextfield" destination="msw-qt-RXU" id="Nlo-ep-fGF"/>
+                        <outlet property="deviceNameTextfield" destination="its-aK-z0C" id="eba-p2-VEN"/>
+                        <outlet property="severityFilter" destination="MQu-dL-Rcw" id="I6U-II-Zvn"/>
+                        <outlet property="statusFilter" destination="IrI-eB-TBG" id="nth-R2-1te"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rEy-jZ-io1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3994" y="-783"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="2qm-cm-uqd">
+            <size key="intrinsicContentSize" width="35.5" height="17"/>
+        </designable>
+        <designable name="43T-cb-xZv">
+            <size key="intrinsicContentSize" width="40" height="13.5"/>
+        </designable>
+        <designable name="6a8-vd-5pZ">
+            <size key="intrinsicContentSize" width="188" height="17"/>
+        </designable>
+        <designable name="9TG-zy-fck">
+            <size key="intrinsicContentSize" width="90.5" height="34"/>
+        </designable>
+        <designable name="DRu-hU-JxC">
+            <size key="intrinsicContentSize" width="177.5" height="13.5"/>
+        </designable>
+        <designable name="Gjv-Ij-dwz">
+            <size key="intrinsicContentSize" width="251.5" height="34"/>
+        </designable>
+        <designable name="HS5-Mx-q6q">
+            <size key="intrinsicContentSize" width="113.5" height="34"/>
+        </designable>
+        <designable name="KDJ-iw-eLa">
+            <size key="intrinsicContentSize" width="73" height="13.5"/>
+        </designable>
+        <designable name="NIh-Ed-2LP">
+            <size key="intrinsicContentSize" width="116" height="17"/>
+        </designable>
+        <designable name="OGj-eP-ls6">
+            <size key="intrinsicContentSize" width="116" height="23"/>
+        </designable>
+        <designable name="S5b-ax-eaZ">
+            <size key="intrinsicContentSize" width="100" height="34"/>
+        </designable>
+        <designable name="ULu-Kf-ey0">
+            <size key="intrinsicContentSize" width="52.5" height="13.5"/>
+        </designable>
+        <designable name="UPt-8Y-Uce">
+            <size key="intrinsicContentSize" width="40" height="13.5"/>
+        </designable>
+        <designable name="gNv-vc-gTs">
+            <size key="intrinsicContentSize" width="177.5" height="13.5"/>
+        </designable>
+        <designable name="its-aK-z0C">
+            <size key="intrinsicContentSize" width="132" height="34"/>
+        </designable>
+        <designable name="mbu-Uk-kQx">
+            <size key="intrinsicContentSize" width="52.5" height="13.5"/>
+        </designable>
+        <designable name="msw-qt-RXU">
+            <size key="intrinsicContentSize" width="251.5" height="34"/>
+        </designable>
+        <designable name="ssR-Sb-Twm">
+            <size key="intrinsicContentSize" width="111" height="30"/>
+        </designable>
+        <designable name="svi-gS-fYQ">
+            <size key="intrinsicContentSize" width="132" height="34"/>
+        </designable>
+        <designable name="vli-gZ-xpb">
+            <size key="intrinsicContentSize" width="42.5" height="13.5"/>
+        </designable>
+        <designable name="wvY-I2-w3p">
+            <size key="intrinsicContentSize" width="343.5" height="13.5"/>
+        </designable>
+    </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="ina-48-qVJ"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="splash" width="375" height="667"/>
+        <namedColor name="background">
+            <color red="0.9882352941176471" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="onBackground">
+            <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="onPrimary">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="onSecondary">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="onSurface">
+            <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primary">
+            <color red="0.14117647058823529" green="0.38039215686274508" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondary">
+            <color red="0.8784313725490196" green="0.0" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="surface">
+            <color red="0.9882352941176471" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

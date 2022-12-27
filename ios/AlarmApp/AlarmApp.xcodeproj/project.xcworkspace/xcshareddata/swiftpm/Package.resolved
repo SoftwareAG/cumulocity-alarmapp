@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "cumulocity-clients-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SoftwareAG/cumulocity-clients-swift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6c070f7764f9814f5b8feec415e3dbdc9764d4b5"
+      }
+    },
+    {
+      "identity" : "iqkeyboardmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hackiftekhar/IQKeyboardManager",
+      "state" : {
+        "revision" : "1e442766a41e2948df25559eb03ab752c6d3aad0",
+        "version" : "6.5.0"
+      }
+    },
+    {
+      "identity" : "jvfloatlabeledtextfield",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jverdi/JVFloatLabeledTextField",
+      "state" : {
+        "revision" : "69c0e80a2d0b9dac52ec37a164c9c5fe0e901038",
+        "version" : "1.2.5"
+      }
+    },
+    {
+      "identity" : "strongbox",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/granoff/Strongbox.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "455e1d9a2775f2265c99bb611c7fa0e092734a04"
+      }
+    }
+  ],
+  "version" : 2
+}

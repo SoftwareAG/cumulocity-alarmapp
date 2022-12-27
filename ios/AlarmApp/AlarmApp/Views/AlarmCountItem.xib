@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlarmCountItem" customModule="AlarmApp" customModuleProvider="target">
+            <connections>
+                <outlet property="countLabel" destination="yth-kQ-TuW" id="EFR-pv-w4P"/>
+                <outlet property="titleLabel" destination="waO-S3-atc" id="uNt-a8-i2k"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Hcu-MP-Mqh">
+            <rect key="frame" x="0.0" y="0.0" width="519" height="86"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waO-S3-atc" userLabel="titleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="519" height="59.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yth-kQ-TuW" userLabel="countLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="59.5" width="519" height="26.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="waO-S3-atc" firstAttribute="leading" secondItem="Hcu-MP-Mqh" secondAttribute="leading" id="70B-qw-62u"/>
+                <constraint firstItem="yth-kQ-TuW" firstAttribute="leading" secondItem="Hcu-MP-Mqh" secondAttribute="leading" id="K5f-fQ-oMt"/>
+                <constraint firstItem="yth-kQ-TuW" firstAttribute="top" secondItem="waO-S3-atc" secondAttribute="bottom" id="NGb-P1-gAH"/>
+                <constraint firstItem="waO-S3-atc" firstAttribute="top" secondItem="Hcu-MP-Mqh" secondAttribute="top" id="a0g-rB-jAs"/>
+                <constraint firstAttribute="bottom" secondItem="yth-kQ-TuW" secondAttribute="bottom" id="eTQ-ef-lWE"/>
+                <constraint firstAttribute="trailing" secondItem="yth-kQ-TuW" secondAttribute="trailing" id="fCq-1T-gCr"/>
+                <constraint firstAttribute="trailing" secondItem="waO-S3-atc" secondAttribute="trailing" id="pwu-XP-M9Z"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-370.28985507246381" y="-233.70535714285714"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="waO-S3-atc"/>
+        <designable name="yth-kQ-TuW">
+            <size key="intrinsicContentSize" width="13.5" height="26.5"/>
+        </designable>
+    </designables>
+</document>
