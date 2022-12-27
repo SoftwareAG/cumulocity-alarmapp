@@ -15,5 +15,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build Xcode project
-        run: xcodebuild -sdk iphonesimulator
+        run: xcodebuild -project "./AlarmApp.xcodeproj" -scheme "AlarmApp" -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
         working-directory: ios/AlarmApp
