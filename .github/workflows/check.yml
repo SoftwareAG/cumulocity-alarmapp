@@ -1,0 +1,19 @@
+name: 'Verify Compilation'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [ synchronize, opened, reopened, ready_for_review ]
+
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build Xcode project
+        run: xcodebuild -sdk iphonesimulator
+        working-directory: ios/AlarmApp
