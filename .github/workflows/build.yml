@@ -1,0 +1,47 @@
+name: 'Build release candidate'
+
+on:
+  workflow_dispatch:
+
+env:
+  LC_ALL: 'en_US.UTF-8'
+  LANG: 'en_US.UTF-8'
+  BUILD_OFFSET: 100
+
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build Xcode project
+        id: build
+        run: |
+          sudo xcode-select -s /Applications/Xcode.app
+          buildNumberCalc=`expr ${{ env.BUILD_OFFSET }} + ${GITHUB_RUN_NUMBER}`
+          echo "build number: ${buildNumberCalc}"
+          rm -f AlarmApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+          marketingVersion=`xcodebuild -showBuildSettings | grep MARKETING_VERSION | tr -d 'MARKETING_VERSION ='`
+          echo "marketing version is: $marketingVersion"
+
+          echo "::set-output name=marketing_build_version::$marketingVersion"
+          echo "::set-output name=calculated_build_number::$buildNumberCalc"
+
+          buildName="AlarmApp-$marketingVersion.$buildNumberCalc"
+          mkdir build/
+
+          xcodebuild archive -project AlarmApp.xcodeproj -scheme AlarmApp -archivePath build/$buildName.xcarchive -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+          cd build
+          zip -q -r "$buildName.xcarchive.zip" "$buildName.xcarchive"
+          mv "$buildName.xcarchive/Products/Applications" Payload
+          zip -q -r "$buildName.ipa" Payload/
+          zip "$buildName.ipa.zip" "$buildName.ipa"
+        working-directory: ios/AlarmApp
+      - name: Archive Build (ZIPs)
+        uses: actions/upload-artifact@v2
+        env:
+          BUILD_NUMBER: ${{ steps.build.outputs.calculated_build_number }}
+          MARKETING_VERSION: ${{ steps.build.outputs.marketing_build_version }}
+        with:
+          name: 'AlarmApp-${{ env.MARKETING_VERSION }}-${{ env.BUILD_NUMBER }}'
+          path: 'AlarmApp/build/*.zip'
