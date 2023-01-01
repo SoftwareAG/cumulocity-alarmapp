@@ -44,4 +44,4 @@ jobs:
           MARKETING_VERSION: ${{ steps.build.outputs.marketing_build_version }}
         with:
           name: 'AlarmApp-${{ env.MARKETING_VERSION }}-${{ env.BUILD_NUMBER }}'
-          path: 'AlarmApp/build/*.zip'
+          path: 'ios/AlarmApp/build/*.zip'
