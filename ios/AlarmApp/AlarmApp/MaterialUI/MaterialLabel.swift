@@ -16,8 +16,35 @@
 
 import UIKit
 
+extension UILabel: Localizeable {
+    override open func didMoveToSuperview() {
+        _ = observe(\.text, options: [.initial, .new]) { _, _  in
+            self.text = self.resolveTranslationKey(for: self.text)
+        }
+    }
+}
+
 @IBDesignable
 class MaterialLabel: UILabel {
+    @IBInspectable var uppercased: Bool = false {
+        didSet {
+            self.text = text
+        }
+    }
+
+    override var text: String? {
+        didSet {
+            if let text = text {
+                if text.isTranslationKey() {
+                    self.text = resolveTranslationKey(for: text)
+                }
+                if self.uppercased && !text.elementsEqual(text.uppercased()) {
+                    self.text = text.uppercased()
+                }
+            }
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

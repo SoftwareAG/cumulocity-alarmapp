@@ -18,15 +18,15 @@
             <rect key="frame" x="0.0" y="0.0" width="272" height="71"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ucy-nW-re1" userLabel="severityImage">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ucy-nW-re1" userLabel="severityImage">
                     <rect key="frame" x="0.0" y="0.0" width="20" height="71"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="20" id="LFA-Pl-0Lx"/>
+                        <constraint firstAttribute="width" priority="999" constant="20" id="LFA-Pl-0Lx"/>
                         <constraint firstAttribute="height" priority="999" constant="20" id="v7I-RJ-V37"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQl-Qs-G6x" userLabel="severityLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                    <rect key="frame" x="28" y="29" width="244" height="13.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQl-Qs-G6x" userLabel="severityLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                    <rect key="frame" x="24" y="29" width="248" height="13.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                     <color key="textColor" name="onBackground"/>
                     <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                 <constraint firstItem="PQl-Qs-G6x" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Wcz-16-DSC"/>
                 <constraint firstAttribute="trailing" secondItem="PQl-Qs-G6x" secondAttribute="trailing" id="qp8-Mo-gpJ"/>
                 <constraint firstItem="Ucy-nW-re1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tw6-9S-n3O"/>
-                <constraint firstItem="PQl-Qs-G6x" firstAttribute="leading" secondItem="Ucy-nW-re1" secondAttribute="trailing" constant="8" id="y6p-bz-XWz"/>
+                <constraint firstItem="PQl-Qs-G6x" firstAttribute="leading" secondItem="Ucy-nW-re1" secondAttribute="trailing" constant="4" id="y6p-bz-XWz"/>
                 <constraint firstAttribute="bottom" secondItem="Ucy-nW-re1" secondAttribute="bottom" id="yyL-ki-9XM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

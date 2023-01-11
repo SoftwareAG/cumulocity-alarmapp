@@ -111,12 +111,8 @@ class SubscribedAlarmsViewController: UITableViewController, SubscribedAlarmList
         if let view = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: ListViewHeaderItem.identifier
         ) as? ListViewHeaderItem {
-            let filter = SubscribedAlarmFilter.shared
-            if filter.isDefaultFilter() {
-                view.separator.titleText = "ACTIVE, CRITICAL ALARMS"
-            } else {
-                view.separator.titleText = "MY FILTER"
-            }
+            view.separator.titleText = %"dashboard_subscribed_alarms_title"
+            view.setBackgroundConfiguration()
             return view
         }
         fatalError("Cannot create ListViewHeaderItem")

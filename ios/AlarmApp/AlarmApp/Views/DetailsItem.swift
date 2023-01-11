@@ -17,13 +17,13 @@
 import UIKit
 
 @IBDesignable
-class DetailsItem: UIView {
-    @IBOutlet var valueLabel: UILabel!
-    @IBOutlet var titleLabel: UILabel!
+class DetailsItem: UIView, Localizeable {
+    @IBOutlet var valueLabel: MaterialLabel!
+    @IBOutlet var titleLabel: MaterialLabel!
 
     @IBInspectable var titleText: String = "" {
         didSet {
-            self.titleLabel?.text = titleText
+            self.titleLabel?.text = resolveTranslationKey(for: titleText)
         }
     }
 

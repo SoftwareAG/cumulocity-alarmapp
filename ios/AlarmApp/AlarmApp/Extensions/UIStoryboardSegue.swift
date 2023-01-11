@@ -23,4 +23,5 @@ extension UIStoryboardSegue {
     static var toAlarmsView: String = "toAlarmsView"
     static var embedWelcomeList: String = "embedWelcomeList"
     static var embedAlarmSummary: String = "embedAlarmSummary"
+    static var toNewComment: String = "toNewComment"
 }

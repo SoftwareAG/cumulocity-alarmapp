@@ -1,0 +1,82 @@
+"alarm_time_printformat" = "MMM dd yyyy, HH:mm";
+"alarm_time_locale" = "en_US_POSIX";
+
+"alarm_severity_critical" = "Critical";
+"alarm_severity_major" = "Major";
+"alarm_severity_minor" = "Minor";
+"alarm_severity_warning" = "Warning";
+"alarm_severity_all" = "All";
+"alarm_severity_filter_all" = "All degrees of Severity";
+
+"alarm_status_active" = "Active";
+"alarm_status_active_verb" = "Active";
+"alarm_status_acknowledged" = "Acknowledged";
+"alarm_status_acknowledged_verb" = "Acknowledge";
+"alarm_status_cleared" = "Cleared";
+"alarm_status_cleared_verb" = "Cleare";
+"alarm_status_all" = "All";
+"alarm_status_filter_all" = "All Statuses";
+
+"login_welcome" = "Welcome, ";
+"login_description" = "Log in to continue";
+"login_tenant_name_placeholder" = "Tenant Name";
+"login_user_name_placeholder" = "User Name";
+"login_password_placeholder" = "Password";
+"login_button_text" = "Login";
+
+"dashboard_title" = "Dashboard";
+"dashboard_action_logout" = "Logout";
+"dashboard_action_logout.message" = "Are you sure you want to logout?";
+"dashboard_action_logout.confirm" = "Confirm";
+"dashboard_action_logout.cancel" = "Cancel";
+"dashboard_active_alarms_title" = "Active Alarms";
+"dashboard_active_alarms_more" = "Show All";
+
+"dashboard_subscribed_alarms_title" = "My Watchlist";
+"subscribed_alarms_filter_description" = "Define a watchlist for your focused alarms. You'll also receive push notifications when those Alarms change.";
+"subscribed_alarms_filter_device_placeholder" = "By Device name";
+"subscribed_alarms_filter_type_placeholder" = "By Alarm Type (comma separated)";
+
+"alarms_title" = "Alarms";
+"alarms_filter_title" = "My Filter";
+"alarms_filter_descrition" = "Change filter criteria to view Alarms of interest.";
+"alarms_filter_device_placeholder" = "By Device name";
+"alarms_filter_device_hint" = "Device name can contain wildcards (*). Matching is case-sensitive.";
+"alarms_filter_type_placeholder" = "By Alarm Type (comma separated)";
+
+"alarm_details_title" = "Alarm Details";
+"alarm_details_message" = "Message";
+"alarm_details_device" = "Device";
+"alarm_details_details" = "Details";
+"alarm_details_comments" = "Comments";
+"alarm_details_new_comment" = "Comment";
+"alarm_details_alarm_system_id" = "System Id";
+"alarm_details_alarm_creation_date" = "Created At";
+"alarm_details_alarm_updated_date" = "Last Updated";
+"alarm_details_alarm_type" = "Type";
+"alarm_details_alarm_status" = "Status";
+"alarm_details_alarm_severity" = "Severity";
+"alarm_details_alarm_changelog" = "Change Log";
+"alarm_details_comments_empty_description" = "Write a comment and start collaborating.";
+
+"alarm_empty_description" = "No Alarms matching your search filter.";
+"alarm_empty_message" = "Refine your filter options.";
+"alarm_empty_button_text" = "Adjust Filter";
+
+"device_details_title" = "Device Details";
+"device_details_active_alarms" = "Active Alarms";
+"device_details_device_name" = "Name";
+"device_details_device_system_id" = "System Id";
+"device_details_device_external_id" = "External Id";
+"device_details_device_serial" = "Serial Number";
+"device_details_device_type" = "Type";
+
+"new_comment_title" = "New Comment";
+"new_comment_placeholder" = "Add a comment...";
+"new_comment_share" = "Share";
+
+"login_error_action" = "Understood";
+"login_authentication_error_message" = "Please verify your credentials.";
+"login_authentication_error_title" = "We couldn't log you in";
+"login_other_error_message" = "Please verify your credentials.";
+

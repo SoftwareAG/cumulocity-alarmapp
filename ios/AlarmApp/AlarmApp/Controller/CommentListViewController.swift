@@ -21,7 +21,7 @@ class CommentListViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UITableViewController.prepareForAudits(with: self.tableView)
+        UITableViewController.prepareForComments(with: self.tableView)
         // Empty state
         let emptyItem = EmptyCommentsItem()
         tableView.backgroundView = emptyItem
@@ -39,9 +39,9 @@ class CommentListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(
-            withIdentifier: AuditRecordItem.identifier,
+            withIdentifier: CommentItem.identifier,
             for: indexPath
-        ) as? AuditRecordItem {
+        ) as? CommentItem {
             cell.bind(with: data[indexPath.item])
             return cell
         }

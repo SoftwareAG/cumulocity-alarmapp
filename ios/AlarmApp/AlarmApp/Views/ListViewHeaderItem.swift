@@ -36,7 +36,6 @@ class ListViewHeaderItem: UITableViewHeaderFooterView {
     }
 
     func configureContents() {
-        self.contentView.backgroundColor = .clear
         self.separator.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(self.separator)
         NSLayoutConstraint.activate([

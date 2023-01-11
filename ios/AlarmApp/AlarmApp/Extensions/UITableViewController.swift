@@ -38,4 +38,11 @@ extension UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.hideSectionSeparator()
     }
+
+    static func prepareForComments(with tableView: UITableView) {
+        CommentItem.register(for: tableView)
+        tableView.tableFooterView = UIView()
+        tableView.hideSectionSeparator()
+        tableView.separatorStyle = .none
+    }
 }

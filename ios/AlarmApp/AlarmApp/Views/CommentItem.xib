@@ -3,45 +3,105 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentItem" customModule="AlarmApp" customModuleProvider="target">
-            <connections>
-                <outlet property="textLabel" destination="plb-qY-BgC" id="DLo-6s-3kV"/>
-                <outlet property="timeLabel" destination="WDN-bh-YBW" id="AyF-SA-cJ3"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="461" height="40"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="plb-qY-BgC" userLabel="textLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="461" height="22"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDN-bh-YBW" userLabel="timeLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="26" width="461" height="14"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="WDN-bh-YBW" secondAttribute="trailing" id="5ql-tV-aal"/>
-                <constraint firstItem="WDN-bh-YBW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Suc-9I-Eaj"/>
-                <constraint firstItem="WDN-bh-YBW" firstAttribute="top" secondItem="plb-qY-BgC" secondAttribute="bottom" constant="4" id="Uk2-dc-INb"/>
-                <constraint firstAttribute="bottom" secondItem="WDN-bh-YBW" secondAttribute="bottom" id="gcv-xr-30R"/>
-                <constraint firstAttribute="trailing" secondItem="plb-qY-BgC" secondAttribute="trailing" id="nNj-dz-MvP"/>
-                <constraint firstItem="plb-qY-BgC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wWk-sw-hLy"/>
-                <constraint firstItem="plb-qY-BgC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zqS-Sn-Ywp"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="171.73913043478262" y="-216.96428571428569"/>
-        </view>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentItem" rowHeight="105" id="EoC-W9-2MP" customClass="CommentItem" customModule="AlarmApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EoC-W9-2MP" id="0k0-HB-gQE">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Sx-mQ-8b9" customClass="MaterialCardView" customModule="AlarmApp" customModuleProvider="target">
+                        <rect key="frame" x="16" y="2" width="382" height="87"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vo-cJ-Ml8" userLabel="titleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="16" width="350" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2o0-7m-xGu" userLabel="timeLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="33" width="350" height="13.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="De3-9z-YK4" userLabel="valueLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="55" width="350" height="16"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="De3-9z-YK4" firstAttribute="leading" secondItem="9Sx-mQ-8b9" secondAttribute="leading" constant="16" id="8kj-hV-DQg"/>
+                            <constraint firstAttribute="bottom" secondItem="De3-9z-YK4" secondAttribute="bottom" constant="16" id="BG2-6j-eoa"/>
+                            <constraint firstItem="De3-9z-YK4" firstAttribute="top" secondItem="2o0-7m-xGu" secondAttribute="bottom" constant="8" id="J1s-m5-tIo"/>
+                            <constraint firstAttribute="trailing" secondItem="8vo-cJ-Ml8" secondAttribute="trailing" constant="16" id="LB4-fJ-IXp"/>
+                            <constraint firstAttribute="trailing" secondItem="2o0-7m-xGu" secondAttribute="trailing" constant="16" id="QtW-tm-an2"/>
+                            <constraint firstItem="2o0-7m-xGu" firstAttribute="leading" secondItem="9Sx-mQ-8b9" secondAttribute="leading" constant="16" id="TOi-hc-1gb"/>
+                            <constraint firstAttribute="trailing" secondItem="De3-9z-YK4" secondAttribute="trailing" constant="16" id="cCE-pY-9YW"/>
+                            <constraint firstItem="8vo-cJ-Ml8" firstAttribute="leading" secondItem="9Sx-mQ-8b9" secondAttribute="leading" constant="16" id="koF-Tf-b9g"/>
+                            <constraint firstItem="2o0-7m-xGu" firstAttribute="top" secondItem="8vo-cJ-Ml8" secondAttribute="bottom" id="sNE-fB-Vhy"/>
+                            <constraint firstItem="8vo-cJ-Ml8" firstAttribute="top" secondItem="9Sx-mQ-8b9" secondAttribute="top" constant="16" id="uLP-L8-m0U"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="cardBackgroundColor">
+                                <color key="value" name="background"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.20000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="9Sx-mQ-8b9" secondAttribute="bottom" constant="16" id="1Ev-S8-O7t"/>
+                    <constraint firstAttribute="trailing" secondItem="9Sx-mQ-8b9" secondAttribute="trailing" constant="16" id="JSx-OV-bRQ"/>
+                    <constraint firstItem="9Sx-mQ-8b9" firstAttribute="leading" secondItem="0k0-HB-gQE" secondAttribute="leading" constant="16" id="UwH-rV-Ed1"/>
+                    <constraint firstItem="9Sx-mQ-8b9" firstAttribute="top" secondItem="0k0-HB-gQE" secondAttribute="top" constant="2" id="xwf-jN-ype"/>
+                </constraints>
+            </tableViewCellContentView>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="cardView" destination="9Sx-mQ-8b9" id="Bl3-Nt-rYe"/>
+                <outlet property="timeLabel" destination="2o0-7m-xGu" id="jMh-Wm-Rny"/>
+                <outlet property="titleLabel" destination="8vo-cJ-Ml8" id="0Em-3N-LxD"/>
+                <outlet property="valueLabel" destination="De3-9z-YK4" id="CqD-wW-lzC"/>
+            </connections>
+            <point key="canvasLocation" x="492.75362318840581" y="-88.727678571428569"/>
+        </tableViewCell>
     </objects>
+    <designables>
+        <designable name="2o0-7m-xGu">
+            <size key="intrinsicContentSize" width="28.5" height="13.5"/>
+        </designable>
+        <designable name="8vo-cJ-Ml8">
+            <size key="intrinsicContentSize" width="35.5" height="17"/>
+        </designable>
+        <designable name="De3-9z-YK4">
+            <size key="intrinsicContentSize" width="33" height="16"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="background">
+            <color red="0.9882352941176471" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

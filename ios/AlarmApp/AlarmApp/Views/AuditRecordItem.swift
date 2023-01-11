@@ -20,11 +20,12 @@ import UIKit
 class AuditRecordItem: UITableViewCell {
     static var identifier = String(describing: AuditRecordItem.self)
 
+    static var nib: UINib {
+        UINib(nibName: identifier, bundle: nil)
+    }
+
     static func register(for tableView: UITableView) {
-        tableView.register(
-            UINib(nibName: AuditRecordItem.identifier, bundle: nil),
-            forCellReuseIdentifier: AuditRecordItem.identifier
-        )
+        tableView.register(nib, forCellReuseIdentifier: identifier)
     }
 
     @IBOutlet var valueLabel: MaterialLabel!
@@ -66,21 +67,6 @@ class AuditRecordItem: UITableViewCell {
 
             self.valueLabel.attributedText = text
             if let timestamp = a.creationTime {
-                self.timeLabel.text = CumulocityHelper.toReadableDate(timestamp)
-            }
-        }
-    }
-
-    func bind(with comment: C8yComment?) {
-        if let a = comment {
-            let text = NSMutableAttributedString()
-            let authorText = NSMutableAttributedString(string: "@\(a.user ?? "") ", attributes: boldAttributes())
-            text.append(authorText)
-            let titleText = NSMutableAttributedString(string: comment?.text ?? "", attributes: defaultAttributes())
-            text.append(titleText)
-
-            self.valueLabel.attributedText = text
-            if let timestamp = a.time {
                 self.timeLabel.text = CumulocityHelper.toReadableDate(timestamp)
             }
         }

@@ -25,7 +25,7 @@
                         <constraint firstAttribute="width" constant="64" id="ku3-Gi-mDv"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write a comment and start collaborating." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEe-2M-hag" userLabel="titleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%alarm_details_comments_empty_description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEe-2M-hag" userLabel="titleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                     <rect key="frame" x="16" y="144" width="382" height="14.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                     <color key="textColor" name="onBackground"/>
@@ -44,6 +44,11 @@
             <point key="canvasLocation" x="139" y="80"/>
         </view>
     </objects>
+    <designables>
+        <designable name="hEe-2M-hag">
+            <size key="intrinsicContentSize" width="263.5" height="14.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
         <namedColor name="background">

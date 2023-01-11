@@ -5,12 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "ic_acknowledge@2x.png",
+      "filename" : "dlt-c8y-icon-alarm-active_24x24@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic_acknowledge@3x.png",
+      "filename" : "dlt-c8y-icon-alarm-active_24x24@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -37,8 +37,17 @@ class AlarmFilterViewController: UIViewController {
         self.deviceNameTextfield.text = self.filter.deviceName
         self.alarmTypeTextfield.text = self.filter.alarmType
         M3Theme.applyTheme(view: self.severityFilter)
-        M3Theme.applyTheme(view: self.statusFilter)
+        self.severityFilter.setTitle(%"alarm_severity_critical", forSegmentAt: 0)
+        self.severityFilter.setTitle(%"alarm_severity_major", forSegmentAt: 1)
+        self.severityFilter.setTitle(%"alarm_severity_minor", forSegmentAt: 2)
+        self.severityFilter.setTitle(%"alarm_severity_warning", forSegmentAt: 3)
+        self.severityFilter.setTitle(%"alarm_severity_all", forSegmentAt: 4)
         self.severityFilter.bind(with: self.filter.severity)
+        M3Theme.applyTheme(view: self.statusFilter)
+        self.statusFilter.setTitle(%"alarm_status_active", forSegmentAt: 0)
+        self.statusFilter.setTitle(%"alarm_status_acknowledged", forSegmentAt: 1)
+        self.statusFilter.setTitle(%"alarm_status_cleared", forSegmentAt: 2)
+        self.statusFilter.setTitle(%"alarm_status_all", forSegmentAt: 3)
         self.statusFilter.bind(with: self.filter.status)
     }
 

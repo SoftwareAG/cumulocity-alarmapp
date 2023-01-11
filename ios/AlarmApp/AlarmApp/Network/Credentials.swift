@@ -18,7 +18,7 @@ import Foundation
 import Strongbox
 
 class Credentials {
-    private enum Keys: String {
+    fileprivate enum Keys: String {
         case userName
         case userId
         case tenant
@@ -42,6 +42,12 @@ class Credentials {
         self.userId = userId
         self.password = password
         self.tenant = tenant
+    }
+
+    static func defaults() -> PartialCredentials {
+        let userName = UserDefaults.standard.string(forKey: Keys.userName.rawValue)
+        let tenant = UserDefaults.standard.string(forKey: Keys.tenant.rawValue)
+        return PartialCredentials(userName: userName, tenant: tenant)
     }
 
     static func load() -> Credentials? {
@@ -73,14 +79,26 @@ class Credentials {
     }
 
     func remove() {
-        UserDefaults.standard.removeObject(forKey: Keys.userName.rawValue)
-        UserDefaults.standard.removeObject(forKey: Keys.tenant.rawValue)
-        UserDefaults.standard.removeObject(forKey: Keys.userId.rawValue)
+        // we do not remove user name/id + tenant because we want to ease re-logins
+        // UserDefaults.standard.removeObject(forKey: Keys.userName.rawValue)
+        // UserDefaults.standard.removeObject(forKey: Keys.tenant.rawValue)
+        // UserDefaults.standard.removeObject(forKey: Keys.userId.rawValue)
         _ = Strongbox().remove(key: Self.serviceName)
     }
 
     func isValid() -> Bool {
         let isValid = !(self.userName.isEmpty && self.tenant.isEmpty && self.password.isEmpty)
         return isValid
+    }
+}
+
+class PartialCredentials {
+    let userName: String
+    let tenant: String
+
+    init(userName: String?, tenant: String?) {
+        let configuration = Bundle.main.cumulocityConfiguration()
+        self.userName = userName ?? configuration?["Username"] as? String ?? ""
+        self.tenant = tenant ?? configuration?["Tenant"] as? String ?? ""
     }
 }

@@ -1,3 +1,4 @@
+//
 //  Copyright (c) 2022 Software AG, Darmstadt, Germany and/or its licensors
 //
 //  SPDX-License-Identifier: Apache-2.0
@@ -18,6 +19,28 @@ import CumulocityCoreLibrary
 import UIKit
 
 extension C8yAlarm.C8yStatus {
+    func localised() -> String {
+        switch self {
+        case .acknowledged:
+            return %"alarm_status_acknowledged"
+        case .cleared:
+            return %"alarm_status_cleared"
+        default:
+            return %"alarm_status_active"
+        }
+    }
+
+    func verb() -> String? {
+        switch self {
+        case .acknowledged:
+            return %"alarm_status_acknowledged_verb"
+        case .cleared:
+            return %"alarm_status_cleared_verb"
+        default:
+            return %"alarm_status_active_verb"
+        }
+    }
+
     func icon() -> UIImage? {
         switch self {
         case .acknowledged:
@@ -43,31 +66,31 @@ extension C8yAlarm.C8yStatus {
             return .primary
         }
     }
-
-    func name() -> String? {
-        switch self {
-        case .acknowledged:
-            return "Acknowledge"
-
-        case .cleared:
-            return "Clear"
-
-        default:
-            return "Active"
-        }
-    }
 }
 
 extension C8yAlarm.C8ySeverity {
+    func localised() -> String {
+        switch self {
+        case .critical:
+            return %"alarm_severity_critical"
+        case .major:
+            return %"alarm_severity_major"
+        case .minor:
+            return %"alarm_severity_minor"
+        default:
+            return %"alarm_severity_warning"
+        }
+    }
+
     func icon() -> UIImage? {
-        switch self.rawValue {
-        case C8yAlarm.C8ySeverity.major.rawValue:
+        switch self {
+        case .major:
             return UIImage(named: "ic_alarm_major")
 
-        case C8yAlarm.C8ySeverity.minor.rawValue:
+        case .minor:
             return UIImage(named: "ic_alarm_minor")
 
-        case C8yAlarm.C8ySeverity.warning.rawValue:
+        case .warning:
             return UIImage(named: "ic_alarm_warning")
 
         default:
@@ -76,14 +99,14 @@ extension C8yAlarm.C8ySeverity {
     }
 
     func tint() -> UIColor? {
-        switch self.rawValue {
-        case C8yAlarm.C8ySeverity.major.rawValue:
+        switch self {
+        case .major:
             return UIColor(named: "color_major") ?? .black
 
-        case C8yAlarm.C8ySeverity.minor.rawValue:
+        case .minor:
             return UIColor(named: "color_minor") ?? .black
 
-        case C8yAlarm.C8ySeverity.warning.rawValue:
+        case .warning:
             return UIColor(named: "color_warning") ?? .black
 
         default:

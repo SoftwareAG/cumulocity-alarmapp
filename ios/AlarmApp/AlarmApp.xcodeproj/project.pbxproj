@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3008B03A295F176200A05731 /* UITableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008B039295F176200A05731 /* UITableViewHeaderFooterView.swift */; };
+		3008B03D295F1B6200A05731 /* JVFloatLabeledTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 3008B03C295F1B6200A05731 /* JVFloatLabeledTextField */; };
+		3008B03F2961C22000A05731 /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008B03E2961C22000A05731 /* NewCommentViewController.swift */; };
+		3008B041296204A800A05731 /* CommentItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3008B040296204A800A05731 /* CommentItem.xib */; };
+		3008B04429681CD500A05731 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3008B04629681CD500A05731 /* Localizable.strings */; };
+		3008B049296825B300A05731 /* Localizeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008B048296825B300A05731 /* Localizeable.swift */; };
+		3008B04B296C17FA00A05731 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008B04A296C17FA00A05731 /* MaterialButton.swift */; };
+		3008B04D296C1A4800A05731 /* C8yAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008B04C296C1A4800A05731 /* C8yAlarm.swift */; };
+		3008B04F296C245500A05731 /* MaterialTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008B04E296C245500A05731 /* MaterialTextfield.swift */; };
 		300B2B5B27C9103B0051CDBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B2B5A27C9103B0051CDBC /* AppDelegate.swift */; };
 		300B2B5D27C9103B0051CDBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B2B5C27C9103B0051CDBC /* SceneDelegate.swift */; };
 		300B2B5F27C9103C0051CDBC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B2B5E27C9103C0051CDBC /* DashboardViewController.swift */; };
@@ -17,6 +26,10 @@
 		303B1D1727FB0EA1006D079B /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303B1D1627FB0EA1006D079B /* Bundle.swift */; };
 		3044433D294B81D500FE40D1 /* DecoratedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044433C294B81D500FE40D1 /* DecoratedLabel.swift */; };
 		3044433F294B81E900FE40D1 /* DecoratedLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3044433E294B81E900FE40D1 /* DecoratedLabel.xib */; };
+		304443412950896A00FE40D1 /* AlarmFilterTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304443402950896A00FE40D1 /* AlarmFilterTableHeader.swift */; };
+		3044434329508D8500FE40D1 /* FilterChip.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3044434229508D8500FE40D1 /* FilterChip.xib */; };
+		3044434529508D9000FE40D1 /* FilterChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044434429508D9000FE40D1 /* FilterChip.swift */; };
+		30444349295236FE00FE40D1 /* AlarmFilterTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30444348295236FE00FE40D1 /* AlarmFilterTableHeader.xib */; };
 		3056B74727CD819B00ED443B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3056B74627CD819B00ED443B /* UIView.swift */; };
 		3056B74A27CD847E00ED443B /* DeviceAlarmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3056B74927CD847E00ED443B /* DeviceAlarmsViewController.swift */; };
 		3056B76B27CE604F00ED443B /* CumulocityApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3056B76A27CE604F00ED443B /* CumulocityApi.swift */; };
@@ -48,23 +61,18 @@
 		30CFCAE627CFF32A0061BF71 /* AuditRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFCAE427CFF32A0061BF71 /* AuditRecordItem.swift */; };
 		30CFCAE727CFF32A0061BF71 /* AuditRecordItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30CFCAE527CFF32A0061BF71 /* AuditRecordItem.xib */; };
 		30D2001329422B410086A126 /* AlarmSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2001229422B410086A126 /* AlarmSummaryViewController.swift */; };
-		30D2001529434B1D0086A126 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2001429434B1D0086A126 /* UIButton.swift */; };
 		30D2001729435B870086A126 /* EmptyCommentsItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D2001629435B870086A126 /* EmptyCommentsItem.xib */; };
 		30D2001929435BA10086A126 /* EmptyCommentsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2001829435BA10086A126 /* EmptyCommentsItem.swift */; };
 		30D2001D29452F6F0086A126 /* Strongbox in Frameworks */ = {isa = PBXBuildFile; productRef = 30D2001C29452F6F0086A126 /* Strongbox */; };
 		30E1D0D627E3E2BB00FCB4DA /* RegistrationsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E1D0D127E3E2BB00FCB4DA /* RegistrationsApi.swift */; };
 		30E1D0F327E50E9E00FCB4DA /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E1D0F227E50E9E00FCB4DA /* UITableView.swift */; };
 		30E1D0F627E8ED0E00FCB4DA /* C8yComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E1D0F527E8ED0E00FCB4DA /* C8yComment.swift */; };
-		30E1D0F827E91E9500FCB4DA /* CommentItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D0F727E91E9400FCB4DA /* CommentItem.xib */; };
 		30E1D0FA27E91EA900FCB4DA /* CommentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E1D0F927E91EA900FCB4DA /* CommentItem.swift */; };
 		30E1D0FC27E9F23F00FCB4DA /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E1D0FB27E9F23F00FCB4DA /* CommentListViewController.swift */; };
 		30EEC1F6287DC6CE00351C66 /* DeviceRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EEC1F5287DC6CE00351C66 /* DeviceRegistration.swift */; };
 		30F6C36327D6B89300884CE8 /* SeparatorItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F6C36227D6B89300884CE8 /* SeparatorItem.xib */; };
 		30F6C36627D6B8AD00884CE8 /* SeparatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F6C36527D6B8AD00884CE8 /* SeparatorItem.swift */; };
 		30F6C36A27D8088800884CE8 /* AlarmFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F6C36927D8088800884CE8 /* AlarmFilterViewController.swift */; };
-		30F6C36E27D8DC4000884CE8 /* AlarmResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F6C36D27D8DC4000884CE8 /* AlarmResources.swift */; };
-		30F6C37227D942AA00884CE8 /* AlarmImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F6C37027D942AA00884CE8 /* AlarmImage.swift */; };
-		30F6C37827D943A600884CE8 /* AlarmImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F6C37727D943A600884CE8 /* AlarmImage.xib */; };
 		30FBB9A427CCEEEC008302D0 /* CumulocityCoreLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 30FBB9A327CCEEEC008302D0 /* CumulocityCoreLibrary */; };
 		30FBB9A727CD2060008302D0 /* SubscribedAlarmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FBB9A627CD2060008302D0 /* SubscribedAlarmsViewController.swift */; };
 		30FBB9B727CD34A8008302D0 /* AlarmDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FBB9B627CD34A8008302D0 /* AlarmDetailsViewController.swift */; };
@@ -74,10 +82,17 @@
 		30FD5B0F27F1ADD300F61F3F /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD5B0E27F1ADD300F61F3F /* Credentials.swift */; };
 		30FD5B1127F1C1C500F61F3F /* PushNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD5B1027F1C1C500F61F3F /* PushNotificationCenter.swift */; };
 		30FD5B1427F1CABA00F61F3F /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30FD5B1327F1CABA00F61F3F /* IQKeyboardManagerSwift */; };
-		30FD5B1A27F1CCC200F61F3F /* JVFloatLabeledTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 30FD5B1927F1CCC200F61F3F /* JVFloatLabeledTextField */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3008B039295F176200A05731 /* UITableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		3008B03E2961C22000A05731 /* NewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentViewController.swift; sourceTree = "<group>"; };
+		3008B040296204A800A05731 /* CommentItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentItem.xib; sourceTree = "<group>"; };
+		3008B04529681CD500A05731 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3008B048296825B300A05731 /* Localizeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizeable.swift; sourceTree = "<group>"; };
+		3008B04A296C17FA00A05731 /* MaterialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
+		3008B04C296C1A4800A05731 /* C8yAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8yAlarm.swift; sourceTree = "<group>"; };
+		3008B04E296C245500A05731 /* MaterialTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTextfield.swift; sourceTree = "<group>"; };
 		300B2B5727C9103B0051CDBC /* AlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		300B2B5A27C9103B0051CDBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		300B2B5C27C9103B0051CDBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +105,10 @@
 		303B1D1627FB0EA1006D079B /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		3044433C294B81D500FE40D1 /* DecoratedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoratedLabel.swift; sourceTree = "<group>"; };
 		3044433E294B81E900FE40D1 /* DecoratedLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DecoratedLabel.xib; sourceTree = "<group>"; };
+		304443402950896A00FE40D1 /* AlarmFilterTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmFilterTableHeader.swift; sourceTree = "<group>"; };
+		3044434229508D8500FE40D1 /* FilterChip.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterChip.xib; sourceTree = "<group>"; };
+		3044434429508D9000FE40D1 /* FilterChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChip.swift; sourceTree = "<group>"; };
+		30444348295236FE00FE40D1 /* AlarmFilterTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmFilterTableHeader.xib; sourceTree = "<group>"; };
 		3056B74627CD819B00ED443B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3056B74927CD847E00ED443B /* DeviceAlarmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAlarmsViewController.swift; sourceTree = "<group>"; };
 		3056B76A27CE604F00ED443B /* CumulocityApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CumulocityApi.swift; sourceTree = "<group>"; };
@@ -122,22 +141,17 @@
 		30CFCAE427CFF32A0061BF71 /* AuditRecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditRecordItem.swift; sourceTree = "<group>"; };
 		30CFCAE527CFF32A0061BF71 /* AuditRecordItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuditRecordItem.xib; sourceTree = "<group>"; };
 		30D2001229422B410086A126 /* AlarmSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSummaryViewController.swift; sourceTree = "<group>"; };
-		30D2001429434B1D0086A126 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		30D2001629435B870086A126 /* EmptyCommentsItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCommentsItem.xib; sourceTree = "<group>"; };
 		30D2001829435BA10086A126 /* EmptyCommentsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCommentsItem.swift; sourceTree = "<group>"; };
 		30E1D0D127E3E2BB00FCB4DA /* RegistrationsApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationsApi.swift; sourceTree = "<group>"; };
 		30E1D0F227E50E9E00FCB4DA /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		30E1D0F527E8ED0E00FCB4DA /* C8yComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8yComment.swift; sourceTree = "<group>"; };
-		30E1D0F727E91E9400FCB4DA /* CommentItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentItem.xib; sourceTree = "<group>"; };
 		30E1D0F927E91EA900FCB4DA /* CommentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentItem.swift; sourceTree = "<group>"; };
 		30E1D0FB27E9F23F00FCB4DA /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		30EEC1F5287DC6CE00351C66 /* DeviceRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRegistration.swift; sourceTree = "<group>"; };
 		30F6C36227D6B89300884CE8 /* SeparatorItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorItem.xib; sourceTree = "<group>"; };
 		30F6C36527D6B8AD00884CE8 /* SeparatorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorItem.swift; sourceTree = "<group>"; };
 		30F6C36927D8088800884CE8 /* AlarmFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmFilterViewController.swift; sourceTree = "<group>"; };
-		30F6C36D27D8DC4000884CE8 /* AlarmResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmResources.swift; sourceTree = "<group>"; };
-		30F6C37027D942AA00884CE8 /* AlarmImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmImage.swift; sourceTree = "<group>"; };
-		30F6C37727D943A600884CE8 /* AlarmImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmImage.xib; sourceTree = "<group>"; };
 		30FBB9A627CD2060008302D0 /* SubscribedAlarmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedAlarmsViewController.swift; sourceTree = "<group>"; };
 		30FBB9B627CD34A8008302D0 /* AlarmDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailsViewController.swift; sourceTree = "<group>"; };
 		30FBB9BB27CD37D5008302D0 /* DeviceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailsViewController.swift; sourceTree = "<group>"; };
@@ -155,15 +169,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				30FBB9A427CCEEEC008302D0 /* CumulocityCoreLibrary in Frameworks */,
-				30FD5B1A27F1CCC200F61F3F /* JVFloatLabeledTextField in Frameworks */,
 				30FD5B1427F1CABA00F61F3F /* IQKeyboardManagerSwift in Frameworks */,
 				30D2001D29452F6F0086A126 /* Strongbox in Frameworks */,
+				3008B03D295F1B6200A05731 /* JVFloatLabeledTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3008B03B295F1B6200A05731 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		300B2B4E27C9103B0051CDBC = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +192,7 @@
 				F1C918202943010A0020DFCE /* .swift-format */,
 				300B2B5927C9103B0051CDBC /* AlarmApp */,
 				300B2B5827C9103B0051CDBC /* Products */,
+				3008B03B295F1B6200A05731 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,6 +225,8 @@
 				300B2B5A27C9103B0051CDBC /* AppDelegate.swift */,
 				30C43B0427D13AC1009EA909 /* CumulocityHelper.swift */,
 				300B2B5C27C9103B0051CDBC /* SceneDelegate.swift */,
+				3008B048296825B300A05731 /* Localizeable.swift */,
+				3008B04629681CD500A05731 /* Localizable.strings */,
 			);
 			path = AlarmApp;
 			sourceTree = "<group>";
@@ -220,6 +244,7 @@
 				3056B74927CD847E00ED443B /* DeviceAlarmsViewController.swift */,
 				30FBB9BB27CD37D5008302D0 /* DeviceDetailsViewController.swift */,
 				3086A4A427ECA0420084C1C4 /* LoginViewController.swift */,
+				3008B03E2961C22000A05731 /* NewCommentViewController.swift */,
 				3086A4A627ECAE030084C1C4 /* SplashViewController.swift */,
 				30C660552886AE8C00A7AA39 /* SubscribedAlarmFilterViewController.swift */,
 				30FBB9A627CD2060008302D0 /* SubscribedAlarmsViewController.swift */,
@@ -239,7 +264,6 @@
 		3056B77A27CE896F00ED443B /* Material */ = {
 			isa = PBXGroup;
 			children = (
-				30F6C36D27D8DC4000884CE8 /* AlarmResources.swift */,
 				307E040527CF8A92009E5901 /* Colors.swift */,
 				309A860827DF657300F69ED0 /* Typography.swift */,
 				309A860C27DF65BE00F69ED0 /* M3Theme.swift */,
@@ -251,12 +275,13 @@
 			isa = PBXGroup;
 			children = (
 				303B1D1627FB0EA1006D079B /* Bundle.swift */,
-				30D2001429434B1D0086A126 /* UIButton.swift */,
+				3008B04C296C1A4800A05731 /* C8yAlarm.swift */,
 				30C660572887F69100A7AA39 /* UISegmentedControl.swift */,
 				3026475A27EE6A070014C8C8 /* UIStoryboard.swift */,
 				30CFCADA27CFB0FE0061BF71 /* UIStoryboardSegue.swift */,
 				30E1D0F227E50E9E00FCB4DA /* UITableView.swift */,
 				30C660592887F97400A7AA39 /* UITableViewController.swift */,
+				3008B039295F176200A05731 /* UITableViewHeaderFooterView.swift */,
 				3056B74627CD819B00ED443B /* UIView.swift */,
 				3086A4A227EC85320084C1C4 /* UIViewController.swift */,
 			);
@@ -266,8 +291,10 @@
 		309A860B27DF659F00F69ED0 /* MaterialUI */ = {
 			isa = PBXGroup;
 			children = (
+				3008B04A296C17FA00A05731 /* MaterialButton.swift */,
 				30C43B0B27D23ED8009EA909 /* MaterialCardView.swift */,
 				3056B77B27CE899000ED443B /* MaterialLabel.swift */,
+				3008B04E296C245500A05731 /* MaterialTextfield.swift */,
 			);
 			path = MaterialUI;
 			sourceTree = "<group>";
@@ -321,14 +348,14 @@
 			children = (
 				30C43AFA27D0C9D8009EA909 /* AlarmCountItem.swift */,
 				30C43AFB27D0C9D8009EA909 /* AlarmCountItem.xib */,
-				30F6C37027D942AA00884CE8 /* AlarmImage.swift */,
-				30F6C37727D943A600884CE8 /* AlarmImage.xib */,
+				304443402950896A00FE40D1 /* AlarmFilterTableHeader.swift */,
+				30444348295236FE00FE40D1 /* AlarmFilterTableHeader.xib */,
 				3056B77427CE696B00ED443B /* AlarmListItem.swift */,
 				3056B77527CE696B00ED443B /* AlarmListItem.xib */,
 				30CFCAE427CFF32A0061BF71 /* AuditRecordItem.swift */,
 				30CFCAE527CFF32A0061BF71 /* AuditRecordItem.xib */,
 				30E1D0F927E91EA900FCB4DA /* CommentItem.swift */,
-				30E1D0F727E91E9400FCB4DA /* CommentItem.xib */,
+				3008B040296204A800A05731 /* CommentItem.xib */,
 				3044433C294B81D500FE40D1 /* DecoratedLabel.swift */,
 				3044433E294B81E900FE40D1 /* DecoratedLabel.xib */,
 				30FBB9C627CD4151008302D0 /* DetailsItem.swift */,
@@ -337,6 +364,8 @@
 				309A861127DF814500F69ED0 /* EmptyAlarmsItem.xib */,
 				30D2001829435BA10086A126 /* EmptyCommentsItem.swift */,
 				30D2001629435B870086A126 /* EmptyCommentsItem.xib */,
+				3044434429508D9000FE40D1 /* FilterChip.swift */,
+				3044434229508D8500FE40D1 /* FilterChip.xib */,
 				30C43B2E27D626D7009EA909 /* ListViewHeaderItem.swift */,
 				30F6C36527D6B8AD00884CE8 /* SeparatorItem.swift */,
 				30F6C36227D6B89300884CE8 /* SeparatorItem.xib */,
@@ -371,8 +400,8 @@
 			packageProductDependencies = (
 				30FBB9A327CCEEEC008302D0 /* CumulocityCoreLibrary */,
 				30FD5B1327F1CABA00F61F3F /* IQKeyboardManagerSwift */,
-				30FD5B1927F1CCC200F61F3F /* JVFloatLabeledTextField */,
 				30D2001C29452F6F0086A126 /* Strongbox */,
+				3008B03C295F1B6200A05731 /* JVFloatLabeledTextField */,
 			);
 			productName = AlarmApp;
 			productReference = 300B2B5727C9103B0051CDBC /* AlarmApp.app */;
@@ -428,12 +457,14 @@
 				30FBB9CA27CD417F008302D0 /* DetailsItem.xib in Resources */,
 				3056B77727CE696B00ED443B /* AlarmListItem.xib in Resources */,
 				300B2B6427C910470051CDBC /* Assets.xcassets in Resources */,
-				30E1D0F827E91E9500FCB4DA /* CommentItem.xib in Resources */,
+				3044434329508D8500FE40D1 /* FilterChip.xib in Resources */,
 				3044433F294B81E900FE40D1 /* DecoratedLabel.xib in Resources */,
 				300B2B6227C9103C0051CDBC /* Main.storyboard in Resources */,
 				309A861227DF814500F69ED0 /* EmptyAlarmsItem.xib in Resources */,
 				30D2001729435B870086A126 /* EmptyCommentsItem.xib in Resources */,
-				30F6C37827D943A600884CE8 /* AlarmImage.xib in Resources */,
+				3008B04429681CD500A05731 /* Localizable.strings in Resources */,
+				3008B041296204A800A05731 /* CommentItem.xib in Resources */,
+				30444349295236FE00FE40D1 /* AlarmFilterTableHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,12 +496,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3008B04D296C1A4800A05731 /* C8yAlarm.swift in Sources */,
 				3026475B27EE6A070014C8C8 /* UIStoryboard.swift in Sources */,
 				303B1D1727FB0EA1006D079B /* Bundle.swift in Sources */,
 				3086A4A527ECA0420084C1C4 /* LoginViewController.swift in Sources */,
 				30FBB9C727CD4151008302D0 /* DetailsItem.swift in Sources */,
 				300B2B5F27C9103C0051CDBC /* DashboardViewController.swift in Sources */,
-				30D2001529434B1D0086A126 /* UIButton.swift in Sources */,
 				30FBB9B727CD34A8008302D0 /* AlarmDetailsViewController.swift in Sources */,
 				300B2B5B27C9103B0051CDBC /* AppDelegate.swift in Sources */,
 				30FD5B1127F1C1C500F61F3F /* PushNotificationCenter.swift in Sources */,
@@ -488,7 +519,6 @@
 				3086A4A327EC85320084C1C4 /* UIViewController.swift in Sources */,
 				30C660522886A5DF00A7AA39 /* AlarmFilter.swift in Sources */,
 				30FBB9A727CD2060008302D0 /* SubscribedAlarmsViewController.swift in Sources */,
-				30F6C37227D942AA00884CE8 /* AlarmImage.swift in Sources */,
 				30E1D0F327E50E9E00FCB4DA /* UITableView.swift in Sources */,
 				309A860D27DF65BE00F69ED0 /* M3Theme.swift in Sources */,
 				309A860227D96B0F00F69ED0 /* C8yFragments.swift in Sources */,
@@ -496,7 +526,9 @@
 				307E040627CF8A92009E5901 /* Colors.swift in Sources */,
 				30C6605A2887F97400A7AA39 /* UITableViewController.swift in Sources */,
 				30EEC1F6287DC6CE00351C66 /* DeviceRegistration.swift in Sources */,
+				3008B04F296C245500A05731 /* MaterialTextfield.swift in Sources */,
 				30F6C36627D6B8AD00884CE8 /* SeparatorItem.swift in Sources */,
+				3008B04B296C17FA00A05731 /* MaterialButton.swift in Sources */,
 				3056B77C27CE899000ED443B /* MaterialLabel.swift in Sources */,
 				30C660582887F69100A7AA39 /* UISegmentedControl.swift in Sources */,
 				3056B77627CE696B00ED443B /* AlarmListItem.swift in Sources */,
@@ -504,16 +536,20 @@
 				30CFCAE627CFF32A0061BF71 /* AuditRecordItem.swift in Sources */,
 				309A860927DF657300F69ED0 /* Typography.swift in Sources */,
 				3056B74727CD819B00ED443B /* UIView.swift in Sources */,
+				304443412950896A00FE40D1 /* AlarmFilterTableHeader.swift in Sources */,
 				30C660562886AE8C00A7AA39 /* SubscribedAlarmFilterViewController.swift in Sources */,
+				3044434529508D9000FE40D1 /* FilterChip.swift in Sources */,
 				30C43B2F27D626D7009EA909 /* ListViewHeaderItem.swift in Sources */,
 				30E1D0FC27E9F23F00FCB4DA /* CommentListViewController.swift in Sources */,
+				3008B049296825B300A05731 /* Localizeable.swift in Sources */,
+				3008B03F2961C22000A05731 /* NewCommentViewController.swift in Sources */,
 				30E1D0D627E3E2BB00FCB4DA /* RegistrationsApi.swift in Sources */,
 				30C43B0127D12A5B009EA909 /* AlarmListViewController.swift in Sources */,
+				3008B03A295F176200A05731 /* UITableViewHeaderFooterView.swift in Sources */,
 				30C660542886A62600A7AA39 /* SubscribedAlarmFilter.swift in Sources */,
 				30C43AFC27D0C9D8009EA909 /* AlarmCountItem.swift in Sources */,
 				30C43B0C27D23ED8009EA909 /* MaterialCardView.swift in Sources */,
 				30D2001329422B410086A126 /* AlarmSummaryViewController.swift in Sources */,
-				30F6C36E27D8DC4000884CE8 /* AlarmResources.swift in Sources */,
 				30CFCADE27CFF0F30061BF71 /* AuditRecordsViewController.swift in Sources */,
 				30CFCADB27CFB0FE0061BF71 /* UIStoryboardSegue.swift in Sources */,
 			);
@@ -522,6 +558,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		3008B04629681CD500A05731 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3008B04529681CD500A05731 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		300B2B6027C9103C0051CDBC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -545,6 +589,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -606,6 +651,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -671,7 +717,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.softwareag.cumulocity.alarming;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -694,7 +740,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.softwareag.cumulocity.alarming;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -762,6 +808,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3008B03C295F1B6200A05731 /* JVFloatLabeledTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30FD5B1827F1CCC100F61F3F /* XCRemoteSwiftPackageReference "JVFloatLabeledTextField" */;
+			productName = JVFloatLabeledTextField;
+		};
 		30D2001C29452F6F0086A126 /* Strongbox */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 30D2001B29452F6F0086A126 /* XCRemoteSwiftPackageReference "Strongbox" */;
@@ -776,11 +827,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 30FD5B1227F1CABA00F61F3F /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
-		};
-		30FD5B1927F1CCC200F61F3F /* JVFloatLabeledTextField */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 30FD5B1827F1CCC100F61F3F /* XCRemoteSwiftPackageReference "JVFloatLabeledTextField" */;
-			productName = JVFloatLabeledTextField;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

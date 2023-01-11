@@ -31,6 +31,7 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = %"dashboard_title"
         fetchAlarmCount()
 
         // register for Push Notifications
@@ -43,7 +44,7 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
         self.moreItem.menu = UIMenu(
             title: "",
             children: [
-                UIAction(title: "Logout", image: nil) { _ in
+                UIAction(title: %"dashboard_action_logout", image: nil) { _ in
                     self.onLogoutTapped()
                 }
             ]
@@ -111,8 +112,8 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
         SubscribedAlarmFilter.shared.resolvedDeviceId = nil
         if let deviceName = SubscribedAlarmFilter.shared.deviceName {
             let managedObjectsApi = Cumulocity.Core.shared.inventory.managedObjectsApi
-            let filter = "$filter=(name eq '\(deviceName)')"
-            managedObjectsApi.getManagedObjects(query: filter)
+            let query = CumulocityHelper.queryBy(deviceName: deviceName)
+            managedObjectsApi.getManagedObjects(query: query)
                 .receive(on: DispatchQueue.main)
                 .sink(
                     receiveCompletion: { [self] completion in
@@ -143,6 +144,21 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
     // MARK: - Actions
 
     private func onLogoutTapped() {
+        let alert = UIAlertController(title: nil, message: %"dashboard_action_logout.message", preferredStyle: .alert)
+        alert.addAction(
+            UIAlertAction(title: %"dashboard_action_logout.confirm", style: .default) { _ in
+                self.doLogout()
+            }
+        )
+        alert.addAction(
+            UIAlertAction(title: %"dashboard_action_logout.cancel", style: .cancel) { _ in
+            }
+        )
+        self.present(alert, animated: true, completion: nil)
+        alert.view.tintColor = .primary
+    }
+
+    private func doLogout() {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         appDelegate?.unsubscribeOnTenant()
         Credentials.load()?.remove()

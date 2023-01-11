@@ -21,7 +21,7 @@ import UIKit
 class AlarmSummaryViewController: UIViewController {
     @IBOutlet var systemIdItem: DetailsItem!
     @IBOutlet var lastOccurrenceItem: DetailsItem!
-    @IBOutlet var triggeredAtItem: DetailsItem!
+    @IBOutlet var createdAtItem: DetailsItem!
     @IBOutlet var typeItem: DetailsItem!
     @IBOutlet weak var changelogButtonView: UIView!
     @IBOutlet weak var modifySeverityButton: UIButton!
@@ -56,8 +56,8 @@ class AlarmSummaryViewController: UIViewController {
                 if let lastOccurred = a.lastUpdated {
                     self.lastOccurrenceItem.valueLabel.text = CumulocityHelper.toReadableDate(lastOccurred)
                 }
-                if let triggeredAt = a.creationTime {
-                    self.triggeredAtItem.valueLabel.text = CumulocityHelper.toReadableDate(triggeredAt)
+                if let triggeredAt = a.time {
+                    self.createdAtItem.valueLabel.text = CumulocityHelper.toReadableDate(triggeredAt)
                 }
                 self.typeItem.valueLabel.text = a.type
 
@@ -83,7 +83,7 @@ class AlarmSummaryViewController: UIViewController {
 
     private func buildAction(for severity: C8yAlarm.C8ySeverity, current: C8yAlarm.C8ySeverity) -> UIAction {
         UIAction(
-            title: severity.rawValue.capitalized,
+            title: severity.localised(),
             image: severity.icon(),
             state: current == severity ? .on : .off
         ) { _ in
@@ -94,7 +94,7 @@ class AlarmSummaryViewController: UIViewController {
 
     private func buildAction(for status: C8yAlarm.C8yStatus, current: C8yAlarm.C8yStatus) -> UIAction {
         UIAction(
-            title: status.rawValue.capitalized,
+            title: status.localised(),
             image: status.icon(),
             state: current == status ? .on : .off
         ) { _ in

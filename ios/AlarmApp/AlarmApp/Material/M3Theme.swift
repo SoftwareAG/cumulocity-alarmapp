@@ -86,7 +86,10 @@ extension M3Theme {
 extension M3Theme {
     static func applyTheme(view: UISegmentedControl) {
         view.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.onPrimary], for: .selected)
+        view.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.onSurface], for: .normal)
         let theme = M3Theme()
-        view.backgroundColor = theme.elevationOverlayColor(elevation: 1)
+        // background color is overlayed with black color and 6% opacity, so we use a darker background ourselves
+        view.backgroundColor = theme.elevationOverlayColor(elevation: 5)
+        view.selectedSegmentTintColor = .primary
     }
 }

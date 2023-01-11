@@ -20,6 +20,22 @@ import Foundation
 class AlarmFilter {
     var severity: C8yAlarm.C8ySeverity?
     var status: C8yAlarm.C8yStatus? = .active
-    var deviceName: String?
-    var alarmType: String?
+    var deviceName: String? {
+        didSet {
+            if let value = self.deviceName {
+                if value.isEmpty {
+                    self.deviceName = nil
+                }
+            }
+        }
+    }
+    var alarmType: String? {
+        didSet {
+            if let value = self.alarmType {
+                if value.isEmpty {
+                    self.alarmType = nil
+                }
+            }
+        }
+    }
 }

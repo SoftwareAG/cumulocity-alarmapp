@@ -20,45 +20,40 @@ import UIKit
 class AlarmListItem: UITableViewCell {
     static var identifier = String(describing: AlarmListItem.self)
 
-    static func register(for tableView: UITableView) {
-        tableView.register(
-            UINib(nibName: AlarmListItem.identifier, bundle: nil),
-            forCellReuseIdentifier: AlarmListItem.identifier
-        )
+    static var nib: UINib {
+        UINib(nibName: identifier, bundle: nil)
     }
 
-    @IBOutlet weak var titleLabel: MaterialLabel!
-    @IBOutlet weak var timeLabel: MaterialLabel!
-    @IBOutlet weak var severityImage: DecoratedLabel!
-    @IBOutlet weak var commentImage: DecoratedLabel!
+    static func register(for tableView: UITableView) {
+        tableView.register(nib, forCellReuseIdentifier: identifier)
+    }
+
     @IBOutlet weak var deviceLabel: MaterialLabel!
-    @IBOutlet weak var statusImage: UIImageView!
+    @IBOutlet weak var messageLabel: MaterialLabel!
+    @IBOutlet weak var commentContainer: DecoratedLabel!
+    @IBOutlet weak var severityContainer: DecoratedLabel!
+    @IBOutlet weak var statusContainer: DecoratedLabel!
+    @IBOutlet weak var timeLabel: MaterialLabel!
 
     override func layoutSubviews() {
         super.layoutSubviews()
         self.selectedBackgroundView?.backgroundColor = UIColor.background.overlay(withColor: .primary, alpha: 0.12)
-        self.statusImage.tintColor = UIColor.background.overlay(withColor: .onBackground, alpha: UIColor.Opacity.low)
-        self.titleLabel.alpha = UIFont.TextEmphasis.full.rawValue
-        self.timeLabel.alpha = UIFont.TextEmphasis.medium.rawValue
+        self.messageLabel.alpha = UIFont.TextEmphasis.full.rawValue
         self.deviceLabel.alpha = UIFont.TextEmphasis.full.rawValue
+        self.timeLabel.alpha = UIFont.TextEmphasis.full.rawValue
     }
 
     func bind(with alarm: C8yAlarm?, ignoreDevice: Bool = false) {
-        if let a = alarm {
-            self.titleLabel.text = a.text
-            if let severity = a.severity {
-                self.severityImage.bind(with: severity)
-            }
-            if let status = a.status {
-                self.statusImage.image = status.icon()
-            }
-            self.statusImage.isHidden = a.status == .active
-            if let timestamp = a.time {
-                self.timeLabel.text = CumulocityHelper.toReadableDate(timestamp)
-            }
-            self.commentImage.bind(commentCount: (a[C8yComment.identifier] as? [Any])?.count)
-            self.deviceLabel.text = ignoreDevice ? "" : a.source?.name
+        if let alarm = alarm {
+            self.messageLabel.text = alarm.text
+            self.deviceLabel.text = ignoreDevice ? "" : alarm.source?.name
             self.deviceLabel.isHidden = ignoreDevice
+            self.statusContainer.bind(with: alarm.status)
+            self.severityContainer.bind(with: alarm.severity)
+            if let time = alarm.time {
+                self.timeLabel.text = CumulocityHelper.toReadableDate(time)
+            }
+            self.commentContainer.bind(commentCount: (alarm[C8yComment.identifier] as? [Any])?.count)
         }
     }
 }

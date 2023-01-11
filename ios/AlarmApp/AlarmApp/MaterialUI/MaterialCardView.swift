@@ -18,10 +18,11 @@ import UIKit
 
 @IBDesignable
 class MaterialCardView: UIView {
-    var shadowOffsetWidth: CGFloat = 0
-    var shadowOffsetHeight: CGFloat = 0
-    var shadowColor: UIColor = .onSurface
-    var shadowOpacity: CGFloat = 0.0
+    @IBInspectable var shadowOffsetWidth: CGFloat = 0
+    @IBInspectable var shadowOffsetHeight: CGFloat = 0
+    @IBInspectable var shadowRadius: CGFloat = 0
+    @IBInspectable var shadowColor: UIColor = .onSurface
+    @IBInspectable var shadowOpacity: CGFloat = 0.0
     @IBInspectable var cornerRedious: CGFloat = 12
     @IBInspectable var cardBackgroundColor: UIColor?
 
@@ -39,6 +40,7 @@ class MaterialCardView: UIView {
         layer.shadowColor = shadowColor.cgColor
         layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight)
         layer.shadowOpacity = Float(shadowOpacity)
+        layer.shadowRadius = shadowRadius
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
         let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRedious)

@@ -32,9 +32,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let configuration = Bundle.main.cumulocityConfiguration()
-        self.tenant = configuration?["Tenant"] as? String
-        self.userName = configuration?["Username"] as? String
+        let defaultCredentials = Credentials.defaults()
+        self.tenant = defaultCredentials.tenant
+        self.userName = defaultCredentials.userName
         self.tenantTextfield.text = self.tenant
         self.usernameTextfield.text = self.userName
         // configure passwort textfield to provide capability to show password
@@ -85,15 +85,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         usersApi.getCurrentUser()
             .receive(on: DispatchQueue.main)
             .sink(
-                receiveCompletion: { status in
+                receiveCompletion: { completion in
                     sender.configuration?.showsActivityIndicator = false
-                    switch status {
-                    case .failure:
+                    if (try? completion.error()) != nil {
                         credentials.remove()
-                        self.presentLoginError()
-
-                    case .finished:
-                        break
+                        self.presentAuthenticationError()
                     }
                 },
                 receiveValue: { value in
@@ -114,18 +110,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             .store(in: &self.cancellableSet)
     }
 
-    private func presentLoginError() {
+    private func presentAuthenticationError() {
         let alertController = UIAlertController(
-            title: "Something went wrong",
-            message: "Please verify your credentials and tenant name.",
+            title: %"login_authentication_error_title",
+            message: %"login_authentication_error_message",
             preferredStyle: UIAlertController.Style.alert
         )
         let alertAction = UIAlertAction(
-            title: "Understood",
+            title: %"login_error_action",
             style: UIAlertAction.Style.default,
             handler: nil
         )
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
+        alertController.view.tintColor = .primary
     }
 }

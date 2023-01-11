@@ -3,125 +3,122 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlarmListItem" rowHeight="86" id="KGk-i7-Jjw" customClass="AlarmListItem" customModule="AlarmApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="345" height="86"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="345" height="86"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" rowHeight="113" id="1gw-nb-Ecb" customClass="AlarmListItem" customModule="AlarmApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1gw-nb-Ecb" id="vCr-I8-Qsv">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVw-Qv-0aI" userLabel="deviceLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                        <rect key="frame" x="16" y="8" width="313" height="26.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x20-6b-dkC" userLabel="deviceLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                        <rect key="frame" x="16" y="8" width="382" height="17"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="onBackground"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5QC-6X-H2K" userLabel="titleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                        <rect key="frame" x="16" y="35.5" width="313" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" ambiguous="YES" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B1c-yI-w42" userLabel="textLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                        <rect key="frame" x="16" y="29" width="382" height="14.5"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="onBackground"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdB-ZI-3hD">
-                        <rect key="frame" x="16" y="58" width="313" height="20"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Frb-dZ-1N6">
+                        <rect key="frame" x="16" y="51.5" width="382" height="53.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4vH-ue-Zk0">
-                                <rect key="frame" x="0.0" y="0.0" width="156.5" height="20"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yec-8r-cZ6">
+                                <rect key="frame" x="0.0" y="0.0" width="382" height="53.5"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZjZ-Uw-8Gg" userLabel="severityImage" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="70.5" height="20"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7E-lQ-DJa" userLabel="statusContainer">
-                                        <rect key="frame" x="78.5" y="0.0" width="20" height="20"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_alarm_active" translatesAutoresizingMaskIntoConstraints="NO" id="I3W-8j-zE5" userLabel="statusImage">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="MwK-Os-4S6"/>
-                                                    <constraint firstAttribute="width" constant="20" id="nRj-xJ-ZuP"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6y-hY-F5G" userLabel="severityContainer" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="53.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="I3W-8j-zE5" firstAttribute="leading" secondItem="b7E-lQ-DJa" secondAttribute="leading" id="1LN-r5-CWK"/>
-                                            <constraint firstItem="I3W-8j-zE5" firstAttribute="top" secondItem="b7E-lQ-DJa" secondAttribute="top" id="KxT-Xe-Knl"/>
-                                            <constraint firstAttribute="trailing" secondItem="I3W-8j-zE5" secondAttribute="trailing" id="QL2-FX-VkL"/>
-                                            <constraint firstAttribute="bottom" secondItem="I3W-8j-zE5" secondAttribute="bottom" id="ruO-bi-UFl"/>
+                                            <constraint firstAttribute="width" constant="72" id="AbC-zk-Meb"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="3PQ-Vq-tBT" userLabel="commentImage" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="106.5" y="0.0" width="50" height="20"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRw-OI-gb7" userLabel="statusContainer" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="80" y="0.0" width="104" height="53.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="qDY-QM-met"/>
+                                            <constraint firstAttribute="width" constant="104" id="hM0-vP-aEe"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="539-tE-KAB" userLabel="commentContainer" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="192" y="0.0" width="153.5" height="53.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zjr-EM-Ayx" userLabel="timeLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="353.5" y="-0.5" width="28.5" height="53.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" name="onBackground"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-4G-jaW" userLabel="timeLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                                <rect key="frame" x="284.5" y="3.5" width="28.5" height="13.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <constraints>
+                                    <constraint firstItem="DRw-OI-gb7" firstAttribute="leading" secondItem="h6y-hY-F5G" secondAttribute="trailing" constant="8" id="0o2-7w-lZY"/>
+                                    <constraint firstItem="h6y-hY-F5G" firstAttribute="top" secondItem="Yec-8r-cZ6" secondAttribute="top" id="7eS-lp-j7z"/>
+                                    <constraint firstItem="539-tE-KAB" firstAttribute="leading" secondItem="DRw-OI-gb7" secondAttribute="trailing" constant="8" id="A6c-1G-V5I"/>
+                                    <constraint firstItem="zjr-EM-Ayx" firstAttribute="top" secondItem="Yec-8r-cZ6" secondAttribute="top" id="AuP-l9-qnQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="zjr-EM-Ayx" secondAttribute="trailing" id="F9C-H3-uZj"/>
+                                    <constraint firstAttribute="bottom" secondItem="DRw-OI-gb7" secondAttribute="bottom" id="Hsl-1i-bn9"/>
+                                    <constraint firstItem="DRw-OI-gb7" firstAttribute="top" secondItem="Yec-8r-cZ6" secondAttribute="top" id="IDE-TT-v2K"/>
+                                    <constraint firstItem="539-tE-KAB" firstAttribute="top" secondItem="Yec-8r-cZ6" secondAttribute="top" id="JA8-P0-Sz7"/>
+                                    <constraint firstAttribute="bottom" secondItem="h6y-hY-F5G" secondAttribute="bottom" id="Kf7-nC-N2g"/>
+                                    <constraint firstAttribute="bottom" secondItem="zjr-EM-Ayx" secondAttribute="bottom" id="TBk-mN-PUO"/>
+                                    <constraint firstItem="h6y-hY-F5G" firstAttribute="leading" secondItem="Yec-8r-cZ6" secondAttribute="leading" id="f9F-yo-qe7"/>
+                                    <constraint firstAttribute="bottom" secondItem="539-tE-KAB" secondAttribute="bottom" id="o60-rX-7C5"/>
+                                    <constraint firstItem="zjr-EM-Ayx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="539-tE-KAB" secondAttribute="trailing" constant="8" id="ruc-FI-9GF"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="4vH-ue-Zk0" firstAttribute="top" secondItem="TdB-ZI-3hD" secondAttribute="top" id="5Nm-F8-6KP"/>
-                            <constraint firstAttribute="bottom" secondItem="4vH-ue-Zk0" secondAttribute="bottom" id="BvW-7e-cla"/>
-                            <constraint firstAttribute="centerX" secondItem="4vH-ue-Zk0" secondAttribute="trailing" id="CdN-YG-We8"/>
-                            <constraint firstAttribute="trailing" secondItem="ceL-4G-jaW" secondAttribute="trailing" id="dqU-j5-0Kv"/>
-                            <constraint firstItem="ceL-4G-jaW" firstAttribute="centerY" secondItem="TdB-ZI-3hD" secondAttribute="centerY" id="kjh-nu-SS5"/>
-                            <constraint firstItem="4vH-ue-Zk0" firstAttribute="leading" secondItem="TdB-ZI-3hD" secondAttribute="leading" id="pL0-eL-nxB"/>
-                        </constraints>
-                    </view>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="TdB-ZI-3hD" firstAttribute="top" secondItem="5QC-6X-H2K" secondAttribute="bottom" constant="8" id="6ua-km-nRO"/>
-                    <constraint firstItem="tVw-Qv-0aI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="EC2-eH-eJ7"/>
-                    <constraint firstAttribute="trailing" secondItem="TdB-ZI-3hD" secondAttribute="trailing" constant="16" id="Hbb-Oi-pHu"/>
-                    <constraint firstItem="tVw-Qv-0aI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="TvG-XP-J7Q"/>
-                    <constraint firstAttribute="bottom" secondItem="TdB-ZI-3hD" secondAttribute="bottom" constant="8" id="cEM-iz-gLb"/>
-                    <constraint firstItem="TdB-ZI-3hD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ci7-Sn-alZ"/>
-                    <constraint firstItem="5QC-6X-H2K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="eIN-lX-AvO"/>
-                    <constraint firstAttribute="trailing" secondItem="5QC-6X-H2K" secondAttribute="trailing" constant="16" id="hs5-JY-CwH"/>
-                    <constraint firstAttribute="trailing" secondItem="tVw-Qv-0aI" secondAttribute="trailing" constant="16" id="t8X-YX-iRp"/>
-                    <constraint firstItem="5QC-6X-H2K" firstAttribute="top" secondItem="tVw-Qv-0aI" secondAttribute="bottom" constant="1" id="wOI-Dw-gEw"/>
+                    <constraint firstItem="x20-6b-dkC" firstAttribute="top" secondItem="vCr-I8-Qsv" secondAttribute="top" constant="8" id="LIX-9K-xxf"/>
+                    <constraint firstItem="Frb-dZ-1N6" firstAttribute="top" secondItem="B1c-yI-w42" secondAttribute="bottom" constant="8" id="LVp-6x-hpg"/>
+                    <constraint firstAttribute="trailing" secondItem="Frb-dZ-1N6" secondAttribute="trailing" constant="16" id="MGA-wa-D5T"/>
+                    <constraint firstItem="x20-6b-dkC" firstAttribute="leading" secondItem="vCr-I8-Qsv" secondAttribute="leading" constant="16" id="MTF-ee-f3T"/>
+                    <constraint firstItem="B1c-yI-w42" firstAttribute="leading" secondItem="x20-6b-dkC" secondAttribute="leading" id="ZG0-NA-lYc"/>
+                    <constraint firstItem="B1c-yI-w42" firstAttribute="top" secondItem="x20-6b-dkC" secondAttribute="bottom" constant="4" id="dfm-UP-xPi"/>
+                    <constraint firstAttribute="bottom" secondItem="Frb-dZ-1N6" secondAttribute="bottom" constant="8" id="eGj-db-SF4"/>
+                    <constraint firstItem="Frb-dZ-1N6" firstAttribute="leading" secondItem="x20-6b-dkC" secondAttribute="leading" id="f8I-gr-jRt"/>
+                    <constraint firstAttribute="trailing" secondItem="B1c-yI-w42" secondAttribute="trailing" constant="16" id="i5r-oH-c8W"/>
+                    <constraint firstAttribute="trailing" secondItem="x20-6b-dkC" secondAttribute="trailing" constant="16" id="jsw-IF-l6O"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <inset key="separatorInset" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
-                <outlet property="commentImage" destination="3PQ-Vq-tBT" id="4k8-VY-oht"/>
-                <outlet property="deviceLabel" destination="tVw-Qv-0aI" id="k4G-of-R7t"/>
-                <outlet property="severityImage" destination="ZjZ-Uw-8Gg" id="Z79-kx-22E"/>
-                <outlet property="statusImage" destination="I3W-8j-zE5" id="whu-RA-AnG"/>
-                <outlet property="timeLabel" destination="ceL-4G-jaW" id="Uod-BJ-FH5"/>
-                <outlet property="titleLabel" destination="5QC-6X-H2K" id="dP2-yQ-mwf"/>
+                <outlet property="commentContainer" destination="539-tE-KAB" id="UhM-9U-sEv"/>
+                <outlet property="deviceLabel" destination="x20-6b-dkC" id="BRW-3H-saC"/>
+                <outlet property="messageLabel" destination="B1c-yI-w42" id="NCy-70-KTO"/>
+                <outlet property="severityContainer" destination="h6y-hY-F5G" id="XEt-jS-4EH"/>
+                <outlet property="statusContainer" destination="DRw-OI-gb7" id="AQk-QY-PeW"/>
+                <outlet property="timeLabel" destination="zjr-EM-Ayx" id="K9g-5x-wfO"/>
             </connections>
-            <point key="canvasLocation" x="-331.15942028985512" y="70.3125"/>
+            <point key="canvasLocation" x="-542.02898550724638" y="73.995535714285708"/>
         </tableViewCell>
     </objects>
     <designables>
-        <designable name="5QC-6X-H2K">
-            <size key="intrinsicContentSize" width="31" height="14.5"/>
+        <designable name="B1c-yI-w42">
+            <size key="intrinsicContentSize" width="24" height="14.5"/>
         </designable>
-        <designable name="ceL-4G-jaW">
+        <designable name="x20-6b-dkC">
+            <size key="intrinsicContentSize" width="46" height="17"/>
+        </designable>
+        <designable name="zjr-EM-Ayx">
             <size key="intrinsicContentSize" width="28.5" height="13.5"/>
-        </designable>
-        <designable name="tVw-Qv-0aI">
-            <size key="intrinsicContentSize" width="37" height="17"/>
         </designable>
     </designables>
     <resources>
-        <image name="ic_alarm_active" width="24" height="24"/>
+        <namedColor name="onBackground">
+            <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

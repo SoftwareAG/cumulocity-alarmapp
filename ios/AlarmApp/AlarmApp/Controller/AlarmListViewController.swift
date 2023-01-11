@@ -26,8 +26,9 @@ class AlarmListViewController: UITableViewController, AlarmListReloadDelegate, E
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = %"alarms_title"
         UITableViewController.prepareForAlarms(with: self.tableView, delegate: self)
-        self.tableView.tableHeaderView = UIView()
+        AlarmFilterTableHeader.register(for: self.tableView)
 
         // Refresh control
         self.tableView.refreshControl = UIRefreshControl()
@@ -41,12 +42,21 @@ class AlarmListViewController: UITableViewController, AlarmListReloadDelegate, E
     }
 
     func fetchAlarms() {
+        // we want the table view header to resize correctly
+        self.tableView.reloadData()
         if let deviceName = filter.deviceName {
             let managedObjectsApi = Cumulocity.Core.shared.inventory.managedObjectsApi
-            managedObjectsApi.getManagedObjects(query: "$filter=(name eq '\(deviceName)')")
+            let query = CumulocityHelper.queryBy(deviceName: deviceName)
+            managedObjectsApi.getManagedObjects(query: query)
                 .receive(on: DispatchQueue.main)
                 .sink(
-                    receiveCompletion: { _ in
+                    receiveCompletion: { completion in
+                        let error = try? completion.error()
+                        if error != nil {
+                            self.data = C8yAlarmCollection()
+                            self.tableView.reloadData()
+                            self.tableView.endRefreshing()
+                        }
                     },
                     receiveValue: { collection in
                         if collection.managedObjects?.count ?? 0 > 0 {
@@ -102,11 +112,11 @@ class AlarmListViewController: UITableViewController, AlarmListReloadDelegate, E
         publisher?.receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { _ in
+                    self.tableView.reloadData()
+                    self.tableView.endRefreshing()
                 },
                 receiveValue: { collection in
                     self.data = collection
-                    self.tableView.reloadData()
-                    self.tableView.endRefreshing()
                 }
             )
             .store(in: &self.cancellableSet)
@@ -138,7 +148,7 @@ class AlarmListViewController: UITableViewController, AlarmListReloadDelegate, E
         for status in allAlarmStatus where status != alarm?.status {
             let action = UIContextualAction(
                 style: .destructive,
-                title: status.name()
+                title: status.verb()
             ) { [weak self] _, _, completionHandler in
                 self?.changeAlarmStatus(for: alarm, toStatus: status)
                 completionHandler(true)
@@ -190,6 +200,15 @@ class AlarmListViewController: UITableViewController, AlarmListReloadDelegate, E
         tableView.deselectRow(at: indexPath, animated: false)
         self.selectedAlarm = data.alarms?[indexPath.item]
         performSegue(withIdentifier: UIStoryboardSegue.toAlarmDetails, sender: self)
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: AlarmFilterTableHeader.identifier) as? AlarmFilterTableHeader else {
+            fatalError("Could not create AlarmFilterTableHeader")
+        }
+        headerView.alarmFilter = filter
+        headerView.setBackgroundConfiguration(with: .background)
+        return headerView
     }
 
     // MARK: - Navigation

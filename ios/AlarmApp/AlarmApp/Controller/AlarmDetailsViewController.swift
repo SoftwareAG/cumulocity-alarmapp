@@ -37,7 +37,10 @@ class AlarmDetailsViewController: UIViewController, AlarmUpdate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = %"alarm_details_title"
         M3Theme.applyTheme(view: self.segmentedControl)
+        self.segmentedControl.setTitle(%"alarm_details_details", forSegmentAt: 0)
+        self.segmentedControl.setTitle(%"alarm_details_comments", forSegmentAt: 1)
         self.newCommentButton.layer.shadowOpacity = 0.4
         self.newCommentButton.layer.shadowRadius = 2
         self.newCommentButton.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
@@ -51,24 +54,6 @@ class AlarmDetailsViewController: UIViewController, AlarmUpdate {
     }
 
     // MARK: - Actions
-
-    /*
-    @IBAction func onCommentTyped(_ sender: UITextField) {
-        if let a = self.alarm, let id = a.id {
-            var alarm = C8yAlarm()
-            var newComment = C8yComment()
-            newComment.text = sender.text
-            newComment.user = CumulocityApi.shared().userId
-            
-            var comments = a[C8yComment.identifier] as? [C8yComment] ?? []
-            comments.append(newComment)
-            alarm.customFragments = [C8yComment.identifier: comments]
-            self.updateAlarm(alarm, id)
-            
-            sender.text = nil
-        }
-    }
-    */
 
     @IBAction func onContentsChanged(_ sender: UISegmentedControl) {
         if let child = summaryController {
@@ -102,6 +87,10 @@ class AlarmDetailsViewController: UIViewController, AlarmUpdate {
             destination?.alarm = self.alarm
             destination?.delegate = self
             self.summaryController = destination
+        } else if segue.identifier == UIStoryboardSegue.toNewComment {
+            let destination = segue.destination as? NewCommentViewController
+            destination?.alarm = self.alarm
+            destination?.delegate = self
         }
     }
 }

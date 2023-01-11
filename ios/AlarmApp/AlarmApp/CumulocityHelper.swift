@@ -18,7 +18,7 @@ import UIKit
 
 enum CumulocityHelper {
     static var alarmDateFormatter = DateFormatter(format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-    static var printFormatter = DateFormatter(format: "yyyy-MM-dd HH:mm")
+    static var printFormatter = DateFormatter(format: %"alarm_time_printformat")
 
     static func toReadableDate(_ s: String) -> String {
         if let convertedDate = alarmDateFormatter.date(from: s) {
@@ -31,11 +31,19 @@ enum CumulocityHelper {
     static func toReadableDate(_ date: Date) -> String {
         printFormatter.string(from: date)
     }
+
+    /// creates an URL encoded query to search for a deviceName
+    /// to be used for querying managed objects by it's name
+    static func queryBy(deviceName: String) -> String {
+        let encodedDeviceName = deviceName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        return "$filter=name eq \(encodedDeviceName ?? "")"
+    }
 }
 
 extension DateFormatter {
-    convenience init(format: String) {
+    convenience init(format: String, locale: Locale = Locale(identifier: %"alarm_time_locale")) {
         self.init()
         self.dateFormat = format
+        self.locale = locale
     }
 }

@@ -16,11 +16,20 @@
 
 import UIKit
 
-extension UIButton {
-    func allowTextToScale(minFontScale: CGFloat = 0.7, numberOfLines: Int = 0) {
-        self.titleLabel?.adjustsFontSizeToFitWidth = true
-        self.titleLabel?.minimumScaleFactor = minFontScale
-        self.titleLabel?.lineBreakMode = .byTruncatingTail
-        self.titleLabel?.numberOfLines = numberOfLines
+class FilterChip: UICollectionViewCell {
+    static var identifier = String(describing: FilterChip.self)
+
+    static var nib: UINib {
+        UINib(nibName: identifier, bundle: nil)
+    }
+
+    static func register(for collectionView: UICollectionView) {
+        collectionView.register(nib, forCellWithReuseIdentifier: identifier)
+    }
+
+    @IBOutlet weak var label: UIButton! {
+        didSet {
+            self.label.configuration?.buttonSize = .mini
+        }
     }
 }

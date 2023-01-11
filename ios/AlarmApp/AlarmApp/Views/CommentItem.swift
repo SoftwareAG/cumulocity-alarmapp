@@ -16,45 +16,51 @@
 
 import UIKit
 
-class CommentItem: UIView {
-    @IBOutlet var textLabel: MaterialLabel!
+class CommentItem: UITableViewCell {
+    static var identifier = String(describing: CommentItem.self)
+
+    static var nib: UINib {
+        UINib(nibName: identifier, bundle: nil)
+    }
+
+    static func register(for tableView: UITableView) {
+        tableView.register(nib, forCellReuseIdentifier: identifier)
+    }
+
+    @IBOutlet weak var cardView: MaterialCardView!
+    @IBOutlet var titleLabel: MaterialLabel!
     @IBOutlet var timeLabel: MaterialLabel!
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.commonInit()
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.commonInit()
-    }
-
-    private func commonInit() {
-        self.loadFromNib()
-    }
+    @IBOutlet var valueLabel: MaterialLabel!
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.textLabel.alpha = UIFont.TextEmphasis.full.rawValue
+        self.titleLabel.alpha = UIFont.TextEmphasis.full.rawValue
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: .body).bold()
         self.timeLabel.alpha = UIFont.TextEmphasis.medium.rawValue
+        self.valueLabel.alpha = UIFont.TextEmphasis.full.rawValue
     }
 
-    func bind(with comment: C8yComment) {
-        let text = NSMutableAttributedString()
+    func bind(with comment: C8yComment?) {
+        if let a = comment {
+            self.titleLabel.text = "@\(a.user ?? "")"
+            if let timestamp = a.time {
+                self.timeLabel.text = CumulocityHelper.toReadableDate(timestamp)
+            }
+            self.valueLabel.text = a.text
+        }
+    }
 
-        let authorText = NSMutableAttributedString(
-            string: "@\(comment.user ?? "") ",
-            attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body).bold()]
-        )
-        text.append(authorText)
-        let titleText = NSMutableAttributedString(
-            string: comment.text ?? "",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.onSurface]
-        )
-        text.append(titleText)
-
-        self.textLabel.attributedText = text
-        self.timeLabel.text = comment.time
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                let theme = M3Theme()
+                self.cardView.cardBackgroundColor = theme.elevationOverlayColor(elevation: 2)
+                self.cardView.shadowRadius = 0
+            } else {
+                self.cardView.cardBackgroundColor = .background
+                self.cardView.shadowRadius = 2
+            }
+        }
     }
 }

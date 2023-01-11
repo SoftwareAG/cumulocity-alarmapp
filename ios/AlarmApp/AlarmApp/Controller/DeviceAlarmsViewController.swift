@@ -85,7 +85,8 @@ class DeviceAlarmsViewController: UITableViewController {
         if let view = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: ListViewHeaderItem.identifier
         ) as? ListViewHeaderItem {
-            view.separator.titleText = "ACTIVE ALARMS"
+            view.separator.titleText = %"device_details_active_alarms"
+            view.setBackgroundConfiguration()
             return view
         }
         fatalError("Could not create ListViewHeaderItem")

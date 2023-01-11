@@ -28,22 +28,22 @@
                         <constraint firstAttribute="width" constant="64" id="hA0-uG-4TL"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Alarms matching your search filter." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlB-Xx-AL5" userLabel="titleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%alarm_empty_description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlB-Xx-AL5" userLabel="titleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                     <rect key="frame" x="16" y="437" width="382" height="17"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <color key="textColor" name="onBackground"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refine your filter options." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4x-8t-dch" userLabel="subTitleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%alarm_empty_message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4x-8t-dch" userLabel="subTitleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                     <rect key="frame" x="16" y="458" width="382" height="14.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                     <color key="textColor" name="onBackground"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFs-lv-XGg">
-                    <rect key="frame" x="156.5" y="504.5" width="101" height="31"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFs-lv-XGg" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                    <rect key="frame" x="105.5" y="504.5" width="203" height="31"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="tinted" title="Adjust Filter">
+                    <buttonConfiguration key="configuration" style="tinted" title="%alarm_empty_button_text">
                         <color key="baseForegroundColor" name="primary"/>
                         <color key="baseBackgroundColor" name="primary"/>
                     </buttonConfiguration>
@@ -69,10 +69,10 @@
     </objects>
     <designables>
         <designable name="e4x-8t-dch">
-            <size key="intrinsicContentSize" width="142.5" height="14.5"/>
+            <size key="intrinsicContentSize" width="141.5" height="14.5"/>
         </designable>
         <designable name="nlB-Xx-AL5">
-            <size key="intrinsicContentSize" width="258" height="17"/>
+            <size key="intrinsicContentSize" width="186" height="17"/>
         </designable>
     </designables>
     <resources>
