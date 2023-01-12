@@ -40,7 +40,6 @@ class EmptyAlarmsItem: UIView {
         self.loadFromNib()
         self.titleLabel.alpha = UIFont.TextEmphasis.full.rawValue
         self.subTitleLabel.alpha = UIFont.TextEmphasis.medium.rawValue
-        self.icon.tintColor = UIColor.background.overlay(withColor: .primary, alpha: UIColor.Opacity.low)
         self.button.addTarget(self, action: #selector(onOpenFilterTapped(sender:)), for: .touchUpInside)
     }
 

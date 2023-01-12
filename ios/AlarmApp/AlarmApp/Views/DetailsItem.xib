@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,7 +21,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="760" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-jF-Jzl" userLabel="titleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="21.5" width="28.5" height="13.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" name="onPrimaryContainer"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="uppercased" value="YES"/>
@@ -29,7 +30,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bux-Fa-u7d" userLabel="valueLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                     <rect key="frame" x="36.5" y="8" width="333.5" height="40"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" name="onPrimaryContainer"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -54,4 +55,9 @@
             <size key="intrinsicContentSize" width="35.5" height="17"/>
         </designable>
     </designables>
+    <resources>
+        <namedColor name="onPrimaryContainer">
+            <color red="0.0" green="0.11372549019607843" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

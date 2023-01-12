@@ -68,7 +68,11 @@ extension M3Theme {
 extension M3Theme {
     static func applyTheme(card: MaterialCardView) {
         let theme = M3Theme()
-        card.layer.backgroundColor = theme.elevationOverlayColor(elevation: 1).cgColor
+        if let backgroundColor = card.cardBackgroundColor {
+            card.layer.backgroundColor = backgroundColor.cgColor
+        } else {
+            card.layer.backgroundColor = theme.elevationOverlayColor(elevation: 1).cgColor
+        }
     }
 }
 

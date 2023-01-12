@@ -25,11 +25,13 @@ class DecoratedLabel: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.loadFromNib()
+        self.severityLabel.alpha = UIFont.TextEmphasis.full.rawValue
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.loadFromNib()
+        self.severityLabel.alpha = UIFont.TextEmphasis.full.rawValue
     }
 
     func bind(with severity: C8yAlarm.C8ySeverity?) {
@@ -37,18 +39,13 @@ class DecoratedLabel: UIView {
             self.severityImage.image = severity.icon()
             self.severityImage.tintColor = severity.tint()
             self.severityLabel.text = severity.localised()
-            self.severityLabel.textColor = .onBackground
-            self.severityLabel.alpha = UIFont.TextEmphasis.full.rawValue
         }
     }
 
     func bind(with status: C8yAlarm.C8yStatus?) {
         if let status = status {
             self.severityImage.image = status.icon()
-            self.severityImage.tintColor = UIColor.background.overlay(withColor: .onBackground, alpha: UIColor.Opacity.medium)
             self.severityLabel.text = status.localised()
-            self.severityLabel.textColor = .onBackground
-            self.severityLabel.alpha = UIFont.TextEmphasis.full.rawValue
         }
     }
 
@@ -56,15 +53,12 @@ class DecoratedLabel: UIView {
         self.severityImage.image = nil
         self.severityLabel.text = ""
         if let count = commentCount {
-            self.severityImage.tintColor = UIColor.background.overlay(withColor: .onBackground, alpha: UIColor.Opacity.medium)
             self.severityImage.image = UIImage(systemName: "message.circle.fill")
             if count > 10 {
                 self.severityLabel.text = "9+"
             } else {
                 self.severityLabel.text = String(describing: count)
             }
-            self.severityLabel.textColor = .onBackground
-            self.severityLabel.alpha = UIFont.TextEmphasis.full.rawValue
         }
     }
 }

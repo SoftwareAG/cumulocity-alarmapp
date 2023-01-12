@@ -38,6 +38,7 @@ class CommentItem: UITableViewCell {
         self.titleLabel.font = UIFont.preferredFont(forTextStyle: .body).bold()
         self.timeLabel.alpha = UIFont.TextEmphasis.medium.rawValue
         self.valueLabel.alpha = UIFont.TextEmphasis.full.rawValue
+        setCardBackgroundColor()
     }
 
     func bind(with comment: C8yComment?) {
@@ -53,14 +54,17 @@ class CommentItem: UITableViewCell {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-            if self.traitCollection.userInterfaceStyle == .dark {
-                let theme = M3Theme()
-                self.cardView.cardBackgroundColor = theme.elevationOverlayColor(elevation: 2)
-                self.cardView.shadowRadius = 0
-            } else {
-                self.cardView.cardBackgroundColor = .background
-                self.cardView.shadowRadius = 2
-            }
+            setCardBackgroundColor()
+        }
+    }
+
+    private func setCardBackgroundColor() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            self.cardView.cardBackgroundColor = nil
+            self.cardView.shadowRadius = 0
+        } else {
+            self.cardView.cardBackgroundColor = .surface
+            self.cardView.shadowRadius = 2
         }
     }
 }

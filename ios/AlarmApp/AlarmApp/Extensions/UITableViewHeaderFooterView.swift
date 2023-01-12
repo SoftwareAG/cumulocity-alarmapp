@@ -19,9 +19,7 @@ import UIKit
 
 extension UITableViewHeaderFooterView {
     func setBackgroundConfiguration() {
-        let theme = M3Theme()
-        let color = theme.elevationOverlayColor(elevation: 2)
-        setBackgroundConfiguration(with: color)
+        setBackgroundConfiguration(with: M3Theme().elevationOverlayColor(elevation: 1))
     }
 
     func setBackgroundConfiguration(with color: UIColor) {

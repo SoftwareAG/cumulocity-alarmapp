@@ -37,7 +37,7 @@ class AlarmListItem: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.selectedBackgroundView?.backgroundColor = UIColor.background.overlay(withColor: .primary, alpha: 0.12)
+        self.selectedBackgroundView?.backgroundColor = M3Theme().elevationOverlayColor(elevation: 1)
         self.messageLabel.alpha = UIFont.TextEmphasis.full.rawValue
         self.deviceLabel.alpha = UIFont.TextEmphasis.full.rawValue
         self.timeLabel.alpha = UIFont.TextEmphasis.full.rawValue

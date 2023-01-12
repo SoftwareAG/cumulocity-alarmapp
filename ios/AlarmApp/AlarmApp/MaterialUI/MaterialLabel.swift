@@ -61,7 +61,6 @@ class MaterialLabel: UILabel {
     }
 
     private func commonInit() {
-        self.textColor = .onBackground
         self.alpha = UIFont.TextEmphasis.full.rawValue
     }
 }

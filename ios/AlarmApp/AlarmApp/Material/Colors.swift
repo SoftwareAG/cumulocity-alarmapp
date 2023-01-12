@@ -32,6 +32,8 @@ extension UIColor {
 
     static var primary = UIColor(named: "primary") ?? .black
     static var onPrimary = UIColor(named: "onPrimary") ?? .black
+    static var primaryContainer = UIColor(named: "primaryContainer") ?? .black
+    static var onPrimaryContainer = UIColor(named: "onPrimaryContainer") ?? .black
     static var secondary = UIColor(named: "secondary") ?? .black
     static var onSecondary = UIColor(named: "onSecondary") ?? .black
     static var background = UIColor(named: "background") ?? .black

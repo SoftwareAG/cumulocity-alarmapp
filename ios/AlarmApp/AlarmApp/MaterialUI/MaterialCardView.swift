@@ -45,11 +45,6 @@ class MaterialCardView: UIView {
         layer.rasterizationScale = UIScreen.main.scale
         let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRedious)
         layer.shadowPath = shadowPath.cgPath
-
-        if let backgroundColor = self.cardBackgroundColor {
-            self.layer.backgroundColor = backgroundColor.cgColor
-        } else {
-            M3Theme.applyTheme(card: self)
-        }
+        M3Theme.applyTheme(card: self)
     }
 }

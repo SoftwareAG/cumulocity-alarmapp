@@ -62,13 +62,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%dashboard_subscribed_alarms_title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a8-vd-5pZ" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="onSurface"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%subscribed_alarms_filter_description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRu-hU-JxC" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="21" width="382" height="13.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="onSurface"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -189,7 +189,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%dashboard_active_alarms_title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGj-eP-ls6" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                                         <rect key="frame" x="16" y="16" width="350" height="23"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="onPrimaryContainer"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dAk-3C-y5o">
@@ -633,7 +633,7 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VN-Nh-uV5" userLabel="newCommentButton" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
-                                <rect key="frame" x="138.5" y="741" width="259.5" height="56"/>
+                                <rect key="frame" x="138.5" y="790" width="259.5" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="9Wi-cr-DBo"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="v09-bl-szo"/>
@@ -642,8 +642,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="%alarm_details_new_comment" imagePadding="16" cornerStyle="capsule">
                                     <imageReference key="image" image="plus.bubble.fill" catalog="system" symbolScale="default"/>
-                                    <color key="baseForegroundColor" name="onSecondary"/>
-                                    <color key="baseBackgroundColor" name="secondary"/>
+                                    <color key="baseForegroundColor" name="primary"/>
+                                    <color key="baseBackgroundColor" name="primaryContainer"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="lLb-fy-ICw" kind="show" identifier="toNewComment" id="gSE-Py-UP6"/>
@@ -721,7 +721,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="6at-Wb-oaf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="background"/>
                         <color key="sectionIndexBackgroundColor" name="background"/>
                         <connections>
                             <outlet property="dataSource" destination="kp8-EK-E2H" id="RkH-sm-r2Y"/>
@@ -934,7 +934,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LXJ-qz-wgM" customClass="JVFloatLabeledTextView">
                                 <rect key="frame" x="16" y="156" width="382" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="0bO-1X-wiZ"/>
                                 </constraints>
@@ -968,7 +968,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MkE-7w-377"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstItem="DCS-Jv-BnZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MkE-7w-377" secondAttribute="leading" symbolic="YES" id="4j0-QN-ssw"/>
                             <constraint firstItem="DCS-Jv-BnZ" firstAttribute="top" secondItem="LXJ-qz-wgM" secondAttribute="bottom" constant="16" id="8SK-nW-Dl1"/>
@@ -1118,13 +1118,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%alarms_filter_title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYk-Va-PUR" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="onSurface"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%alarms_filter_descrition" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSk-zk-67H" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="21" width="382" height="13.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="onSurface"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -1307,7 +1307,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="TSw-36-nw0"/>
+        <segue reference="ina-48-qVJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
@@ -1317,28 +1317,31 @@
         <image name="plus.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="splash" width="375" height="667"/>
         <namedColor name="background">
-            <color red="0.9882352941176471" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98431372549019602" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="onBackground">
-            <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.12156862745098039" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="onPrimary">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="onPrimaryContainer">
+            <color red="0.0" green="0.11372549019607843" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="onSecondary">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="onSurface">
-            <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.12156862745098039" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primary">
-            <color red="0.14117647058823529" green="0.38039215686274508" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.38039215686274508" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="secondary">
-            <color red="0.8784313725490196" green="0.0" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="primaryContainer">
+            <color red="0.81960784313725488" green="0.89411764705882357" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="surface">
-            <color red="0.9882352941176471" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98039215686274506" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

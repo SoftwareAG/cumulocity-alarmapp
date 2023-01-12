@@ -20,6 +20,7 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ucy-nW-re1" userLabel="severityImage">
                     <rect key="frame" x="0.0" y="0.0" width="20" height="71"/>
+                    <color key="tintColor" name="onBackground"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="999" constant="20" id="LFA-Pl-0Lx"/>
                         <constraint firstAttribute="height" priority="999" constant="20" id="v7I-RJ-V37"/>
@@ -52,7 +53,7 @@
     </designables>
     <resources>
         <namedColor name="onBackground">
-            <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.12156862745098039" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

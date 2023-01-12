@@ -35,6 +35,5 @@ class EmptyCommentsItem: UIView {
     private func commonInit() {
         self.loadFromNib()
         self.titleLabel.alpha = UIFont.TextEmphasis.medium.rawValue
-        self.titleImage.tintColor = UIColor.background.overlay(withColor: .primary, alpha: UIColor.Opacity.low)
     }
 }

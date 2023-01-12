@@ -22,19 +22,19 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vo-cJ-Ml8" userLabel="titleLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="16" width="350" height="17"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="onPrimaryContainer"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2o0-7m-xGu" userLabel="timeLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="33" width="350" height="13.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="onPrimaryContainer"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="De3-9z-YK4" userLabel="valueLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="55" width="350" height="16"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="onPrimaryContainer"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -52,9 +52,6 @@
                             <constraint firstItem="8vo-cJ-Ml8" firstAttribute="top" secondItem="9Sx-mQ-8b9" secondAttribute="top" constant="16" id="uLP-L8-m0U"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="cardBackgroundColor">
-                                <color key="value" name="background"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
                                 <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
@@ -78,6 +75,7 @@
                     <constraint firstItem="9Sx-mQ-8b9" firstAttribute="top" secondItem="0k0-HB-gQE" secondAttribute="top" constant="2" id="xwf-jN-ype"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="cardView" destination="9Sx-mQ-8b9" id="Bl3-Nt-rYe"/>
@@ -100,8 +98,8 @@
         </designable>
     </designables>
     <resources>
-        <namedColor name="background">
-            <color red="0.9882352941176471" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="onPrimaryContainer">
+            <color red="0.0" green="0.11372549019607843" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -22,8 +22,7 @@ extension UIViewController {
         detents: [UISheetPresentationController.Detent] = [.medium()],
         isModal: Bool = false
     ) {
-        let m3Theme = M3Theme()
-        bottomSheet.view.backgroundColor = m3Theme.elevationOverlayColor(elevation: 2)
+        bottomSheet.view.backgroundColor = .surface
         let navigationController = UINavigationController(rootViewController: bottomSheet)
         navigationController.modalPresentationStyle = .pageSheet
         navigationController.navigationBar.isHidden = true

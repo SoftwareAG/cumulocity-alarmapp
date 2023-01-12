@@ -16,6 +16,7 @@
 		3008B04B296C17FA00A05731 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008B04A296C17FA00A05731 /* MaterialButton.swift */; };
 		3008B04D296C1A4800A05731 /* C8yAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008B04C296C1A4800A05731 /* C8yAlarm.swift */; };
 		3008B04F296C245500A05731 /* MaterialTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3008B04E296C245500A05731 /* MaterialTextfield.swift */; };
+		3008B05329700CF500A05731 /* ColorScheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3008B05229700CF500A05731 /* ColorScheme.xcassets */; };
 		300B2B5B27C9103B0051CDBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B2B5A27C9103B0051CDBC /* AppDelegate.swift */; };
 		300B2B5D27C9103B0051CDBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B2B5C27C9103B0051CDBC /* SceneDelegate.swift */; };
 		300B2B5F27C9103C0051CDBC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B2B5E27C9103C0051CDBC /* DashboardViewController.swift */; };
@@ -93,6 +94,7 @@
 		3008B04A296C17FA00A05731 /* MaterialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		3008B04C296C1A4800A05731 /* C8yAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8yAlarm.swift; sourceTree = "<group>"; };
 		3008B04E296C245500A05731 /* MaterialTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTextfield.swift; sourceTree = "<group>"; };
+		3008B05229700CF500A05731 /* ColorScheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorScheme.xcassets; sourceTree = "<group>"; };
 		300B2B5727C9103B0051CDBC /* AlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		300B2B5A27C9103B0051CDBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		300B2B5C27C9103B0051CDBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				3056B77A27CE896F00ED443B /* Material */,
 				309A860B27DF659F00F69ED0 /* MaterialUI */,
 				307385EB27E2798B00D05F03 /* AlarmApp.entitlements */,
+				3008B05229700CF500A05731 /* ColorScheme.xcassets */,
 				300B2B6327C910470051CDBC /* Assets.xcassets */,
 				300B2B6827C910470051CDBC /* Info.plist */,
 				300B2B6527C910470051CDBC /* LaunchScreen.storyboard */,
@@ -454,6 +457,7 @@
 				300B2B6727C910470051CDBC /* LaunchScreen.storyboard in Resources */,
 				30F6C36327D6B89300884CE8 /* SeparatorItem.xib in Resources */,
 				30CFCAE727CFF32A0061BF71 /* AuditRecordItem.xib in Resources */,
+				3008B05329700CF500A05731 /* ColorScheme.xcassets in Resources */,
 				30FBB9CA27CD417F008302D0 /* DetailsItem.xib in Resources */,
 				3056B77727CE696B00ED443B /* AlarmListItem.xib in Resources */,
 				300B2B6427C910470051CDBC /* Assets.xcassets in Resources */,
