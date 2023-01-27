@@ -4,6 +4,14 @@ The Cumulocity IoT Alarming App brings alarms on your mobile phone. You'll see a
 
 *The Cumulocity IoT Alarming App is currently only available for iOS 13+.  An Android version will follow.*
 
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 ## Use the Alarming app on iOS
 
 ### Installation and Setup
