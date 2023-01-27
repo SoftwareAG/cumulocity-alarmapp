@@ -2,17 +2,44 @@
 
 The Cumulocity IoT Alarming App brings alarms on your mobile phone. You'll see an overview about all Alarms raised on your Cumulocity IoT tenant, browse or filter the list of Alarms, collaborate by adding comments or modify the Alarm's severity or status.
 
-*The Cumulocity IoT Alarming App is currently only available for iOS 13+.  An Android version will follow.*
+Each update on an Alarm triggers a Push Notification to be sent to your device. Open the notification to quickly jump to the modified Alarm. A common use case is to inform certain users when problems occur at certain devices. *Push Notifications require a dedicated micro service to be deployed on your Cumulocity IoT tenant.*
+
+> *The Cumulocity IoT Alarming App is currently only available for iOS 13+. An Android version will follow.*
+
+## Configuring Push Notifications
+
+The Cumulocity IoT Alarming App leverages Push Notifications to send messages to your device. One requirement is a dedicated Microservice named *Push Gateway* deployed on your Cumulocity IoT tenant. 
+
+> The Cumulocity IoT Push Gateway is a microservice extension to the Cumulocity IoT platform. It enables mobile applications to receive push notifications sent from Cumulocity IoT.
+
+The Push Gateway will listen to Alarm updates and creates a Push Notification if an update is received. Therefore, the mircoservice integrates Microsoft Azure's [Notification Hub](http://https://azure.microsoft.com/en-gb/products/notification-hubs/ "Notification Hub") - mainly to handle all device registrations and actually sending a Push Notification. A device registration is a unique identifier used by Apple Push Notification Service and Google's Firebase to identifiy the mobile application when sending a Push Notification to the device.
+
 
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+sequenceDiagram
+    participant App
+    participant Push Notification Provider
+    participant Cumulocity IoT
+    participant Notification Hub
+    App->>Push Notification Provider: Request unique device token
+    Push Notification Provider->>App: Returns device token
+    App->>Cumulocity IoT: Registers using device token
+    Cumulocity IoT->>Notification Hub: Registers using device token
+    Cumulocity IoT->>Cumulocity IoT: Alarm update
+    Cumulocity IoT->>Notification Hub: Request Push Notification
+    Notification Hub->>Push Notification Provider: Request Push Notification
+    Push Notification Provider->>App: Receive Push Notification
 ```
 
-## Use the Alarming app on iOS
+When using Push Notifications, make sure to check the following:
+
+- [] Got yourself an Microsoft Azure account and setup a Notification Hub.
+- [] Deploy and subscribe the *Push Gateway*. Use the Notification Hubs authorization keys.
+- [] **iOS** only - Enable the capability *Push Notification* with your Provisioning Profile.
+
+> Please keep in mind that neither Apple or Google guarantee the delivery of a Push Notification.
+
+## Build the Alarming App for iOS
 
 ### Installation and Setup
 
@@ -20,7 +47,7 @@ The following tools are required to build the app:
 
 - Xcode 13.2+
 
-#### Cumulocity Swift Client SDK
+#### Cumulocity IoT Swift Client SDK
 
 The Cumulocity IoT Alarming App takes use of the Cumulocity Swift client SDK to integrate Cumulocity IoT. The client SDK is added as a SwiftPackage from it's repository at [https://github.com/SoftwareAG/cumulocity-clients-swift](https://github.com/SoftwareAG/cumulocity-clients-swift).
 
@@ -28,7 +55,17 @@ For SwiftPackage it is required to configure a [github.com](https://github.com) 
 
 #### Build
 
-`Build` github worlflow creates an unsigned ipa. **This build can be distributed, but must be signed before deployed to devices.**
+`Build` github worlflow creates an unsigned ipa as well as an Xcode Archive. The ipa file may be uploaded to the App Store or deployed to devices using a Mobile-Device-Management (MDM) solution.
+
+The latest release can be found [here](https://github.com/SoftwareAG/cumulocity-alarmapp/releases/latest).
+
+> **This build can be distributed, but must be signed before deployed to devices.**
+
+#### Code Sign
+
+In your Apple developer account, enable the Push Notification service for the App ID assigned to your project. For more information about configuring your developer account, go to your Apple Developer Account page.
+
+##### Using Fastlane
 
 To sign the ipa, it is recommended to use [Fastlane](https://fastlane.tools). See documentation for [Fastlane resign](https://docs.fastlane.tools/actions/resign/) for more infos and config options, for example to change version number, display name, etc. when resigning.
 
