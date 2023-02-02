@@ -6,6 +6,8 @@ Each update on an Alarm triggers a Push Notification to be sent to your device. 
 
 > *The Cumulocity IoT Alarming App is currently only available for iOS 13+. An Android version will follow.*
 
+![Dashboard](./screenshots/ios_dashboard.png){:width=”50%” height=”auto”}
+
 ## Configuring Push Notifications
 
 The Cumulocity IoT Alarming App leverages Push Notifications to send messages to your device. One requirement is a dedicated Microservice named *Push Gateway* deployed on your Cumulocity IoT tenant. 
