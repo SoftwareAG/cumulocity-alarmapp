@@ -9,11 +9,11 @@
 "alarm_severity_filter_all" = "All degrees of Severity";
 
 "alarm_status_active" = "Active";
-"alarm_status_active_verb" = "Active";
+"alarm_status_active_verb" = "Set Active";
 "alarm_status_acknowledged" = "Acknowledged";
 "alarm_status_acknowledged_verb" = "Acknowledge";
 "alarm_status_cleared" = "Cleared";
-"alarm_status_cleared_verb" = "Cleare";
+"alarm_status_cleared_verb" = "Clear";
 "alarm_status_all" = "All";
 "alarm_status_filter_all" = "All Statuses";
 
