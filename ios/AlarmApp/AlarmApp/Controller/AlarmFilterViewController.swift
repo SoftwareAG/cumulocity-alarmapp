@@ -1,4 +1,4 @@
-//  Copyright (c) 2022 Software AG, Darmstadt, Germany and/or its licensors
+//  Copyright (c) 2023 Software AG, Darmstadt, Germany and/or its licensors
 //
 //  SPDX-License-Identifier: Apache-2.0
 //
@@ -14,8 +14,8 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import CumulocityCoreLibrary
 import Combine
+import CumulocityCoreLibrary
 import UIKit
 
 class AlarmFilterViewController: UIViewController {

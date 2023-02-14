@@ -1,4 +1,4 @@
-//  Copyright (c) 2022 Software AG, Darmstadt, Germany and/or its licensors
+//  Copyright (c) 2023 Software AG, Darmstadt, Germany and/or its licensors
 //
 //  SPDX-License-Identifier: Apache-2.0
 //
