@@ -54,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ykm-if-BDG">
-                                <rect key="frame" x="16" y="76" width="382" height="252.5"/>
+                                <rect key="frame" x="16" y="76" width="382" height="284.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AZy-8h-peb">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34.5"/>
@@ -81,35 +81,148 @@
                                             <constraint firstAttribute="height" constant="8" id="eSe-0b-T8M"/>
                                         </constraints>
                                     </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MX9-p1-7dG" userLabel="severityFilter">
-                                        <rect key="frame" x="0.0" y="74.5" width="382" height="32"/>
-                                        <segments>
-                                            <segment title="Critical"/>
-                                            <segment title="Major"/>
-                                            <segment title="Minor"/>
-                                            <segment title="Warning"/>
-                                            <segment title="All"/>
-                                        </segments>
-                                        <color key="selectedSegmentTintColor" name="primary"/>
-                                        <connections>
-                                            <action selector="onSeverityChanged:" destination="aln-45-gM8" eventType="valueChanged" id="Xtn-8V-gU5"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="S3H-qE-Mqa" userLabel="statusFilter">
-                                        <rect key="frame" x="0.0" y="121.5" width="382" height="32"/>
-                                        <segments>
-                                            <segment title="Active"/>
-                                            <segment title="Acknowledged"/>
-                                            <segment title="Cleared" width="94.75"/>
-                                            <segment title="All"/>
-                                        </segments>
-                                        <color key="selectedSegmentTintColor" name="primary"/>
-                                        <connections>
-                                            <action selector="onStatusChanged:" destination="aln-45-gM8" eventType="valueChanged" id="TXv-0c-N8W"/>
-                                        </connections>
-                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1zC-Tj-Hbl">
+                                        <rect key="frame" x="0.0" y="74.5" width="382" height="53.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ey8-vz-Uak" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="92.5" height="53.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_severity_critical" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onCriticalTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="7f8-Oo-C1e"/>
+                                                    <action selector="onCriticalTapped:" destination="aln-45-gM8" eventType="touchUpInside" id="XFf-9l-O6R"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brf-1L-eQY" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="100.5" y="0.0" width="89.5" height="53.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_severity_major" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onMajorTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="Zlj-8f-ozQ"/>
+                                                    <action selector="onMajorTapped:" destination="aln-45-gM8" eventType="touchUpInside" id="eej-Sh-CUO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E94-Zl-d6L" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="198" y="0.0" width="89.5" height="53.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_severity_minor" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onMinorTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="JD1-XB-dZ2"/>
+                                                    <action selector="onMinorTapped:" destination="aln-45-gM8" eventType="touchUpInside" id="ycz-ka-xwt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQt-Ad-JBi" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="295.5" y="0.0" width="86.5" height="53.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_severity_warning" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onWarningTapped:" destination="aln-45-gM8" eventType="touchUpInside" id="6yi-5a-fBM"/>
+                                                    <action selector="onWarningTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="hPK-yg-GJt"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xq3-mK-cqZ">
+                                        <rect key="frame" x="0.0" y="144" width="382" height="40.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUe-Z0-IYH" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="109.5" height="40.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_status_active" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onActiveTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="eQn-Lm-B1i"/>
+                                                    <action selector="onActiveTapped:" destination="aln-45-gM8" eventType="touchUpInside" id="qxn-pk-dk5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unw-iE-Q0k" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="117.5" y="0.0" width="145" height="40.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_status_acknowledged" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onAcknowledgedTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="h0L-AU-XkA"/>
+                                                    <action selector="onAcknowledgedTapped:" destination="aln-45-gM8" eventType="touchUpInside" id="veE-db-lzb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxL-2j-vTD" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="270.5" y="0.0" width="111.5" height="40.5"/>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_status_cleared" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onClearedTapped:" destination="aln-45-gM8" eventType="touchUpInside" id="DXE-D9-yQE"/>
+                                                    <action selector="onClearedTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="Q7P-ep-RDA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%subscribed_alarms_filter_device_placeholder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="svi-gS-fYQ" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="168.5" width="382" height="34"/>
+                                        <rect key="frame" x="0.0" y="200.5" width="382" height="34"/>
                                         <color key="backgroundColor" name="surface"/>
                                         <color key="textColor" name="onBackground"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -130,7 +243,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%subscribed_alarms_filter_type_placeholder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gjv-Ij-dwz" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="218.5" width="382" height="34"/>
+                                        <rect key="frame" x="0.0" y="250.5" width="382" height="34"/>
                                         <color key="backgroundColor" name="surface"/>
                                         <color key="textColor" name="onBackground"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -165,10 +278,15 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="acknowledgedButton" destination="unw-iE-Q0k" id="abX-xC-x91"/>
+                        <outlet property="activeButton" destination="yUe-Z0-IYH" id="VNo-il-ztn"/>
                         <outlet property="alarmTypeTextfield" destination="Gjv-Ij-dwz" id="QLo-ld-r1E"/>
+                        <outlet property="clearedButton" destination="HxL-2j-vTD" id="EVR-Mk-Ysa"/>
+                        <outlet property="criticalButton" destination="ey8-vz-Uak" id="3cn-SL-fwq"/>
                         <outlet property="deviceNameTextfield" destination="svi-gS-fYQ" id="gdX-O6-zZH"/>
-                        <outlet property="severityFilter" destination="MX9-p1-7dG" id="0EY-XD-7vG"/>
-                        <outlet property="statusFilter" destination="S3H-qE-Mqa" id="5qQ-91-rwt"/>
+                        <outlet property="majorButton" destination="brf-1L-eQY" id="UhE-AO-Uba"/>
+                        <outlet property="minorButton" destination="E94-Zl-d6L" id="tva-Cr-lrm"/>
+                        <outlet property="warningButton" destination="NQt-Ad-JBi" id="jVU-K2-KaD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJr-cv-tYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1110,7 +1228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="950-qD-G4g">
-                                <rect key="frame" x="16" y="76" width="382" height="282"/>
+                                <rect key="frame" x="16" y="76" width="382" height="314"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8Wq-bT-qib">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34.5"/>
@@ -1137,35 +1255,141 @@
                                             <constraint firstAttribute="height" constant="8" id="AY6-GP-JGT"/>
                                         </constraints>
                                     </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MQu-dL-Rcw" userLabel="severityFilter">
-                                        <rect key="frame" x="0.0" y="74.5" width="382" height="32"/>
-                                        <segments>
-                                            <segment title="Critical"/>
-                                            <segment title="Major"/>
-                                            <segment title="Minor"/>
-                                            <segment title="Warning"/>
-                                            <segment title="All"/>
-                                        </segments>
-                                        <color key="selectedSegmentTintColor" name="primary"/>
-                                        <connections>
-                                            <action selector="onSeverityChanged:" destination="Qrl-zF-UwZ" eventType="valueChanged" id="tay-xY-eV3"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IrI-eB-TBG" userLabel="statusFilter">
-                                        <rect key="frame" x="0.0" y="121.5" width="382" height="32"/>
-                                        <segments>
-                                            <segment title="Active"/>
-                                            <segment title="Acknowledged"/>
-                                            <segment title="Cleared" width="94.75"/>
-                                            <segment title="All"/>
-                                        </segments>
-                                        <color key="selectedSegmentTintColor" name="primary"/>
-                                        <connections>
-                                            <action selector="onStatusChanged:" destination="Qrl-zF-UwZ" eventType="valueChanged" id="eeK-ho-AVG"/>
-                                        </connections>
-                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j5t-3d-UPE">
+                                        <rect key="frame" x="0.0" y="74.5" width="382" height="53.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ht0-hD-LCk" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="92.5" height="53.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_severity_critical" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onCriticalTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="qcC-PC-Wv9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJJ-bG-XTq" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="100.5" y="0.0" width="89.5" height="53.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_severity_major" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onMajorTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="Udd-bL-S89"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Cg-Id-sQc" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="198" y="0.0" width="89.5" height="53.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_severity_minor" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onMinorTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="iGs-4d-p7b"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4f-Qm-FcQ" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="295.5" y="0.0" width="86.5" height="53.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_severity_warning" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onWarningTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="k2I-ui-anU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4w0-9k-Cso">
+                                        <rect key="frame" x="0.0" y="144" width="382" height="40.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qco-RT-bN9" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="109.5" height="40.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_status_active" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onActiveTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="qW0-qM-Rff"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdG-OW-Ygs" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="117.5" y="0.0" width="145" height="40.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_status_acknowledged" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onAcknowledgedTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="xIf-21-kbE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUt-c9-TGX" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
+                                                <rect key="frame" x="270.5" y="0.0" width="111.5" height="40.5"/>
+                                                <color key="tintColor" name="primary"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="%alarm_status_cleared" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="strokeColor" name="onBackground"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <color key="baseForegroundColor" name="onBackground"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onClearedTapped:" destination="Qrl-zF-UwZ" eventType="touchUpInside" id="Rdc-q0-3o8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%alarms_filter_device_placeholder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="its-aK-z0C" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="168.5" width="382" height="34"/>
+                                        <rect key="frame" x="0.0" y="200.5" width="382" height="34"/>
                                         <color key="backgroundColor" name="surface"/>
                                         <color key="textColor" name="onBackground"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1186,13 +1410,13 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%alarms_filter_device_hint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvY-I2-w3p" userLabel="description" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="218.5" width="382" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="250.5" width="382" height="13.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="onSurface"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%alarms_filter_type_placeholder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="msw-qt-RXU" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="248" width="382" height="34"/>
+                                        <rect key="frame" x="0.0" y="280" width="382" height="34"/>
                                         <color key="backgroundColor" name="surface"/>
                                         <color key="textColor" name="onBackground"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1227,10 +1451,15 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="acknowledgedButton" destination="WdG-OW-Ygs" id="TCx-DK-SMd"/>
+                        <outlet property="activeButton" destination="qco-RT-bN9" id="VNj-5S-hQJ"/>
                         <outlet property="alarmTypeTextfield" destination="msw-qt-RXU" id="Nlo-ep-fGF"/>
+                        <outlet property="clearedButton" destination="uUt-c9-TGX" id="fAM-y6-9Ps"/>
+                        <outlet property="criticalButton" destination="ht0-hD-LCk" id="5VN-OU-CMV"/>
                         <outlet property="deviceNameTextfield" destination="its-aK-z0C" id="eba-p2-VEN"/>
-                        <outlet property="severityFilter" destination="MQu-dL-Rcw" id="I6U-II-Zvn"/>
-                        <outlet property="statusFilter" destination="IrI-eB-TBG" id="nth-R2-1te"/>
+                        <outlet property="majorButton" destination="QJJ-bG-XTq" id="tGc-1h-myE"/>
+                        <outlet property="minorButton" destination="1Cg-Id-sQc" id="Usn-5Z-Ybl"/>
+                        <outlet property="warningButton" destination="z4f-Qm-FcQ" id="oqL-z2-nm6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEy-jZ-io1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

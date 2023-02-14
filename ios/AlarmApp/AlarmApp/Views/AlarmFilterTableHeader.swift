@@ -53,15 +53,19 @@ class AlarmFilterTableHeader: UITableViewHeaderFooterView {
         didSet {
             filterModel.removeAll()
             if let filter = self.alarmFilter {
-                if let severity = filter.severity {
-                    filterModel.append(AlarmFilterEntry(using: severity.localised()))
-                } else {
+                if filter.filtersAllSeverity() {
                     filterModel.append(AlarmFilterEntry(using: %"alarm_severity_filter_all"))
-                }
-                if let status = filter.status {
-                    filterModel.append(AlarmFilterEntry(using: status.localised()))
                 } else {
+                    for s in filter.severity {
+                        filterModel.append(AlarmFilterEntry(using: s.localised()))
+                    }
+                }
+                if filter.filtersAllStatus() {
                     filterModel.append(AlarmFilterEntry(using: %"alarm_status_filter_all"))
+                } else {
+                    for s in filter.status {
+                        filterModel.append(AlarmFilterEntry(using: s.localised()))
+                    }
                 }
                 if let alarmType = filter.alarmType {
                     for singleAlarmType in alarmType.components(separatedBy: ",") {

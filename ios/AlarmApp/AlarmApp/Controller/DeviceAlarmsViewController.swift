@@ -40,7 +40,7 @@ class DeviceAlarmsViewController: UITableViewController {
         let alarmsApi = Cumulocity.Core.shared.alarms.alarmsApi
 
         if let deviceId = source?.id {
-            alarmsApi.getAlarms(pageSize: 50, source: deviceId, status: C8yAlarm.C8yStatus.active.rawValue)
+            alarmsApi.getAlarms(pageSize: 50, source: deviceId, status: [C8yAlarm.C8yStatus.active.rawValue])
                 .receive(on: DispatchQueue.main)
                 .sink(
                     receiveCompletion: { _ in

@@ -54,8 +54,8 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
     private func fetchAlarmCount() {
         let alarmsApi = Cumulocity.Core.shared.alarms.alarmsApi
         alarmsApi.getNumberOfAlarms(
-            severity: C8yAlarm.C8ySeverity.critical.rawValue,
-            status: C8yAlarm.C8yStatus.active.rawValue
+            severity: [C8yAlarm.C8ySeverity.critical.rawValue],
+            status: [C8yAlarm.C8yStatus.active.rawValue]
         )
         .receive(on: DispatchQueue.main)
         .sink(
@@ -67,8 +67,8 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
         )
         .store(in: &self.cancellableSet)
         alarmsApi.getNumberOfAlarms(
-            severity: C8yAlarm.C8ySeverity.major.rawValue,
-            status: C8yAlarm.C8yStatus.active.rawValue
+            severity: [C8yAlarm.C8ySeverity.major.rawValue],
+            status: [C8yAlarm.C8yStatus.active.rawValue]
         )
         .receive(on: DispatchQueue.main)
         .sink(
@@ -80,8 +80,8 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
         )
         .store(in: &self.cancellableSet)
         alarmsApi.getNumberOfAlarms(
-            severity: C8yAlarm.C8ySeverity.minor.rawValue,
-            status: C8yAlarm.C8yStatus.active.rawValue
+            severity: [C8yAlarm.C8ySeverity.minor.rawValue],
+            status: [C8yAlarm.C8yStatus.active.rawValue]
         )
         .receive(on: DispatchQueue.main)
         .sink(
@@ -93,8 +93,8 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
         )
         .store(in: &self.cancellableSet)
         alarmsApi.getNumberOfAlarms(
-            severity: C8yAlarm.C8ySeverity.warning.rawValue,
-            status: C8yAlarm.C8yStatus.active.rawValue
+            severity: [C8yAlarm.C8ySeverity.warning.rawValue],
+            status: [C8yAlarm.C8yStatus.active.rawValue]
         )
         .receive(on: DispatchQueue.main)
         .sink(
@@ -204,8 +204,8 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == UIStoryboardSegue.toAlarmsView {
-            if let destination = segue.destination as? AlarmListViewController {
-                destination.filter.severity = self.filteredAlarmSeverity
+            if let destination = segue.destination as? AlarmListViewController, let severity = self.filteredAlarmSeverity {
+                destination.filter.severity = [severity]
             }
         } else if segue.identifier == UIStoryboardSegue.toAlarmDetails {
             if let destination = segue.destination as? AlarmDetailsViewController {

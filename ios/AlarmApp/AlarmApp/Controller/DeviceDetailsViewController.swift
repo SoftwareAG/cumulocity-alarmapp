@@ -32,7 +32,7 @@ class DeviceDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = %"device_details_title"
-        
+
         self.serialNumberItem.valueLabel.text = "N/A"
         self.serialNumberItem.isHidden = true
         self.typeItem.valueLabel.text = "N/A"

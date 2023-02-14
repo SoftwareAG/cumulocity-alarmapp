@@ -34,39 +34,13 @@ class SubscribedAlarmsViewController: UITableViewController, SubscribedAlarmList
 
     func reload() {
         let filter = SubscribedAlarmFilter.shared
-        fetchAlarms(
-            bySeverity: filter.severity,
-            byDeviceId: filter.resolvedDeviceId,
-            byStatus: filter.status,
-            byAlarmType: filter.alarmType
-        )
+        fetchAlarms(byFilter: filter, byDeviceId: filter.resolvedDeviceId)
     }
 
-    private func fetchAlarms(
-        bySeverity severity: C8yAlarm.C8ySeverity?,
-        byDeviceId deviceId: String?,
-        byStatus status: C8yAlarm.C8yStatus?,
-        byAlarmType type: String?
-    ) {
+    private func fetchAlarms(byFilter filter: AlarmFilter, byDeviceId deviceId: String?) {
         let alarmsApi = Cumulocity.Core.shared.alarms.alarmsApi
-        var publisher: AnyPublisher<C8yAlarmCollection, Error>?
-        if let type = type {
-            publisher = alarmsApi.getAlarms(
-                pageSize: 50,
-                severity: severity?.rawValue,
-                source: deviceId,
-                status: status?.rawValue,
-                type: [type]
-            )
-        } else {
-            publisher = alarmsApi.getAlarms(
-                pageSize: 50,
-                severity: severity?.rawValue,
-                source: deviceId,
-                status: status?.rawValue
-            )
-        }
-        publisher?.receive(on: DispatchQueue.main)
+        let publisher = alarmsApi.getAlarmsByFilter(filter: filter, source: deviceId)
+        publisher.receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { _ in
                 },

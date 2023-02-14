@@ -19,6 +19,8 @@ import CumulocityCoreLibrary
 import UIKit
 
 extension C8yAlarm.C8yStatus {
+    static let allValues = [active, acknowledged, cleared]
+
     func localised() -> String {
         switch self {
         case .acknowledged:
@@ -69,6 +71,8 @@ extension C8yAlarm.C8yStatus {
 }
 
 extension C8yAlarm.C8ySeverity {
+    static let allValues = [critical, major, minor, warning]
+
     func localised() -> String {
         switch self {
         case .critical:

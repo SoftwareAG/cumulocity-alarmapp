@@ -91,14 +91,10 @@ public class RegistrationsApi {
     /// 	- deviceToken
     ///		  the deviceToken specified when creating the registration
     public func unsubscribe(userId: String, deviceToken: String? = nil) -> AnyPublisher<Data, Swift.Error> {
-        var queryItems: [URLQueryItem] = []
-        if let parameter = deviceToken {
-            queryItems.append(URLQueryItem(name: "deviceToken", value: String(parameter)))
-        }
         let builder = URLRequestBuilder()
             .set(resourcePath: "/service/push/registrations/\(userId)")
             .set(httpMethod: "delete")
-            .set(queryItems: queryItems)
+            .add(queryItem: "deviceToken", value: deviceToken)
         return self.session.dataTaskPublisher(
             for: adapt(builder: builder).build()
         )

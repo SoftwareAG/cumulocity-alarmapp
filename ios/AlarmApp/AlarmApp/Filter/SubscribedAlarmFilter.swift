@@ -32,26 +32,31 @@ class SubscribedAlarmFilter: AlarmFilter {
 
     override private init() {
         super.init()
-        let rawSeverity =
-            UserDefaults.standard.string(forKey: Keys.severity.rawValue) ?? C8yAlarm.C8ySeverity.critical.rawValue
-        self.severity = C8yAlarm.C8ySeverity(rawValue: rawSeverity)
-        let rawStatus = UserDefaults.standard.string(forKey: Keys.status.rawValue) ?? C8yAlarm.C8yStatus.active.rawValue
-        self.status = C8yAlarm.C8yStatus(rawValue: rawStatus)
+        if let severity = UserDefaults.standard.value(forKey: Keys.severity.rawValue) as? [String] {
+            self.severity = severity.compactMap { C8yAlarm.C8ySeverity(rawValue: $0) }
+        } else {
+            self.severity = [C8yAlarm.C8ySeverity.critical]
+        }
+        if let status = UserDefaults.standard.value(forKey: Keys.status.rawValue) as? [String] {
+            self.status = status.compactMap { C8yAlarm.C8yStatus(rawValue: $0) }
+        } else {
+            self.status = [C8yAlarm.C8yStatus.active]
+        }
         self.alarmType = UserDefaults.standard.string(forKey: Keys.alarmType.rawValue)
         self.deviceName = UserDefaults.standard.string(forKey: Keys.deviceName.rawValue)
         self.resolvedDeviceId = UserDefaults.standard.string(forKey: Keys.deviceId.rawValue)
     }
 
     func persist() {
-        if let severity = self.severity?.rawValue {
-            UserDefaults.standard.set(severity, forKey: Keys.severity.rawValue)
+        if self.severity.isEmpty {
+            UserDefaults.standard.removeObject(forKey: Keys.severity.rawValue)
         } else {
-            UserDefaults.standard.set("all", forKey: Keys.severity.rawValue)
+            UserDefaults.standard.set(self.severity.map { $0.rawValue }, forKey: Keys.severity.rawValue)
         }
-        if let status = self.status?.rawValue {
-            UserDefaults.standard.set(status, forKey: Keys.status.rawValue)
+        if self.status.isEmpty {
+            UserDefaults.standard.removeObject(forKey: Keys.status.rawValue)
         } else {
-            UserDefaults.standard.set("all", forKey: Keys.status.rawValue)
+            UserDefaults.standard.set(self.status.map { $0.rawValue }, forKey: Keys.status.rawValue)
         }
         if let alarmType = self.alarmType {
             UserDefaults.standard.set(alarmType, forKey: Keys.alarmType.rawValue)
@@ -71,18 +76,11 @@ class SubscribedAlarmFilter: AlarmFilter {
     }
 
     func setToDefault() {
-        self.severity = C8yAlarm.C8ySeverity.critical
-        self.status = C8yAlarm.C8yStatus.active
+        self.severity = [C8yAlarm.C8ySeverity.critical]
+        self.status = [C8yAlarm.C8yStatus.active]
         self.deviceName = nil
         self.resolvedDeviceId = nil
         self.alarmType = nil
         persist()
-    }
-
-    func isDefaultFilter() -> Bool {
-        self.severity == C8yAlarm.C8ySeverity.critical
-            && self.status == C8yAlarm.C8yStatus.active
-            && self.alarmType == nil
-            && self.deviceName == nil
     }
 }

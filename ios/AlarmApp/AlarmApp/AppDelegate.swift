@@ -63,8 +63,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if let token = self.deviceToken {
             let filter = SubscribedAlarmFilter.shared
             var tags: [String] = []
-            tags.append("severity:\(filter.severity?.rawValue.lowercased() ?? "all")")
-            tags.append("status:\(filter.status?.rawValue.lowercased() ?? "all")")
+            if filter.filtersAllSeverity() {
+                tags.append("severity:all")
+            } else {
+                for s in filter.severity {
+                    tags.append("severity:\(s.rawValue.lowercased())")
+                }
+            }
+            if filter.filtersAllStatus() {
+                tags.append("status:all")
+            } else {
+                for s in filter.status {
+                    tags.append("status:\(s.rawValue.lowercased())")
+                }
+            }
             tags.append("deviceId:\(filter.resolvedDeviceId ?? "all")")
             // can be comma separated!
             if let alarmType = filter.alarmType {

@@ -60,12 +60,7 @@ class AlarmListViewController: UITableViewController, AlarmListReloadDelegate, E
                     },
                     receiveValue: { collection in
                         if collection.managedObjects?.count ?? 0 > 0 {
-                            self.fetchAlarms(
-                                bySeverity: self.filter.severity,
-                                byDeviceId: collection.managedObjects?[0].id,
-                                byAlarmType: self.filter.alarmType,
-                                byStatus: self.filter.status
-                            )
+                            self.fetchAlarms(byFilter: self.filter, byDeviceId: collection.managedObjects?[0].id)
                         } else {
                             // could not find any device
                             self.data = C8yAlarmCollection()
@@ -76,40 +71,14 @@ class AlarmListViewController: UITableViewController, AlarmListReloadDelegate, E
                 )
                 .store(in: &self.cancellableSet)
         } else {
-            self.fetchAlarms(
-                bySeverity: self.filter.severity,
-                byDeviceId: nil,
-                byAlarmType: self.filter.alarmType,
-                byStatus: self.filter.status
-            )
+            self.fetchAlarms(byFilter: self.filter, byDeviceId: nil)
         }
     }
 
-    private func fetchAlarms(
-        bySeverity severity: C8yAlarm.C8ySeverity?,
-        byDeviceId deviceId: String?,
-        byAlarmType type: String?,
-        byStatus status: C8yAlarm.C8yStatus?
-    ) {
+    private func fetchAlarms(byFilter filter: AlarmFilter, byDeviceId deviceId: String?) {
         let alarmsApi = Cumulocity.Core.shared.alarms.alarmsApi
-        var publisher: AnyPublisher<C8yAlarmCollection, Error>?
-        if let type = type {
-            publisher = alarmsApi.getAlarms(
-                pageSize: 50,
-                severity: severity?.rawValue,
-                source: deviceId,
-                status: status?.rawValue,
-                type: [type]
-            )
-        } else {
-            publisher = alarmsApi.getAlarms(
-                pageSize: 50,
-                severity: severity?.rawValue,
-                source: deviceId,
-                status: status?.rawValue
-            )
-        }
-        publisher?.receive(on: DispatchQueue.main)
+        let publisher = alarmsApi.getAlarmsByFilter(filter: filter, source: deviceId)
+        publisher.receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { _ in
                     self.tableView.reloadData()

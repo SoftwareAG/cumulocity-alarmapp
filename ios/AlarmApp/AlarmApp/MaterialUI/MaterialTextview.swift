@@ -28,7 +28,7 @@ class MaterialTextview: JVFloatLabeledTextView, Localizeable {
             }
         }
     }
-    
+
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         commonInit()
@@ -48,7 +48,7 @@ class MaterialTextview: JVFloatLabeledTextView, Localizeable {
         print(self.placeholder)
         self.placeholder = resolveTranslationKey(for: self.placeholder)
     }
-    
+
     override class func setValue(_ value: Any?, forKey key: String) {
         super.setValue(value, forKey: key)
         print(value)

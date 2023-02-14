@@ -5,7 +5,6 @@
 "alarm_severity_major" = "Major";
 "alarm_severity_minor" = "Minor";
 "alarm_severity_warning" = "Warning";
-"alarm_severity_all" = "All";
 "alarm_severity_filter_all" = "All degrees of Severity";
 
 "alarm_status_active" = "Active";
@@ -14,7 +13,6 @@
 "alarm_status_acknowledged_verb" = "Acknowledge";
 "alarm_status_cleared" = "Cleared";
 "alarm_status_cleared_verb" = "Clear";
-"alarm_status_all" = "All";
 "alarm_status_filter_all" = "All Statuses";
 
 "login_welcome" = "Welcome, ";
