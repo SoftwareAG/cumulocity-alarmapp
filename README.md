@@ -35,9 +35,9 @@ sequenceDiagram
 
 When using Push Notifications, make sure to check the following:
 
-- [] Got yourself an Microsoft Azure account and setup a Notification Hub.
-- [] Deploy and subscribe the *Push Gateway*. Use the Notification Hubs authorization keys.
-- [] **iOS** only - Enable the capability *Push Notification* with your Provisioning Profile.
+- [ ] Got yourself an Microsoft Azure account and setup a Notification Hub.
+- [ ] Deploy and subscribe the *Push Gateway*. Use the Notification Hubs authorization keys.
+- [ ] **iOS** only - Enable the capability *Push Notification* with your Provisioning Profile.
 
 > Please keep in mind that neither Apple or Google guarantee the delivery of a Push Notification.
 
