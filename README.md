@@ -53,8 +53,6 @@ The following tools are required to build the app:
 
 The Cumulocity IoT Alarming App takes use of the Cumulocity Swift client SDK to integrate Cumulocity IoT. The client SDK is added as a SwiftPackage from it's repository at [https://github.com/SoftwareAG/cumulocity-clients-swift](https://github.com/SoftwareAG/cumulocity-clients-swift).
 
-For SwiftPackage it is required to configure a [github.com](https://github.com) user account with access to the repository. The user account must be using a developer token for authentication. It's recommended to setup the user account in Xcode before opening the project the first time in Xcode.
-
 #### Build
 
 `Build` github worlflow creates an unsigned ipa as well as an Xcode Archive. The ipa file may be uploaded to the App Store or deployed to devices using a Mobile-Device-Management (MDM) solution.
