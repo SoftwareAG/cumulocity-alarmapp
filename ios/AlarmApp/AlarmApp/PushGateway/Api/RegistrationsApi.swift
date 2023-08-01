@@ -58,7 +58,7 @@ public class RegistrationsApi {
             return Fail<Data, Error>(error: error).eraseToAnyPublisher()
         }
         let builder = URLRequestBuilder()
-            .set(resourcePath: "/service/push/registrations")
+            .set(resourcePath: "/service/pushgateway/registrations")
             .set(httpMethod: "post")
             .add(header: "Content-Type", value: "application/json")
             .set(httpBody: encodedRequestBody)
@@ -90,11 +90,10 @@ public class RegistrationsApi {
     ///		  User ID
     /// 	- deviceToken
     ///		  the deviceToken specified when creating the registration
-    public func unsubscribe(userId: String, deviceToken: String? = nil) -> AnyPublisher<Data, Swift.Error> {
+    public func unsubscribe(deviceToken: String) -> AnyPublisher<Data, Swift.Error> {
         let builder = URLRequestBuilder()
-            .set(resourcePath: "/service/push/registrations/\(userId)")
+            .set(resourcePath: "/service/pushgateway/registrations/\(deviceToken)")
             .set(httpMethod: "delete")
-            .add(queryItem: "deviceToken", value: deviceToken)
         return self.session.dataTaskPublisher(
             for: adapt(builder: builder).build()
         )

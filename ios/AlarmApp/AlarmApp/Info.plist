@@ -19,16 +19,15 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>Cumulocity Configuration</key>
 	<dict>
 		<key>Allowed Domains</key>
 		<array>
 			<string>my.own.iot.com</string>
-			<string>selters-iotedge.schuetz.org</string>
 		</array>
 		<key>Tenant</key>
-		<string>https://schuetz.eu-latest.cumulocity.com</string>
+		<string>https://tenant.eu-latest.cumulocity.com</string>
 		<key>Username</key>
 		<string></string>
 	</dict>

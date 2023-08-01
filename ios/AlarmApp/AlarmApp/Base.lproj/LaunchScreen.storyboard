@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +19,12 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="wQp-in-1n4">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXY-SV-wkH">
+                                <rect key="frame" x="16" y="792" width="382" height="30"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" name="onBackground"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="background"/>
@@ -26,7 +32,11 @@
                             <constraint firstItem="wQp-in-1n4" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="AyY-Wf-rqW"/>
                             <constraint firstItem="wQp-in-1n4" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="I0V-Rs-m18"/>
                             <constraint firstAttribute="trailing" secondItem="wQp-in-1n4" secondAttribute="trailing" id="IMN-Gs-A0B"/>
+                            <constraint firstItem="eXY-SV-wkH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Jj2-GH-OUs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eXY-SV-wkH" secondAttribute="trailing" constant="16" id="Swk-rg-pOG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eXY-SV-wkH" secondAttribute="bottom" constant="40" id="TU0-Cw-JTM"/>
                             <constraint firstAttribute="bottom" secondItem="wQp-in-1n4" secondAttribute="bottom" id="f6L-P4-Oho"/>
+                            <constraint firstItem="eXY-SV-wkH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="z2s-KU-6Cp"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,9 +46,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash" width="375" height="667"/>
+        <image name="splash" width="360" height="640"/>
         <namedColor name="background">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98431372549019602" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="onBackground">
+            <color red="0.0" green="0.12156862745098039" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

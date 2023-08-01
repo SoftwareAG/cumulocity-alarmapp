@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 requestBuilder: Cumulocity.Core.shared.requestBuilder,
                 withSession: Cumulocity.Core.shared.session
             )
-            registrationsApi.unsubscribe(userId: CumulocityApi.shared().userId, deviceToken: token)
+            registrationsApi.unsubscribe(deviceToken: token)
                 .receive(on: DispatchQueue.main)
                 .sink(
                     receiveCompletion: { _ in
