@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.cumulocity.alarmapp.DashboardFragment"
+        android:label="@string/fragment_dashboard_title"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/actionToAlarmListFragment"
+            app:destination="@id/alarmListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/actionToAlarmDetailsFragment"
+            app:destination="@id/alarmDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/alarmListFragment"
+        android:name="com.cumulocity.alarmapp.AlarmListFragment"
+        android:label="@string/fragment_alarms_title"
+        tools:layout="@layout/fragment_alarm_list">
+        <action
+            android:id="@+id/actionToAlarmDetailsFragment"
+            app:destination="@id/alarmDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/alarmDetailsFragment"
+        android:name="com.cumulocity.alarmapp.AlarmDetailsFragment"
+        android:label="@string/fragment_alarm_details_title"
+        tools:layout="@layout/fragment_alarm_details">
+        <action
+            android:id="@+id/actionToDeviceDetailsFragment"
+            app:destination="@id/deviceDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/actionToAddCommentFragment"
+            app:destination="@id/addCommentFragment"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/deviceDetailsFragment"
+        android:name="com.cumulocity.alarmapp.DeviceDetailsFragment"
+        android:label="@string/fragment_device_details_title"
+        tools:layout="@layout/fragment_device_details">
+        <action
+            android:id="@+id/actionToAlarmDetailsFragment"
+            app:destination="@id/alarmDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCommentFragment"
+        android:name="com.cumulocity.alarmapp.AddCommentFragment"
+        android:label="@string/text_add_comment"
+        tools:layout="@layout/fragment_add_comment"></fragment>
+</navigation>

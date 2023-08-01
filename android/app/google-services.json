@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "437874919529",
+    "project_id": "alarmingapp-fb8dc",
+    "storage_bucket": "alarmingapp-fb8dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437874919529:android:c0bbc86eb85b5bde17baf8",
+        "android_client_info": {
+          "package_name": "com.cumulocity.alarmapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437874919529-b38j70qk6rb81ev4tqgrkntjhmbt0gd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd5KAYDuxrMcP2QCm4sp4gdxUZ0BdJSZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437874919529-b38j70qk6rb81ev4tqgrkntjhmbt0gd1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

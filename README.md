@@ -4,8 +4,6 @@ The Cumulocity IoT Alarming App brings alarms on your mobile phone. You'll see a
 
 Each update on an Alarm triggers a Push Notification to be sent to your device. Open the notification to quickly jump to the modified Alarm. A common use case is to inform certain users when problems occur at certain devices. *Push Notifications require a dedicated micro service to be deployed on your Cumulocity IoT tenant.*
 
-> *The Cumulocity IoT Alarming App is currently only available for iOS 13+. An Android version will follow.*
-
 <img src="./screenshots/ios_dashboard.png" width="180" /> <img src="./screenshots/ios_alarm_list.png" width="180" /> <img src="./screenshots/ios_alarm_details.png" width="180" /> <img src="./screenshots/ios_device_details.png" width="180" />
 
 ## Configuring Push Notifications

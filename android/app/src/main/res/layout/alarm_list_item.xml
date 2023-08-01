@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.cumulocity.alarmapp.datetime.C8yDateFormatter" />
+
+        <import type="com.cumulocity.alarmapp.util.StringUtil" />
+
+        <import type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="alarm"
+            type="com.cumulocity.client.model.Alarm" />
+
+        <variable
+            name="statusDrawable"
+            type="Drawable" />
+
+        <variable
+            name="severityDrawable"
+            type="Drawable" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/deviceName"
+            style="?attr/textAppearanceBodyMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:autoSizeTextType="uniform"
+            android:maxLines="1"
+            android:text="@{alarm.source.name}"
+            app:layout_constraintEnd_toStartOf="@id/commentImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/commentImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_comment_count"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/alarmText"
+            style="?attr/textAppearanceBodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:autoSizeTextType="uniform"
+            android:maxLines="2"
+            android:text="@{alarm.text}"
+            app:layout_constraintEnd_toStartOf="@id/commentImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deviceName" />
+
+        <ImageView
+            android:id="@+id/severityImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@{severityDrawable}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/alarmText" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/severityText"
+            style="?attr/textAppearanceBodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="@{StringUtil.toCamelCase(alarm.severity.name())}"
+            app:layout_constraintBottom_toBottomOf="@id/severityImage"
+            app:layout_constraintEnd_toStartOf="@id/endOfSeverity"
+            app:layout_constraintStart_toEndOf="@id/severityImage"
+            app:layout_constraintTop_toTopOf="@id/severityImage" />
+
+        <ImageView
+            android:id="@+id/statusImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@{statusDrawable}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/endOfSeverity"
+            app:layout_constraintTop_toBottomOf="@id/alarmText" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/statusText"
+            style="?attr/textAppearanceBodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="@{StringUtil.toCamelCase(alarm.status.name())}"
+            app:layout_constraintBottom_toBottomOf="@id/statusImage"
+            app:layout_constraintEnd_toStartOf="@id/endOfStatus"
+            app:layout_constraintStart_toEndOf="@id/statusImage"
+            app:layout_constraintTop_toTopOf="@id/statusImage" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/time"
+            style="?attr/textAppearanceBodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:autoSizeTextType="uniform"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="@id/statusImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/statusImage"
+            android:text="@{C8yDateFormatter.toReadableDate(alarm.time)}" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endOfSeverity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="104dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endOfStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="232dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

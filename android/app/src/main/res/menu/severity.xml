@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/critical"
+        android:icon="@drawable/ic_severity_critical"
+        android:title="Critical" />
+    <item
+        android:id="@+id/major"
+        android:icon="@drawable/ic_severity_major"
+        android:title="Major" />
+    <item
+        android:id="@+id/minor"
+        android:icon="@drawable/ic_severity_minor"
+        android:title="Minor" />
+    <item
+        android:id="@+id/warning"
+        android:icon="@drawable/ic_severity_warning"
+        android:title="Warning" />
+</menu>

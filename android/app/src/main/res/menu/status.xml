@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cleared"
+        android:icon="@drawable/ic_status_cleared"
+        android:title="Cleared" />
+    <item
+        android:id="@+id/acknowledged"
+        android:icon="@drawable/ic_status_acknowledged"
+        android:title="Acknowledged" />
+    <item
+        android:id="@+id/active"
+        android:icon="@drawable/ic_status_active"
+        android:title="Active" />
+</menu>
