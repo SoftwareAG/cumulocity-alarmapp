@@ -2,13 +2,13 @@
 
 The Cumulocity IoT Alarm App brings Alarms on your mobile phone. You'll see an overview about all Alarms raised on your Cumulocity IoT tenant, browse or filter the list of Alarms, collaborate by adding comments or modify the Alarm's severity or status.
 
-Update or create an Alarm on your Cumulocity IoT tenant to trigger a push notification to be sent to your device. Open the notification to quickly see the Alarm on the Alarm App. A common use case is to inform certain users when problems occur at certain devices. 
+Update or create an Alarm on your Cumulocity IoT tenant to trigger a push notification to be sent to your mobile phone. Open the notification to quickly see the Alarm on the Alarm App. A common use case is to inform certain users when problems occur at certain devices. 
 
-The Cumulocity IoT Alarm App is available for Android and iOS. Open the app on your phone, enter a Cumulocity IoT tenant along with your user credentials and start exploring.
-
-> Enabling push notifications requires dedicated microservices to be deployed on your Cumulocity IoT tenant. 
+The Cumulocity IoT Alarm App is available for Android and iOS. Open the app on your mobile phone, enter a Cumulocity IoT tenant along with your user credentials and start exploring.
 
 <img src="./ios/screenshots/dashboard.png" width="180" /> <img src="./ios/screenshots/alarm_list.png" width="180" /> <img src="./ios/screenshots/alarm_details.png" width="180" /> <img src="./ios/screenshots/device_details.png" width="180" />
+
+> Enabling push notifications requires dedicated microservices to be deployed on your Cumulocity IoT tenant.
 
 ## FAQ
 
