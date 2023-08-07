@@ -12,22 +12,20 @@ Enabling push notifications requires dedicated microservices to be deployed on y
 
 ## Getting Started
 
-The latest release can be found [here](https://github.com/SoftwareAG/cumulocity-alarmapp/releases/latest).
+This repository contains open-source code you can use to build the Alarm App for Android and iOS as well as to build the needed microservices for enabling push notifications.
 
-###### What does it contain?
+- [How to build for iOS?](./ios/README.md)
+- [How to build for Android?](./android/README.md)
+- [How to build and deploy the microservices?](./microservices/README.md) 
+
+The latest release can be found [here](https://github.com/SoftwareAG/cumulocity-alarmapp/releases/latest). ![Workflow](https://github.com/SoftwareAG/cumulocity-alarmapp/actions/workflows/build.yml/badge.svg)
 
 The release contains binaries for Android and iOS:
 
 - An unsigned `APK` file, which can be distributed to devices,
 - An unsigned `IPA` file, which can be distributed, but must be signed before deployed to devices.
 
-It does not contain microservices because certain properties need to be configured before you build them.
-
-###### How to build the individual parts?
-
-- [How to build for iOS?](./ios/README.md)
-- [How to build for Android?](./android/README.md)
-- [How to build and deploy the microservices?](./microservices/README.md)
+It does not contain microservices. Some properties belong to your environment and must be configured before building the microservices.
 
 ## Contact
 
