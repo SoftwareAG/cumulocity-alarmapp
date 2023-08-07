@@ -39,6 +39,25 @@ The repository contains an example microservice (see [message-emitter](./c8y-pus
 
 An OpenAPI specification of all RESTful services provided by the Push Gateway can be found [here](./c8y-push-api/openapi.yml). 
 
+## Build
+
+Building the Push Gateway requires a Notification Hub to be existing first. Copy the `Manage,Listen,Send` permission as well as the `name` of the Hub to the `application-prod.properties` file located within the [push-bundle](./c8y-push-gateway/push-bundle) module. 
+
+```
+defaultsettings.hub=<Name of your Notification Hub>
+defaultsettings.connection=<Value of the Managed,Listen,Send permission>
+```
+
+Afterwards execute the Maven goal `install` on the root directory at `./c8y-push-gateway`.
+
+```
+mvn clean install
+```
+
+Now, build the [message-emitter](./c8y-push-message-emitter) by calling the `install` goal.
+
+> Make sure the following tools [Docker](https://www.docker.com/) and [Maven](https://maven.apache.org/) are installed on your machine.
+
 ## Workflow
 
 ### Obtaining device tokens
@@ -88,11 +107,11 @@ Use the following service to trigger push notifications. Each request will be fo
     ```json
     {
         "receiver": [
+        	"deviceTokens": [ 
+                "string"
+            ], 
             "userIds": [ 
                 "Cumulocity IoT user id"
-            ],
-            "deviceTokens": [ 
-                "string"
             ]
         ],
         "tags": [
@@ -106,8 +125,8 @@ Use the following service to trigger push notifications. Each request will be fo
         }
     }
     ```
-
-If `userIds` and `deviceTokens` are empty, a notification is sent to each registered user. `tags` can be used to filter push notifications. If specified, receivers registrations do need to specify the same tags.
+    
+A push notification is sent to each registrations as long as `deviceTokens` or `userIds` are not set explicitly. The use of `deviceTokens` takes precedence over `userIds`. `tags` can be used to filter push notifications. If specified, receivers registrations do need to specify the same tags.
 
 `message` is a required property and must contain one `alarmId`. The Push Gateway will load the Alarm by it's id and hand it over as payload of the push notification.
 

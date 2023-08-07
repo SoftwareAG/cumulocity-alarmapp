@@ -9,7 +9,7 @@ env:
   BUILD_OFFSET: 100
 
 jobs:
-  build:
+  build-ios:
     runs-on: macos-12
     steps:
       - name: Checkout

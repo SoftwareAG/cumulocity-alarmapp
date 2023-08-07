@@ -8,9 +8,22 @@ The Cumulocity IoT Alarm App is available for Android and iOS. Open the app on y
 
 <img src="./ios/screenshots/dashboard.png" width="180" /> <img src="./ios/screenshots/alarm_list.png" width="180" /> <img src="./ios/screenshots/alarm_details.png" width="180" /> <img src="./ios/screenshots/device_details.png" width="180" />
 
-> Enabling push notifications requires dedicated microservices to be deployed on your Cumulocity IoT tenant.
+Enabling push notifications requires dedicated microservices to be deployed on your Cumulocity IoT tenant.
 
-## FAQ
+## Getting Started
+
+The latest release can be found [here](https://github.com/SoftwareAG/cumulocity-alarmapp/releases/latest).
+
+###### What does it contain?
+
+The release contains binaries for Android and iOS:
+
+- An unsigned `APK` file, which can be distributed to devices,
+- An unsigned `IPA` file, which can be distributed, but must be signed before deployed to devices.
+
+It does not contain microservices because certain properties need to be configured before you build them.
+
+###### How to build the individual parts?
 
 - [How to build for iOS?](./ios/README.md)
 - [How to build for Android?](./android/README.md)

@@ -8,11 +8,11 @@ The following tools are required to build the app:
 
 ## Build
 
-`Build` github worlflow creates an unsigned ipa as well as an Xcode Archive. The ipa file may be uploaded to the App Store or deployed to devices using a Mobile-Device-Management (MDM) solution.
+The `build-ios` GitHub workflow creates an unsigned `IPA` as well as an Xcode Archive. The `IPA` file can be uploaded to the App Store or deployed to devices using a Mobile-Device-Management (MDM) solution.
 
 The latest release can be found [here](https://github.com/SoftwareAG/cumulocity-alarmapp/releases/latest).
 
-> **This build can be distributed, but must be signed before deployed to devices.**
+**This build can be distributed, but must be signed before deployed to devices.**
 
 ## Code Sign
 
@@ -30,7 +30,7 @@ In order to re-sign the application, you'll need to prepare your developer accou
 
 ### Using Fastlane
 
-To sign the ipa, it is recommended to use [Fastlane](https://fastlane.tools). See documentation for [Fastlane resign](https://docs.fastlane.tools/actions/resign/) for more infos and config options, for example to change version number, display name, etc. when resigning.
+To sign the `IPA`, it is recommended to use [Fastlane](https://fastlane.tools). See documentation for [Fastlane resign](https://docs.fastlane.tools/actions/resign/) for more infos and config options, for example to change version number, display name, etc. when resigning.
 
 ```bash
 > fastlane run resign ipa:./AlarmApp.ipa signing_identity:"<Keychain Identity of certificate>" provisioning_profile:<path provisioning profile>
