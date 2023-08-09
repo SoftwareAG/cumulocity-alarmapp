@@ -25,7 +25,7 @@ Sending a device token to the Notification Hub is called an installation (or reg
 
 Tags can be used to send push notifications to a list of certain users: A boolean expression using tags will be evaluated by Azure. Tags can be chained to so called `tag expressions` supporting common operators like `AND (&&)`, `OR (||)`, and `NOT (!)`.
 
-> **Limitation:** Tag expressions using only OR operators can reference 20 tags; expression with AND operators but no OR operators can reference 10 tags; otherwise, tag expressions are limited to 6 tags.
+> **Limitation:** Tag expressions can contain all Boolean operators, such as AND (&&), OR (||), and NOT (!). They can also contain parentheses. Tag expressions are limited to 20 tags if they contain only ORs; otherwise they are limited to 6 tags.
 
 ###### Triggering Push Notifications
 
