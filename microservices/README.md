@@ -33,7 +33,7 @@ One requirement to send push notifications is to configure the connection to the
 
 On a second note, the Push Gateway itself does not automatically trigger push notifications. Any Cumulocity IoT client application (a microservice, Apama app, webMethods.io workflow, or other third party tool) may use the RESTful API of the Push Gateway to trigger push notifications.
 
-The repository contains an example microservice (see [message-emitter](./c8y-push-message-emitter)), which receives updates on `Alarm` objects and forwards those updates to the Push Gateway in order to trigger a push notification for the updated `Alarm`. This microservice can be deployed with a filter configuration, e.g. to only forward the `Alarm` if a certain type, severity or status is matched. The filter is implemented by using `tag` `expressions`.
+The repository contains an example microservice (see [Push Message Emitter](./c8y-push-message-emitter)), which receives updates on `Alarm` objects and forwards those updates to the Push Gateway in order to trigger a push notification for the updated `Alarm`. This microservice can be deployed with a filter configuration, e.g. to only forward the `Alarm` if a certain type, severity or status is matched. The filter is implemented by using `tag` `expressions`.
 
 ###### OpenAPI
 
@@ -54,9 +54,16 @@ Afterwards execute the Maven goal `install` on the root directory at `./c8y-push
 mvn clean install
 ```
 
-Now, build the [message-emitter](./c8y-push-message-emitter) by calling the `install` goal.
+Now, build the [Push Message Emitter](./c8y-push-message-emitter) by calling the `install` goal.
 
 > Make sure the following tools [Docker](https://www.docker.com/) and [Maven](https://maven.apache.org/) are installed on your machine.
+
+## Deploy
+
+Deploy the microservice in the following order:
+
+1. [Push Gateway](./c8y-push-gateway)
+2. [Push Message Emitter](./c8y-push-message-emitter)
 
 ## Workflow
 
@@ -130,8 +137,6 @@ A push notification is sent to each registrations as long as `deviceTokens` or `
 
 `message` is a required property and must contain one `alarmId`. The Push Gateway will load the Alarm by it's id and hand it over as payload of the push notification.
 
-> **Limitation:** At the moment, only the Cumulocity IoT inventory object `Alarm` is supported.
-
 ### Configure Azure notification hub
 
 The authorization keys for connecting to the Azure notification hub must be configured within the `application.properties` file once before deploying the microservice.
@@ -152,4 +157,32 @@ Once the microservice is deployed, the configuration can be found within the ten
     }
     ```
     
-The notification hub needs to authorise against a push notification provider: Register for Firebase Cloud Messaging and add the `API key` within `Settings` > `Google (GCM/FCM)`. To authorise against APNS, create a `p8` token on the Apple Developer Console and add within `Settings` > `Appke (APNS)`. 
+The notification hub needs to authorise against a push notification provider: Register for Firebase Cloud Messaging and add the `API key` within `Settings` > `Google (GCM/FCM)`. To authorise against APNS, create a `p8` token on the Apple Developer Console and add within `Settings` > `Appke (APNS)`.
+
+## Local deployment
+
+When deploying the Push Gateway in a local environment, make sure to specify the properties listed below in your `application-dev.properties` file:
+
+```
+C8Y.baseURL=tenant url
+C8Y.bootstrap.user=string
+C8Y.bootstrap.password=string
+C8Y.bootstrap.register=true
+C8Y.bootstrap.tenant=tenant id
+C8Y.service.user=string
+C8Y.service.password=string
+```
+
+And make sure to reference the active profile in your `application.properties` file like:
+
+```
+# Available profiles: dev, test, prod
+spring.profiles.active=dev
+```
+
+###### Nice to know
+
+- bootstrap credentials can be accessed using `GET /application/applications/{id}/bootstrapUser`
+	- make sure to have a deployed version on your tenant to get the application id
+- service user credentials can be accessed using `GET /application/currentApplication/subscriptions`
+	- the bootstrap user must be used for basic authentication 
