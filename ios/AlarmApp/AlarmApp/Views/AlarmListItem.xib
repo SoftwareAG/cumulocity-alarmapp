@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,44 +17,44 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x20-6b-dkC" userLabel="deviceLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                        <rect key="frame" x="16" y="8" width="382" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x20-6b-dkC" userLabel="deviceLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                        <rect key="frame" x="16" y="8" width="382" height="47"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <color key="textColor" name="onBackground"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" ambiguous="YES" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B1c-yI-w42" userLabel="textLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                        <rect key="frame" x="16" y="29" width="382" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B1c-yI-w42" userLabel="textLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                        <rect key="frame" x="16" y="59" width="382" height="18"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                         <color key="textColor" name="onBackground"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Frb-dZ-1N6">
-                        <rect key="frame" x="16" y="51.5" width="382" height="53.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Frb-dZ-1N6">
+                        <rect key="frame" x="16" y="85" width="382" height="20"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yec-8r-cZ6">
-                                <rect key="frame" x="0.0" y="0.0" width="382" height="53.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yec-8r-cZ6">
+                                <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6y-hY-F5G" userLabel="severityContainer" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="53.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6y-hY-F5G" userLabel="severityContainer" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="AbC-zk-Meb"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRw-OI-gb7" userLabel="statusContainer" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="80" y="0.0" width="104" height="53.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRw-OI-gb7" userLabel="statusContainer" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="80" y="0.0" width="104" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="104" id="hM0-vP-aEe"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="539-tE-KAB" userLabel="commentContainer" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="192" y="0.0" width="153.5" height="53.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="539-tE-KAB" userLabel="commentContainer" customClass="DecoratedLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="192" y="0.0" width="55" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zjr-EM-Ayx" userLabel="timeLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="353.5" y="-0.5" width="28.5" height="53.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zjr-EM-Ayx" userLabel="timeLabel" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
+                                        <rect key="frame" x="351" y="0.0" width="31" height="20"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <color key="textColor" name="onBackground"/>
                                         <nil key="highlightedColor"/>
@@ -107,13 +108,13 @@
     </objects>
     <designables>
         <designable name="B1c-yI-w42">
-            <size key="intrinsicContentSize" width="24" height="14.5"/>
+            <size key="intrinsicContentSize" width="29" height="18"/>
         </designable>
         <designable name="x20-6b-dkC">
-            <size key="intrinsicContentSize" width="46" height="17"/>
+            <size key="intrinsicContentSize" width="54" height="20.5"/>
         </designable>
         <designable name="zjr-EM-Ayx">
-            <size key="intrinsicContentSize" width="28.5" height="13.5"/>
+            <size key="intrinsicContentSize" width="31" height="14.5"/>
         </designable>
     </designables>
     <resources>

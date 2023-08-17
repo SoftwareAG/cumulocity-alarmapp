@@ -22,11 +22,11 @@ class AlarmDetailsViewController: UIViewController, AlarmUpdate {
     @IBOutlet var textLabel: MaterialLabel!
     @IBOutlet var openDeviceButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var newCommentButton: UIButton!
 
     private var cancellableSet = Set<AnyCancellable>()
-    private var summaryController: UIViewController?
+    private var summaryController: AlarmSummaryViewController?
+    private var commentsController: CommentListViewController?
 
     @Published
     var alarm: C8yAlarm?
@@ -44,10 +44,15 @@ class AlarmDetailsViewController: UIViewController, AlarmUpdate {
         self.newCommentButton.layer.shadowOpacity = 0.4
         self.newCommentButton.layer.shadowRadius = 2
         self.newCommentButton.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        self.$alarm.sink { value in
+        self.$alarm.sink { [self] value in
             if let a = value {
                 self.textLabel.text = a.text
                 self.openDeviceButton.setTitle(a.source?.name, for: [])
+                // update the comment list when a new comment was submitted
+                if let commentController = self.commentsController {
+                    commentController.data = a[C8yComment.identifier] as? [C8yComment] ?? []
+                    commentController.tableView.reloadData()
+                }
             }
         }
         .store(in: &self.cancellableSet)
@@ -56,23 +61,12 @@ class AlarmDetailsViewController: UIViewController, AlarmUpdate {
     // MARK: - Actions
 
     @IBAction func onContentsChanged(_ sender: UISegmentedControl) {
-        if let child = summaryController {
-            child.willMove(toParent: nil)
-            child.removeFromParent()
-            child.view.removeFromSuperview()
-            summaryController = nil
-        }
         if sender.selectedSegmentIndex == 1 {
-            let child = UIStoryboard.createCommentListViewController()
-            if let vc = child {
-                vc.data = self.alarm?[C8yComment.identifier] as? [C8yComment] ?? []
-                self.containerView.addSubview(vc.view)
-                self.addChild(vc)
-                vc.didMove(toParent: self)
-                summaryController = vc
-            }
+            self.commentsController?.view.superview?.isHidden = false
+            self.summaryController?.view.superview?.isHidden = true
         } else {
-            self.performSegue(withIdentifier: UIStoryboardSegue.embedAlarmSummary, sender: sender)
+            self.summaryController?.view.superview?.isHidden = false
+            self.commentsController?.view.superview?.isHidden = true
         }
     }
 
@@ -87,6 +81,10 @@ class AlarmDetailsViewController: UIViewController, AlarmUpdate {
             destination?.alarm = self.alarm
             destination?.delegate = self
             self.summaryController = destination
+        } else if segue.identifier == UIStoryboardSegue.embedCommentList {
+            let destination = segue.destination as? CommentListViewController
+            destination?.data = self.alarm?[C8yComment.identifier] as? [C8yComment] ?? []
+            self.commentsController = destination
         } else if segue.identifier == UIStoryboardSegue.toNewComment {
             let destination = segue.destination as? NewCommentViewController
             destination?.alarm = self.alarm
