@@ -2,9 +2,33 @@
 
 ## Installation and Setup
 
-The following tools are required to build the app:
+The following tools are required to build the App:
 
-- Xcode 13.2+
+- Xcode 14.3+
+
+## Configuration
+
+##### How to work with self-signed SSL certificates?
+
+The App is prepared to work with self-signed certificates, which is interesting when connecting to Cumulocity Edge. By default, the App will allow any requests for the domain name `my.own.iot.com`.
+
+You can configure the allowed domains by modyfing the `Info.plist`. Locate the setting named `Cumulocity Configuration` and add your domain name to `Allowed Domains`.
+
+##### How to add support for languages?
+
+The default language shown in the user interface is `en_US`. Refer to the developer [documentation](https://developer.apple.com/documentation/xcode/adding-support-for-languages-and-regions) to get more information how to add a new language.
+
+Duplicate the `Localizable` `Strings` file and modify the values according to the language your adding. You can not only add more languages but also change how some of the information is presented:
+
+```Console
+// Those keys store formats for displaying Alarm related dates.
+"alarm_time_printformat" = "MMM dd yyyy, HH:mm";
+"alarm_time_locale" = "en_US_POSIX";
+```
+
+##### How to change defaults on the App's login view?
+
+To modify the default values shown on the login view check out the soure-code and locate the `Info.plist` file. You'll find a setting named `Cumulocity Configuration` where you can change `Tenant` and `Username` configuration.
 
 ## Build
 
