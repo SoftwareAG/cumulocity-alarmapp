@@ -32,7 +32,7 @@ To modify the default values shown on the login view check out the soure-code an
 
 ## Build
 
-The `build-ios` GitHub workflow creates an unsigned `IPA` as well as an Xcode Archive. The `IPA` file can be uploaded to the App Store or deployed to devices using a Mobile-Device-Management (MDM) solution.
+The `Build release candidate` GitHub workflow creates an unsigned `IPA` as well as an Xcode Archive. The `IPA` file can be uploaded to the App Store or deployed to devices using a Mobile-Device-Management (MDM) solution.
 
 The latest release can be found [here](https://github.com/SoftwareAG/cumulocity-alarmapp/releases/latest).
 
