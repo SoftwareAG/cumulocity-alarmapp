@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.softwareag.c8y.push</groupId>
+	<artifactId>push-parent</artifactId>
+	<version>${revision}</version>
+	<packaging>pom</packaging>
+
+	<name>parent-pom</name>
+	<description>parent pom</description>
+
+	<properties>
+		<build.number>1</build.number>
+		<revision>1.0.0.${build.number}</revision>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<main.class>com.softwareag.c8y.push.PushGatewayApplication</main.class>
+		<microservice.name>pushgateway</microservice.name>
+		<spring-boot-dependencies.version>2.5.4</spring-boot-dependencies.version>
+		<c8y.version>1018.0.99</c8y.version>
+        <azure-notification-sdk.version>1.0.4</azure-notification-sdk.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.nsn.cumulocity.clients-java</groupId>
+				<artifactId>microservice-dependencies</artifactId>
+				<version>${c8y.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<modules>
+		<module>push-registration</module>
+		<module>push-sender</module>
+		<module>push-bundle</module>
+		<module>push-commons</module>
+	</modules>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>public</id>
+			<url>https://download.cumulocity.com/maven/repository</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<repositories>
+		<repository>
+			<id>cumulocity</id>
+			<layout>default</layout>
+			<url>https://download.cumulocity.com/maven/repository</url>
+		</repository>
+	</repositories>
+</project>

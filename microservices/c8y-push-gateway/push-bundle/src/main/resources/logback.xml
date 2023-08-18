@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- For local testing only - the logging configuration for deployment is in src/main/docker/etc/oee-bundle-logging.xml -->
+<configuration>
+
+	<include
+		resource="org/springframework/boot/logging/logback/base.xml" />
+		
+	<!-- <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender> -->
+		
+		<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${user.home}/microservice.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover. Make sure the path matches the one in the file element 
+				or else the rollover logs are placed in the working directory. -->
+			<fileNamePattern>${user.home}/microservice%d{yyyy-MM-dd}_%i.log
+			</fileNamePattern>
+
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>2MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- keep maxHistory days' worth of history -->
+			<maxHistory>5</maxHistory>
+			<!-- delete oldest log files if total size exceeds totalSizeCap -->
+			<totalSizeCap>300MB</totalSizeCap>
+		</rollingPolicy>
+
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d %-4relative [%thread] %-5level %logger{35} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="org.springframework.web" level="INFO" />
+	<logger name="org.springframework.web.client" level="INFO" />
+	<!-- <logger name="org.springframework.web" level="TRACE"/> <logger name="org.springframework.web.client" 
+		level="TRACE"/> -->
+	
+	<!--  to catch a bug, remove later -->
+	<!-- <logger name="com.adamos.oee.gateway.subscriptions" level="TRACE" /> -->
+	<!-- <logger name="com.adamos.oee.xhubfacade.rest.XhubProxyRestController" level="TRACE" /> -->
+
+	<root level="INFO">
+		<appender-ref ref="FILE"/>
+	</root>
+	
+</configuration>

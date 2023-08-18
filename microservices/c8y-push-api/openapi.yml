@@ -1,0 +1,371 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Cumulocity IoT Push Gateway API
+tags:
+  - name: Registration
+    description: Endpoint that is used to register physical devices at the tenant.
+  - name: Configuration
+    description: Endpoint to setup configure the Azure notification hub.
+  - name: Notification
+    description: Endpoint to trigger Push Notifications.
+servers:
+  - url: '{protocol}://{tenant}.{instance}'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: https
+      tenant:
+        default: mobile
+      instance:
+        default: eu-latest.cumulocity.com
+paths:
+  "/registrations":
+    post:
+      operationId: registerDevice
+      summary: "Registers a device at the tenant."
+      description: |
+        Creates a Azure registration within the configured notification hub. Needs to be performed once the device token is obtained from APNS or Firebase.
+        Use this resource to also update an existing registration. E.g. to modify the tag list.
+      tags:
+        - Registration
+      security: 
+        - basicAuth: []
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/Registration'
+      responses:
+        '201':
+          description: "Successfully registered device."
+        '400':
+          description: "Could not create Azure registration."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                One:
+                  value:
+                    message: "No Cumulocity IoT user found."
+                Two:  
+                  value:
+                    message: "Connection to Azure notification hub failed."
+                Three:  
+                  value:
+                    message: "Subscription is not valid."
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+    get:
+      operationId: getRegistrations
+      summary: "Receive a list of all registrations."
+      description: |
+        Registrations can be optionally filtered by a tag.
+      parameters: 
+        - in: query
+          name: tag
+          description: "Meta data used as a filter."
+          schema:
+            type: string
+          required: false
+      tags:
+        - Registration
+      security: 
+        - basicAuth: []
+      responses:
+        '200':
+          description: "The request has succeeded and registrations are sent in the response."
+          content:
+            "application/json":
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Registration'
+        '400':
+          description: "Could not retrieve registrations."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                One:  
+                  value:
+                    message: "Connection to Azure notification hub failed."
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+    delete: 
+      operationId: removeRegistrations
+      summary: "Removes all registrations from the Azure notification hub."
+      tags:
+        - Registration
+      security: 
+        - basicAuth: []
+      responses:
+        '201':
+          description: "Successfully deleted all registrations."
+        '400':
+          description: "Could not create Azure registration."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                One:  
+                  value:
+                    message: "Connection to Azure notification hub failed."
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  "/registrations/{userId}":
+    get:  
+      operationId: getRegistrationsByUser
+      summary: "Get all registrations for a Cumulocity IoT user id."
+      tags:
+        - Registration
+      security: 
+        - basicAuth: []
+      parameters: 
+        - in: path
+          name: userId
+          description: "A Cumulocity IoT user id."
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: "The request has succeeded and registrations are sent in the response."
+          content:
+            "application/json":
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Registration'
+        '400':
+          description: "Could not retrieve registrations."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                One:  
+                  value:
+                    message: "Connection to Azure notification hub failed."
+                Two:  
+                  value:
+                    message: "Could not find the Cumulocity IoT user id."
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  "/registrations/{deviceToken}":
+    parameters: 
+        - in: path
+          name: deviceToken
+          description: "A registered device token."
+          schema:
+            type: string
+          required: true
+    delete:
+      operationId: removeRegistration
+      summary: "Removes a registration given by it's device token."
+      tags:
+        - Registration
+      security: 
+        - basicAuth: []
+      responses:
+        '201':
+          description: "The registration has been removed."
+        '400':
+          description: "The registration could not been removed."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                One:  
+                  value:
+                    message: "Connection to Azure notification hub failed."
+                Two:  
+                  value:
+                    message: "The device token is not yet registered."
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+  "/configuration":
+    get:  
+      operationId: getConfiguration
+      summary: "Get the current Azure notification hub authorization keys."
+      tags:
+        - Configuration
+      security: 
+        - basicAuth: []
+      responses:
+        '200':
+          description: "The request has succeeded and the configuration is sent in the response."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/AzureConfiuration'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+    put:
+      operationId: updateConfiguration
+      summary: "Updates the Azure notification hub authorization keys."
+      description: |
+        The connection to the Azure notification hub will be verified before the authorization keys are stored.
+      tags:
+        - Configuration
+      security: 
+        - basicAuth: []
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/AzureConfiuration'
+      responses:
+        '201':
+          description: "The configuration has been updated."
+        '400':
+          description: "Could not update configuration."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                One:  
+                  value:
+                    message: "There are missing properties in the request body."
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '503':
+          description: "Connection to Azure failed."
+  "/notification":
+    post:
+      operationId: sendNotification
+      summary: "Asks the Azure notification hub to trigger a push notification."
+      description: |
+        Sends a push notification to the specified receivers. If no receiver is specified, the push notification will be send to each registration. Additional tags can be set to filter registrations.
+        You can decided if the push notification should be sent to each device by leaving `receiver` empty, or to send to either dedicated Cumulocity User or to send to dedicated devices.
+      tags:
+        - Notification
+      security: 
+        - basicAuth: []
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/NotificationRequest'
+      responses:
+        '201':
+          description: "Successfully sent notification."
+        '400':
+          description: "Could not send notification."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                One:  
+                  value:
+                    message: "Connection to Azure notification hub failed."
+                Two:  
+                  value:
+                    message: "There are missing properties in the request."
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+components:
+  schemas:
+    AzureConfiuration:
+      type: object
+      properties:
+        hub:
+          type: string
+          description: "Name of the Azure notification hub."
+        connection:
+          type: string
+          description: "Azure authorization token."
+    Registration:
+      type: object
+      required:
+        - userId
+        - bundleId
+        - device
+      properties:
+        userId:
+          type: string
+          description: "The Cumulocity IoT user id."
+        bundleId:
+          type: string
+          description: "Bundle id of the mobile application."
+        tags:
+          type: array
+          description: "Additional information for this subscription."
+          items:
+            type: string
+        device:
+          type: object
+          description: "Device information."
+          required:
+            - deviceName
+            - deviceToken
+            - platform
+          properties:
+            deviceName:
+              type: string
+              description: "The name of the your mobile device."
+            deviceToken:
+              type: string
+              description: "Obtained device token from APNS or Firebase."
+            platform:
+              type: string
+              enum: 
+                - IOS
+                - Android
+    NotificationRequest:
+      type: object
+      required:
+        - message
+      properties:
+        receiver:
+          type: object
+          description: "List of Cumulocity IoT user ids and/or device tokens which should receive the push notification."
+          properties:
+            userIds:
+              type: array
+              items: 
+                type: string
+            deviceTokens:
+              type: array
+              items: 
+                type: string
+        tags:
+          type: array
+          description: "List of tags. If set, the registrations will be filtered to match any of the specified tags."
+          items: 
+            type: string
+        message:
+          type: object
+          description: "Specifies meta data of the push notification."
+          required:
+            - title
+            - alarmId
+          properties:
+            title:
+              type: string
+              description: "Used when the push notification is displayed on the device."
+            body:
+              type: object
+              properties:
+                alarmId:
+                  type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+  responses:
+    unauthorizedError:
+      description: Authentication information is missing or invalid.
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

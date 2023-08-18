@@ -1,0 +1,7 @@
+                   
+       
+Version (${microservice.version})
+
+ :: Cumulocity Microservices SDK (${c8y.version}) ::                                                                                                                
+ :: Spring Boot${spring-boot.formatted-version} ::
+ 
