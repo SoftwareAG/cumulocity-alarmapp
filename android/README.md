@@ -10,7 +10,14 @@ The following tools are required to build the App:
 ## Configuration
 
 ##### How to work with self-signed SSL certificates?
+
+Supporting self-signed certificates is currently not supported. Refer to the Android Security [documentation](https://developer.android.com/training/articles/security-ssl).
+
 ##### How to add support for languages?
+
+The default language shown in the user interface is `en_US`. The default localiation can be found in `res/values/string.xml`. Refer to the [documentation](https://developer.android.com/guide/topics/resources/localization) to add more languages.
+
+Android uses resource directories with specific naming conventions to hold localized content. The naming convention for resource directories is `res/values-xx`, where `xx` is the two-letter `ISO 639-1` language code for the target language. For example, if you're adding Spanish localization, you would create a directory named `values-es` for Spanish resources. In the new directory you created, copy the default `res/values/strings.xml` and translate the content to the target language.
 
 ## Build
 
