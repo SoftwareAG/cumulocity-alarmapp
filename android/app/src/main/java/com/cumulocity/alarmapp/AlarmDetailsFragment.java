@@ -88,7 +88,7 @@ public class AlarmDetailsFragment extends Fragment {
         fragmentAlarmDetailsBinding.setVariable(BR.severityDrawable, AlarmModel.getSeverityIcon().apply(alarm, getContext()));
         fragmentAlarmDetailsBinding.setVariable(BR.statusDrawable, AlarmModel.getStatusIcon().apply(alarm, getContext()));
         fragmentAlarmDetailsBinding.openDeviceButton.setOnClickListener(view -> {
-            Navigation.findNavController(view).navigate(R.id.actionToDeviceDetailsFragment, toBundle(alarm), null, null);
+            Navigation.findNavController(view).navigate(R.id.actionToDeviceDetailsFragment, toBundle(AlarmDetailsFragment.this.alarm), null, null);
         });
     }
 
@@ -102,7 +102,7 @@ public class AlarmDetailsFragment extends Fragment {
             FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder()
                     .addSharedElement(fragmentAlarmDetailsBinding.commentsButton, "container_transformation")
                     .build();
-            Navigation.findNavController(getView()).navigate(R.id.actionToAddCommentFragment, toBundle(alarm), null, extras);
+            Navigation.findNavController(getView()).navigate(R.id.actionToAddCommentFragment, toBundle(AlarmDetailsFragment.this.alarm), null, extras);
         });
         fragmentAlarmDetailsBinding.nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
@@ -172,10 +172,10 @@ public class AlarmDetailsFragment extends Fragment {
         });
     }
 
-    private static Bundle toBundle(Alarm alarm) {
-        ArrayList<Alarm> localList = new ArrayList<>();
+    private Bundle toBundle(Alarm alarm) {
+        final ArrayList<Alarm> localList = new ArrayList<>();
         localList.add(alarm);
-        Bundle bundle = new Bundle();
+        final Bundle bundle = getArguments();
         bundle.putSerializable("AlarmSelected", localList);
         return bundle;
     }
