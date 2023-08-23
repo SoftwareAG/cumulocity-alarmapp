@@ -1,7 +1,5 @@
 # Cumulocity IoT Push Gateway
 
-## Introduction
-
 The Cumulocity IoT Push Gateway is a microservice extension to the Cumulocity IoT platform. It enables mobile applications to receive push notifications sent from Cumulocity IoT.
 
 > :information_source: Push notifications in general target delivery of information from a software application to a mobile client application. In contrast to client-server communication, push notifications are sent without a specific request from the client. A mobile application is identified by a unique `device token`, which needs to be obtained from a mobile platform notification provider: Either Apple Push Notification Service (APNS) for iOS devices or Firebase for Android devices.
@@ -12,7 +10,7 @@ Our key goal is to support push notifications with Cumulocity IoT for iOS and An
 - Sending of messages, sounds as well as custom payloads,
 - Support managing mobile devices and its user association outside of Cumulocity IoT Device Management.
 
-###### Integrating Microsoft Azure
+##### Integrating Microsoft Azure
 
 The Cumulocity IoT Push Gateway integrates [Microsoft Azure Notification Hub](https://azure.microsoft.com/de-de/services/notification-hubs/): A scalable push engine that enables you to send push notifications to any platform from any backend. The Notification Hub supports one particular mobile application, identified by it's `bundle id` and stores device tokens associated with this mobile application. 
 *An external system to manage devices and send push notifications will be named `notification provider` in this document.*
@@ -21,23 +19,19 @@ The Cumulocity IoT Push Gateway integrates [Microsoft Azure Notification Hub](ht
 
 Sending a device token to the Notification Hub is called an installation (or registration). Any installation supports a list of `tags` - basically named topics. The Notification Hub supports up to `60` tags per installation. Please refer to the Azure documentation about [tags](https://learn.microsoft.com/en-us/azure/notification-hubs/notification-hubs-tags-segment-push-message) to learn more about it.
 
-###### Using tags to target users
+##### Using tags to target users
 
 Tags can be used to send push notifications to a list of certain users: A boolean expression using tags will be evaluated by Azure. Tags can be chained to so called `tag expressions` supporting common operators like `AND (&&)`, `OR (||)`, and `NOT (!)`.
 
 > **Limitation:** Tag expressions can contain all Boolean operators, such as AND (&&), OR (||), and NOT (!). They can also contain parentheses. Tag expressions are limited to 20 tags if they contain only ORs; otherwise they are limited to 6 tags.
 
-###### Triggering Push Notifications
+##### Triggering push notifications
 
 One requirement to send push notifications is to configure the connection to the Notification Hub: A security token as well as the name of the connection hub is required. Both pieces of information are stored within the tenant options and described below in this document.
 
 On a second note, the Push Gateway itself does not automatically trigger push notifications. Any Cumulocity IoT client application (a microservice, Apama app, webMethods.io workflow, or other third party tool) may use the RESTful API of the Push Gateway to trigger push notifications.
 
 The repository contains an example microservice (see [Push Message Emitter](./c8y-push-message-emitter)), which receives updates on `Alarm` objects and forwards those updates to the Push Gateway in order to trigger a push notification for the updated `Alarm`. This microservice can be deployed with a filter configuration, e.g. to only forward the `Alarm` if a certain type, severity or status is matched. The filter is implemented by using `tag` `expressions`.
-
-###### OpenAPI
-
-An OpenAPI specification of all RESTful services provided by the Push Gateway can be found [here](./c8y-push-api/openapi.yml). 
 
 ## Build
 
@@ -66,6 +60,8 @@ Deploy the microservice in the following order:
 2. [Push Message Emitter](./c8y-push-message-emitter)
 
 ## Workflow
+
+An OpenAPI specification of all RESTful services provided by the Push Gateway can be found [here](./c8y-push-api/openapi.yml). 
 
 ### Obtaining device tokens
 
