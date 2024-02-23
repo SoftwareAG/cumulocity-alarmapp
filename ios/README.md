@@ -30,6 +30,22 @@ Duplicate the `Localizable` `Strings` file and modify the values according to th
 
 To modify the default values shown on the login view check out the soure-code and locate the `Info.plist` file. You'll find a setting named `Cumulocity Configuration` where you can change `Tenant` and `Username` configuration.
 
+#### How to deep link into the App?
+
+A deep link consists of a URI that link to a location within the App. The URL type `c8yalarms` is registered and currently supports the following use cases:
+
+###### Deep link to view a Device using it's id
+
+- `c8yalarms://view/Device?id=<id>`
+
+###### Deep link to view a Device using it's external id
+
+- `c8yalarms://view/Device?externalId=<externalId>`
+
+
+> The App will not open the deep link if the externalId could not be resolved on your Cumulocity IoT tenant.
+
+
 ## Build
 
 The `Build release candidate` GitHub workflow creates an unsigned `IPA` as well as an Xcode Archive. The `IPA` file can be uploaded to the App Store or deployed to devices using a Mobile-Device-Management (MDM) solution.

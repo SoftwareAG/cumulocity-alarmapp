@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RLq-de-qJ0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RLq-de-qJ0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -55,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ykm-if-BDG">
-                                <rect key="frame" x="16" y="80" width="382" height="329"/>
+                                <rect key="frame" x="16" y="80" width="382" height="289"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AZy-8h-peb">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="39"/>
@@ -223,7 +223,7 @@
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%subscribed_alarms_filter_device_placeholder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="svi-gS-fYQ" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="205" width="382" height="54"/>
+                                        <rect key="frame" x="0.0" y="205" width="382" height="34"/>
                                         <color key="backgroundColor" name="surface"/>
                                         <color key="textColor" name="onBackground"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -244,7 +244,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%subscribed_alarms_filter_type_placeholder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gjv-Ij-dwz" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="275" width="382" height="54"/>
+                                        <rect key="frame" x="0.0" y="255" width="382" height="34"/>
                                         <color key="backgroundColor" name="surface"/>
                                         <color key="textColor" name="onBackground"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -425,6 +425,7 @@
                         <outlet property="warningCountItem" destination="96l-lK-fzE" id="wnw-cU-BJc"/>
                         <segue destination="WOL-4V-cIG" kind="show" identifier="toAlarmsView" id="MnO-oh-buV"/>
                         <segue destination="P9I-HO-SKT" kind="show" identifier="toAlarmDetails" id="ina-48-qVJ"/>
+                        <segue destination="tVs-ob-7Ku" kind="show" identifier="toDeviceDetails" id="3Sc-pV-3it"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pcd-VE-Uv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -538,7 +539,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%login_tenant_name_placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HS5-Mx-q6q" userLabel="tenantTextfield" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                <rect key="frame" x="32" y="166" width="350" height="54"/>
+                                <rect key="frame" x="32" y="166" width="350" height="34"/>
                                 <color key="textColor" name="onBackground"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="url"/>
@@ -558,7 +559,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%login_user_name_placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S5b-ax-eaZ" userLabel="userNameTextfield" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                <rect key="frame" x="32" y="236" width="350" height="54"/>
+                                <rect key="frame" x="32" y="216" width="350" height="34"/>
                                 <color key="textColor" name="onBackground"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="username"/>
@@ -578,7 +579,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%login_password_placeholder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9TG-zy-fck" userLabel="passwordTextfield" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                <rect key="frame" x="32" y="306" width="350" height="54"/>
+                                <rect key="frame" x="32" y="266" width="350" height="34"/>
                                 <color key="textColor" name="onBackground"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
@@ -598,7 +599,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cva-OG-aCG" userLabel="loginButton" customClass="MaterialButton" customModule="AlarmApp" customModuleProvider="target">
-                                <rect key="frame" x="32" y="392" width="350" height="34.5"/>
+                                <rect key="frame" x="32" y="332" width="350" height="34.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="%login_button_text" cornerStyle="capsule">
                                     <color key="baseForegroundColor" name="onPrimary"/>
@@ -1119,7 +1120,7 @@
         <!--Device Details View Controller-->
         <scene sceneID="QmS-Wu-Pmd">
             <objects>
-                <viewController id="tVs-ob-7Ku" customClass="DeviceDetailsViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeviceDetailsViewController" id="tVs-ob-7Ku" customClass="DeviceDetailsViewController" customModule="AlarmApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ksu-yY-leT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1238,7 +1239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="950-qD-G4g">
-                                <rect key="frame" x="16" y="80" width="382" height="359.5"/>
+                                <rect key="frame" x="16" y="80" width="382" height="319.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8Wq-bT-qib">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="39"/>
@@ -1399,7 +1400,7 @@
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%alarms_filter_device_placeholder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="its-aK-z0C" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="205" width="382" height="54"/>
+                                        <rect key="frame" x="0.0" y="205" width="382" height="34"/>
                                         <color key="backgroundColor" name="surface"/>
                                         <color key="textColor" name="onBackground"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1420,13 +1421,13 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%alarms_filter_device_hint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvY-I2-w3p" userLabel="description" customClass="MaterialLabel" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="275" width="382" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="255" width="382" height="14.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <color key="textColor" name="onSurface"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="%alarms_filter_type_placeholder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="msw-qt-RXU" customClass="MaterialTextfield" customModule="AlarmApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="305.5" width="382" height="54"/>
+                                        <rect key="frame" x="0.0" y="285.5" width="382" height="34"/>
                                         <color key="backgroundColor" name="surface"/>
                                         <color key="textColor" name="onBackground"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1546,6 +1547,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="3Sc-pV-3it"/>
         <segue reference="ina-48-qVJ"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1583,7 +1585,7 @@
             <color red="0.98039215686274506" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

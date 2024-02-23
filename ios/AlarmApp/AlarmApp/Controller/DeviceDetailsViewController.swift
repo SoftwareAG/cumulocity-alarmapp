@@ -62,7 +62,7 @@ class DeviceDetailsViewController: UIViewController {
 
     private func fetchDevice() {
         let managedObjectsApi = Cumulocity.Core.shared.inventory.managedObjectsApi
-        if let deviceSource = source?.id {
+        if let deviceSource = self.source?.id {
             managedObjectsApi.getManagedObject(id: deviceSource)
                 .receive(on: DispatchQueue.main)
                 .sink(

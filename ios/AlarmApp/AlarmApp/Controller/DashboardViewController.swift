@@ -22,6 +22,7 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
     private var cancellableSet = Set<AnyCancellable>()
     private var filteredAlarmSeverity: C8yAlarm.C8ySeverity?
     private var welcomeListDelegate: SubscribedAlarmListReloadDelegate?
+    private var deviceSource: C8yAlarm.C8ySource = C8yAlarm.C8ySource()
 
     @IBOutlet var criticalCountItem: AlarmCountItem!
     @IBOutlet var majorCountItem: AlarmCountItem!
@@ -217,6 +218,9 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
                 self.welcomeListDelegate = destination
                 destination.openFilterDelegate = self
             }
+        } else if segue.identifier == UIStoryboardSegue.toDeviceDetails {
+            let destination = segue.destination as? DeviceDetailsViewController
+            destination?.source = self.deviceSource
         }
     }
 

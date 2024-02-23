@@ -15,8 +15,11 @@
 //  limitations under the License.
 
 import UIKit
+import Combine
+import CumulocityCoreLibrary
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    private var cancellableSet = Set<AnyCancellable>()
     var window: UIWindow?
 
     func scene(
@@ -36,6 +39,62 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = UIStoryboard.createRootViewController()
         } else {
             window?.rootViewController = UIStoryboard.createSplashViewController()
+        }
+        if let urlContext = connectionOptions.urlContexts.first {
+            handleDeepLink(openingUrl: urlContext.url)
+        }
+    }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+        handleDeepLink(openingUrl: url)
+    }
+
+    private func handleDeepLink(openingUrl url: URL) {
+        guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true), let params = components.queryItems else {
+            return
+        }
+        if let externalId = params.first(where: { $0.name == "externalId" })?.value {
+            resolveDeepLink(withExternalId: externalId)
+        } else if let deviceId = params.first(where: { $0.name == "id" })?.value {
+            resolveDeepLink(withDevicelId: deviceId)
+        }
+    }
+
+    private func resolveDeepLink(withExternalId externalId: String) {
+        if let controller = self.window?.rootViewController as? UINavigationController {
+            let externalIdsApi = Cumulocity.Core.shared.identity.externalIDsApi
+            externalIdsApi.getExternalId(
+                type: "c8y_Serial",
+                externalId: externalId
+            )
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { _ in
+                },
+                receiveValue: { value in
+                    if let location = UIStoryboard.createDeviceDetailsViewController() {
+                        var source = C8yAlarm.C8ySource()
+                        source.id = value.managedObject?.id
+                        location.source = source
+                        controller.pushViewController(location, animated: false)
+                    }
+                }
+            )
+            .store(in: &self.cancellableSet)
+        }
+    }
+
+    private func resolveDeepLink(withDevicelId deviceId: String) {
+        if let controller = self.window?.rootViewController as? UINavigationController {
+            if let location = UIStoryboard.createDeviceDetailsViewController() {
+                var source = C8yAlarm.C8ySource()
+                source.id = deviceId
+                location.source = source
+                controller.pushViewController(location, animated: false)
+            }
         }
     }
 
