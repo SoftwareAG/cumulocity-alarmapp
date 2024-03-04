@@ -52,6 +52,16 @@ class DashboardViewController: UIViewController, AlarmListReloadDelegate, EmptyA
         )
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // forward to whatever value has been passed using URL types
+        if let deviceId = PushNotificationCenter.shared().receivedDeviceId, let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+            sceneDelegate.resolveDeepLink(withDevicelId: deviceId)
+        } else if let externalId = PushNotificationCenter.shared().receivedExternalId, let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+            sceneDelegate.resolveDeepLink(withExternalId: externalId)
+        }
+    }
+
     private func fetchAlarmCount() {
         let alarmsApi = Cumulocity.Core.shared.alarms.alarmsApi
         alarmsApi.getNumberOfAlarms(

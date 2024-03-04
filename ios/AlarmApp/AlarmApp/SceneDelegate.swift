@@ -15,8 +15,8 @@
 //  limitations under the License.
 
 import UIKit
-import Combine
 import CumulocityCoreLibrary
+import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var cancellableSet = Set<AnyCancellable>()
@@ -63,7 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
-    private func resolveDeepLink(withExternalId externalId: String) {
+    func resolveDeepLink(withExternalId externalId: String) {
         if let controller = self.window?.rootViewController as? UINavigationController {
             let externalIdsApi = Cumulocity.Core.shared.identity.externalIDsApi
             externalIdsApi.getExternalId(
@@ -76,6 +76,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 },
                 receiveValue: { value in
                     if let location = UIStoryboard.createDeviceDetailsViewController() {
+                        PushNotificationCenter.shared().receivedExternalId = nil
                         var source = C8yAlarm.C8ySource()
                         source.id = value.managedObject?.id
                         location.source = source
@@ -84,17 +85,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
             )
             .store(in: &self.cancellableSet)
+        } else {
+            // We're not logged in!
+            PushNotificationCenter.shared().receivedExternalId = externalId
         }
     }
 
-    private func resolveDeepLink(withDevicelId deviceId: String) {
+    func resolveDeepLink(withDevicelId deviceId: String) {
         if let controller = self.window?.rootViewController as? UINavigationController {
-            if let location = UIStoryboard.createDeviceDetailsViewController() {
-                var source = C8yAlarm.C8ySource()
-                source.id = deviceId
-                location.source = source
-                controller.pushViewController(location, animated: false)
-            }
+            let managedObjectsApi = Cumulocity.Core.shared.inventory.managedObjectsApi
+            managedObjectsApi.getManagedObject(id: deviceId)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { _ in
+                },
+                receiveValue: { value in
+                    if let location = UIStoryboard.createDeviceDetailsViewController() {
+                        PushNotificationCenter.shared().receivedDeviceId = nil
+                        var source = C8yAlarm.C8ySource()
+                        source.id = value.id
+                        location.source = source
+                        controller.pushViewController(location, animated: false)
+                    }
+                }
+            )
+            .store(in: &self.cancellableSet)
+        } else {
+            // We're not logged in!
+            PushNotificationCenter.shared().receivedDeviceId = deviceId
         }
     }
 

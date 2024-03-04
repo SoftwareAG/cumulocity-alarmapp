@@ -21,6 +21,8 @@ class PushNotificationCenter {
     private static var sharedInstance = PushNotificationCenter()
 
     var receivedAlarm: C8yAlarm?
+    var receivedExternalId: String?
+    var receivedDeviceId: String?
 
     private init() {
     }
